@@ -48,10 +48,13 @@ const ContactSection = () => {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1">Address</h3>
+                  <h3 className="font-semibold mb-1">Registered Office Address</h3>
                   <p className="text-muted-foreground text-sm">
-                    New Horizons Foundation<br />
-                    Mumbai, Maharashtra, India
+                    New Horizons Health and Research Foundation<br />
+                    Saira Mansion, Pahadi School Road No. 2,<br />
+                    Opposite Pahadi School,<br />
+                    Goregaon (East),<br />
+                    Mumbai, Maharashtra – 400063, India
                   </p>
                 </div>
               </div>
@@ -63,19 +66,7 @@ const ContactSection = () => {
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
                   <p className="text-muted-foreground text-sm">
-                    contact@newhorizonsfoundation.org
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Phone</h3>
-                  <p className="text-muted-foreground text-sm">
-                    +91 (022) XXXX-XXXX
+                    research@enablemychild.org
                   </p>
                 </div>
               </div>

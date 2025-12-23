@@ -65,7 +65,7 @@ const Header = () => {
             <span className={`font-serif font-bold text-lg hidden sm:block ${
               isScrolled ? "text-foreground" : "text-primary-foreground"
             }`}>
-              New Horizons Foundation
+              New Horizons Health & Research Foundation
             </span>
           </a>
 

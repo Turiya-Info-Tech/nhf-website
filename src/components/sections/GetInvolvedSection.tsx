@@ -5,24 +5,24 @@ import { HandHeart, Building, GraduationCap, Users } from "lucide-react";
 const GetInvolvedSection = () => {
   const ways = [
     {
-      icon: HandHeart,
-      title: "Donate",
-      description: "Support our research and advocacy programs with a contribution."
+      icon: GraduationCap,
+      title: "Research & Training Collaboration",
+      description: "Collaborate with us on research, training initiatives, and systems strengthening."
     },
     {
       icon: Building,
-      title: "CSR Partnership",
-      description: "Partner with us as part of your corporate social responsibility."
+      title: "CSR Partnership & Sponsorship",
+      description: "Support our work through partnerships, sponsorships, or donor funding aligned with national priorities."
     },
     {
-      icon: GraduationCap,
-      title: "Research Collaboration",
-      description: "Join our research initiatives as an academic or clinical partner."
+      icon: HandHeart,
+      title: "Policy Engagement",
+      description: "Join our policy engagement initiatives to influence systems change for children."
     },
     {
       icon: Users,
-      title: "Advisory Role",
-      description: "Contribute your expertise to our ethics and advisory committees."
+      title: "Advisory & Ethics Initiatives",
+      description: "Join our advisory or ethics-focused initiatives and contribute your expertise."
     }
   ];
 

@@ -28,14 +28,14 @@ const Footer = () => {
               <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
                 <span className="font-bold text-lg text-primary-foreground">NHF</span>
               </div>
-              <span className="font-serif font-bold text-lg">New Horizons Foundation</span>
+              <span className="font-serif font-bold text-lg">New Horizons Health & Research Foundation</span>
             </div>
             <p className="text-primary-foreground/70 mb-6 max-w-md">
               Empowering children, advancing systems, and influencing policy through 
               ethical research and evidence-based advocacy.
             </p>
             <p className="text-sm text-primary-foreground/50">
-              Research & Advocacy for Child Development
+              Research & Advocacy arm of NHCDC
             </p>
           </div>
 
@@ -60,16 +60,15 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Contact</h3>
             <ul className="space-y-3 text-sm text-primary-foreground/70">
-              <li>Mumbai, Maharashtra, India</li>
-              <li>contact@newhorizonsfoundation.org</li>
-              <li>+91 (022) XXXX-XXXX</li>
+              <li>Goregaon (East), Mumbai – 400063</li>
+              <li>research@enablemychild.org</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-primary-foreground/50">
-            © {currentYear} New Horizons Foundation. All rights reserved.
+            © {currentYear} New Horizons Health and Research Foundation. All rights reserved.
           </p>
           <p className="flex items-center gap-1 text-sm text-primary-foreground/50">
             Made with <Heart className="w-4 h-4 text-secondary fill-secondary" /> for children everywhere
