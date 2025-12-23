@@ -22,9 +22,10 @@ const AboutSection = () => {
               <span className="text-primary">Child Development</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-6">
-              Founded in 2012, New Horizons Foundation serves as the research and 
-              advocacy arm of NHCDC, working at the intersection of science, 
-              service delivery, and policy development.
+              As the research and advocacy arm of New Horizons Child Development 
+              Centre (NHCDC), NHF works at the confluence of science, service 
+              delivery, and policy action. We are uniquely positioned to influence 
+              systems change by leveraging evidence, capacity building, and partnerships.
             </p>
             <p className="text-muted-foreground mb-8">
               We believe in asking "What Works?" — focusing on observable, 

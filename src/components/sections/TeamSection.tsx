@@ -3,24 +3,34 @@ import { Card, CardContent } from "@/components/ui/card";
 const TeamSection = () => {
   const team = [
     {
-      name: "Dr. Samir Dalwai",
-      role: "Founder & Director",
-      bio: "Pioneering pediatrician with over 25 years of experience in developmental pediatrics and child advocacy."
+      name: "Director",
+      role: "Leadership",
+      bio: "Strategic direction and oversight of all NHF operations and initiatives."
     },
     {
-      name: "Research Team",
-      role: "Clinical Researchers",
-      bio: "Multidisciplinary team of researchers conducting ethical studies in neurodevelopmental conditions."
+      name: "Developmental Pediatricians",
+      role: "Program Lead",
+      bio: "Medical leadership for research and clinical program development."
     },
     {
-      name: "Training Faculty",
-      role: "Capacity Building",
-      bio: "Experienced professionals dedicated to training healthcare workers and educators."
+      name: "Clinical Research Team",
+      role: "Developmental Specialists & Coordinators",
+      bio: "Multidisciplinary team conducting ethical studies and clinical assessments."
     },
     {
-      name: "Advisory Board",
-      role: "Strategic Guidance",
-      bio: "Experts from medicine, policy, and ethics providing oversight and direction."
+      name: "Research Associates",
+      role: "Research Consultant & Associates",
+      bio: "Supporting research operations, data analysis, and publication development."
+    },
+    {
+      name: "Operations Team",
+      role: "Admin Support & Operations",
+      bio: "Ensuring smooth functioning of all administrative and operational activities."
+    },
+    {
+      name: "Interns & Volunteers",
+      role: "Support Staff",
+      bio: "Contributing to various programs while gaining valuable experience."
     }
   ];
 

@@ -26,8 +26,8 @@ const WorkSection = () => {
     },
     {
       icon: Apple,
-      title: "Nutrition & Public Health",
-      description: "Addressing nutritional needs as a foundation for optimal child development."
+      title: "Nutrition and Public Health for Vulnerable Populations",
+      description: "Addressing nutritional needs as a foundation for optimal child development in vulnerable communities."
     },
     {
       icon: Users,

@@ -4,33 +4,33 @@ import { ArrowRight, Shield, GraduationCap, Database, Baby, Building2 } from "lu
 const ProgramsSection = () => {
   const programs = [
     {
-      icon: Shield,
-      title: "Ethical Pediatric Research Frameworks",
-      description: "Establishing rigorous ethical standards for research involving children, ensuring dignity and protection.",
+      icon: Building2,
+      title: "UNICEF Collaboration – DEIC Capacity Building (2025)",
+      description: "Designing and implementing training and monitoring systems for District Early Intervention Centres (DEICs), beginning with Aundh General Hospital, Pune.",
       color: "bg-primary/10 text-primary"
-    },
-    {
-      icon: GraduationCap,
-      title: "Capacity Building & Training",
-      description: "Training healthcare professionals, teachers, and government staff in child development best practices.",
-      color: "bg-secondary/10 text-secondary"
     },
     {
       icon: Database,
-      title: "Data Ethics & Protection Initiatives",
-      description: "Implementing data protection protocols for sensitive child development information.",
+      title: "Clinical and Implementation Research",
+      description: "Clinical and behavioural profiling, and intervention impact assessments to inform personalized intervention models.",
+      color: "bg-secondary/10 text-secondary"
+    },
+    {
+      icon: GraduationCap,
+      title: "Parent Engagement Program (PEP)",
+      description: "Community and clinic-based modules that educate caregivers on goal-setting, home strategies, and system navigation.",
       color: "bg-teal/10 text-teal"
     },
     {
-      icon: Baby,
-      title: "Early Intervention Programs",
-      description: "Designing and implementing early detection and intervention programs for developmental delays.",
+      icon: Shield,
+      title: "Ethics Committee for Neuro-Behavioural Pediatric Research",
+      description: "Establishing rigorous ethical standards and oversight for research involving children with neurodevelopmental conditions.",
       color: "bg-primary/10 text-primary"
     },
     {
-      icon: Building2,
-      title: "DEIC & Government Partnerships",
-      description: "Strengthening District Early Intervention Centres in collaboration with UNICEF India.",
+      icon: Baby,
+      title: "Child Rights & Neurodevelopmental Inclusion",
+      description: "Advocating for the rights of children with developmental challenges and ensuring inclusive policies across systems.",
       color: "bg-secondary/10 text-secondary"
     }
   ];
