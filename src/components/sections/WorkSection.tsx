@@ -8,40 +8,40 @@ import {
 } from "lucide-react";
 
 const WorkSection = () => {
-  const workAreas = [
+  const focusAreas = [
     {
       icon: Heart,
       title: "Child Rights & Neurodevelopmental Inclusion",
-      description: "Advocating for the rights of children with developmental challenges and ensuring inclusive policies."
+      description: "Promoting child-centred, rights-based approaches to developmental care, with a focus on dignity, inclusion, and ethical participation."
     },
     {
       icon: Brain,
       title: "Early Intervention & Disability Awareness",
-      description: "Promoting early detection and intervention for developmental conditions."
+      description: "Strengthening early identification and intervention pathways through training and integration with public health systems."
     },
     {
       icon: FileText,
       title: "Evidence-Driven Policy Engagement",
-      description: "Translating research into actionable policies that impact child development systems."
+      description: "Translating research into actionable policies that impact child development systems and resource allocation."
     },
     {
       icon: Apple,
-      title: "Nutrition and Public Health for Vulnerable Populations",
-      description: "Addressing nutritional needs as a foundation for optimal child development in vulnerable communities."
+      title: "Nutrition and Public Health",
+      description: "Addressing nutritional needs as a foundation for optimal child development in vulnerable populations."
     },
     {
       icon: Users,
       title: "Capacity Building for Government Systems",
-      description: "Strengthening DEIC and public health infrastructure through training and support."
+      description: "Strengthening DEIC and public health infrastructure through training, monitoring frameworks, and support."
     }
   ];
 
   return (
-    <section id="our-work" className="py-20 lg:py-28 bg-muted/30">
+    <section id="focus-areas" className="py-20 lg:py-28 bg-muted/30">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-            Our Work
+            Focus Areas
           </span>
           <h2 className="text-3xl md:text-4xl font-serif font-bold mt-3 mb-6">
             Creating Lasting Impact Through{" "}
@@ -54,7 +54,7 @@ const WorkSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {workAreas.map((area, index) => (
+          {focusAreas.map((area, index) => (
             <Card 
               key={index}
               className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/30 bg-card"

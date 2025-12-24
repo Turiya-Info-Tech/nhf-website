@@ -67,7 +67,7 @@ const ImpactSection = () => {
           ))}
         </div>
 
-        <div className="mt-20 grid md:grid-cols-2 gap-8">
+        <div className="mt-20 grid md:grid-cols-3 gap-8">
           <div className="p-8 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10">
             <h3 className="text-xl font-semibold mb-4">Impact on Families</h3>
             <p className="text-primary-foreground/70">
@@ -77,12 +77,23 @@ const ImpactSection = () => {
             </p>
           </div>
           <div className="p-8 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10">
-            <h3 className="text-xl font-semibold mb-4">Systemic Change</h3>
-            <p className="text-primary-foreground/70">
-              Our partnerships with government systems and institutions have 
-              strengthened child development infrastructure across multiple 
-              states and districts.
+            <h3 className="text-xl font-semibold mb-4">Districts & Institutions</h3>
+            <p className="text-primary-foreground/70 mb-3">
+              Active partnerships with government and institutional stakeholders:
             </p>
+            <ul className="text-primary-foreground/70 text-sm space-y-1">
+              <li>• Pune (UNICEF DEIC Collaboration)</li>
+              <li>• Aundh General Hospital</li>
+            </ul>
+          </div>
+          <div className="p-8 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10">
+            <h3 className="text-xl font-semibold mb-4">Systems Implemented</h3>
+            <ul className="text-primary-foreground/70 text-sm space-y-2">
+              <li>• Digital data collection system</li>
+              <li>• Research facilitation system</li>
+              <li>• Implementation, monitoring & evaluation</li>
+              <li>• Ethics committee for research with vulnerable populations</li>
+            </ul>
           </div>
         </div>
       </div>

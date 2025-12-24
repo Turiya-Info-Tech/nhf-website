@@ -13,11 +13,11 @@ const Header = () => {
   const navItems = [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
-    { label: "Our Work", href: "#our-work" },
-    { label: "Programs", href: "#programs" },
+    { label: "Focus Areas", href: "#focus-areas" },
+    { label: "Initiatives", href: "#programs" },
+    { label: "Research", href: "#research-philosophy" },
     { label: "Impact", href: "#impact" },
     { label: "Team", href: "#team" },
-    { label: "Research", href: "/research", isPage: true },
     { label: "Funding", href: "#funding" },
     { label: "Contact", href: "#contact" },
   ];

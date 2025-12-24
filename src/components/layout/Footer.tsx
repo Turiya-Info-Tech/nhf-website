@@ -5,9 +5,11 @@ const Footer = () => {
 
   const quickLinks = [
     { label: "About Us", href: "#about" },
-    { label: "Our Work", href: "#our-work" },
-    { label: "Programs", href: "#programs" },
+    { label: "Focus Areas", href: "#focus-areas" },
+    { label: "Key Initiatives", href: "#programs" },
+    { label: "Research", href: "#research-philosophy" },
     { label: "Impact", href: "#impact" },
+    { label: "Team", href: "#team" },
     { label: "Contact", href: "#contact" },
   ];
 

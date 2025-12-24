@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, GraduationCap, Database, Baby, Building2 } from "lucide-react";
+import { ArrowRight, Shield, GraduationCap, Database, Building2, FileText } from "lucide-react";
 
 const ProgramsSection = () => {
-  const programs = [
+  const keyInitiatives = [
     {
       icon: Building2,
       title: "UNICEF Collaboration – DEIC Capacity Building (2025)",
@@ -19,18 +19,24 @@ const ProgramsSection = () => {
       icon: GraduationCap,
       title: "Parent Engagement Program (PEP)",
       description: "Community and clinic-based modules that educate caregivers on goal-setting, home strategies, and system navigation.",
-      color: "bg-teal/10 text-teal"
-    },
-    {
-      icon: Shield,
-      title: "Ethics Committee for Neuro-Behavioural Pediatric Research",
-      description: "Establishing rigorous ethical standards and oversight for research involving children with neurodevelopmental conditions.",
       color: "bg-primary/10 text-primary"
     },
     {
-      icon: Baby,
-      title: "Child Rights & Neurodevelopmental Inclusion",
-      description: "Advocating for the rights of children with developmental challenges and ensuring inclusive policies across systems.",
+      icon: Shield,
+      title: "Ethical Committee for Neuro-Behavioural Pediatric Research",
+      description: "Establishing ethical review and guidance mechanisms to support responsible research involving children, ensuring safety, transparency, and trust.",
+      color: "bg-secondary/10 text-secondary"
+    },
+    {
+      icon: FileText,
+      title: "Ethical Pediatric Research Frameworks",
+      description: "Development of practical guidelines and SOPs to support ethical decision-making in behavioral and neurodevelopmental research.",
+      color: "bg-primary/10 text-primary"
+    },
+    {
+      icon: Shield,
+      title: "Data Ethics & Protection Initiatives",
+      description: "Support for ethical data collection, storage, and analysis practices, including training on secure tools when working with sensitive child-related data.",
       color: "bg-secondary/10 text-secondary"
     }
   ];
@@ -41,7 +47,7 @@ const ProgramsSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="lg:sticky lg:top-28">
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-              Programs & Initiatives
+              Key Initiatives
             </span>
             <h2 className="text-3xl md:text-4xl font-serif font-bold mt-3 mb-6">
               Delivering Meaningful{" "}
@@ -59,13 +65,13 @@ const ProgramsSection = () => {
               className="group"
               onClick={() => document.getElementById('get-involved')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Learn More About Our Programs
+              Partner With Us
               <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
 
           <div className="space-y-6">
-            {programs.map((program, index) => (
+            {keyInitiatives.map((program, index) => (
               <div 
                 key={index}
                 className="group p-6 rounded-xl border border-border/50 hover:border-primary/30 bg-background hover:shadow-md transition-all duration-300"
