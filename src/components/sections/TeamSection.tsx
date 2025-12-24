@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { User } from "lucide-react";
+import drSamirPhoto from "@/assets/dr-samir-dalwai.jpg";
 
 const TeamSection = () => {
   const team = [
@@ -52,13 +52,14 @@ const TeamSection = () => {
           <Card className="overflow-hidden border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5">
             <CardContent className="p-0">
               <div className="grid md:grid-cols-3 gap-0">
-                {/* Photo Placeholder */}
-                <div className="md:col-span-1 bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center min-h-[300px] md:min-h-full">
-                  <div className="text-center text-primary-foreground p-8">
-                    <div className="w-32 h-32 rounded-full bg-primary-foreground/20 flex items-center justify-center mx-auto mb-4 border-4 border-primary-foreground/30">
-                      <User className="w-16 h-16" />
-                    </div>
-                    <p className="text-sm opacity-80">Photo Coming Soon</p>
+                {/* Photo */}
+                <div className="md:col-span-1 bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center min-h-[300px] md:min-h-full p-6">
+                  <div className="text-center text-primary-foreground">
+                    <img 
+                      src={drSamirPhoto} 
+                      alt="Dr. Samir Dalwai - Founder & Director of NHF"
+                      className="w-48 h-48 rounded-full object-cover mx-auto border-4 border-primary-foreground/30 shadow-lg"
+                    />
                   </div>
                 </div>
                 

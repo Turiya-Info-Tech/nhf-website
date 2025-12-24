@@ -51,25 +51,29 @@ const Research = () => {
       title: "Ethical Framework for Pediatric Neurodevelopmental Research in India",
       type: "Policy Brief",
       year: "2024",
-      description: "Guidelines for conducting ethical research with vulnerable pediatric populations."
+      description: "Guidelines for conducting ethical research with vulnerable pediatric populations.",
+      pdfUrl: "/publications/ethical-framework-2024.pdf"
     },
     {
       title: "DEIC Capacity Building: Training Curriculum and Implementation Guide",
       type: "Training Manual",
       year: "2025",
-      description: "Comprehensive training modules developed in collaboration with UNICEF India."
+      description: "Comprehensive training modules developed in collaboration with UNICEF India.",
+      pdfUrl: "/publications/deic-training-guide-2025.pdf"
     },
     {
       title: "Early Intervention Best Practices: An Indian Context",
       type: "Research Report",
       year: "2023",
-      description: "Evidence synthesis for early intervention approaches suited to Indian healthcare systems."
+      description: "Evidence synthesis for early intervention approaches suited to Indian healthcare systems.",
+      pdfUrl: "/publications/early-intervention-2023.pdf"
     },
     {
       title: "Neurodevelopmental Screening Tools: Adaptation and Validation",
       type: "Technical Report",
       year: "2024",
-      description: "Validation studies for culturally appropriate screening instruments."
+      description: "Validation studies for culturally appropriate screening instruments.",
+      pdfUrl: "/publications/screening-tools-2024.pdf"
     }
   ];
 
@@ -211,7 +215,19 @@ const Research = () => {
                         </div>
                         <h3 className="font-semibold mb-2">{pub.title}</h3>
                         <p className="text-sm text-muted-foreground mb-4">{pub.description}</p>
-                        <Button variant="outline" size="sm" className="gap-2">
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="gap-2"
+                          onClick={() => {
+                            // For now, show a toast that PDFs will be available soon
+                            const toast = document.createElement('div');
+                            toast.className = 'fixed bottom-4 right-4 bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg z-50';
+                            toast.textContent = 'PDF download will be available soon. Contact us for access.';
+                            document.body.appendChild(toast);
+                            setTimeout(() => toast.remove(), 3000);
+                          }}
+                        >
                           <Download className="w-4 h-4" />
                           Download PDF
                         </Button>

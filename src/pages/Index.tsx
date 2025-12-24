@@ -7,6 +7,7 @@ import ProgramsSection from "@/components/sections/ProgramsSection";
 import ImpactSection from "@/components/sections/ImpactSection";
 import CollaborationsSection from "@/components/sections/CollaborationsSection";
 import TeamSection from "@/components/sections/TeamSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FundingSection from "@/components/sections/FundingSection";
 import GetInvolvedSection from "@/components/sections/GetInvolvedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -23,6 +24,7 @@ const Index = () => {
         <ImpactSection />
         <CollaborationsSection />
         <TeamSection />
+        <TestimonialsSection />
         <FundingSection />
         <GetInvolvedSection />
         <ContactSection />
