@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
     { label: "Home", href: "#home" },
@@ -14,6 +17,8 @@ const Header = () => {
     { label: "Programs", href: "#programs" },
     { label: "Impact", href: "#impact" },
     { label: "Team", href: "#team" },
+    { label: "Research", href: "/research", isPage: true },
+    { label: "Funding", href: "#funding" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -26,10 +31,20 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleNavClick = (item: { href: string; isPage?: boolean }) => {
+    if (item.isPage) {
+      navigate(item.href);
+    } else {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          const element = document.querySelector(item.href);
+          if (element) element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      } else {
+        const element = document.querySelector(item.href);
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }
     }
     setIsOpen(false);
   };
@@ -45,12 +60,8 @@ const Header = () => {
       <div className="container">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <a 
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("#home");
-            }}
+          <Link 
+            to="/"
             className="flex items-center gap-2"
           >
             <div className={`w-10 h-10 rounded-lg bg-primary flex items-center justify-center ${
@@ -67,14 +78,14 @@ const Header = () => {
             }`}>
               New Horizons Health & Research Foundation
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <button
                 key={item.href}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => handleNavClick(item)}
                 className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                   isScrolled 
                     ? "text-muted-foreground hover:text-foreground hover:bg-muted" 
@@ -89,7 +100,7 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Button 
-              onClick={() => scrollToSection("#get-involved")}
+              onClick={() => handleNavClick({ href: "#get-involved" })}
               className={isScrolled ? "" : "bg-secondary text-secondary-foreground hover:bg-secondary/90"}
             >
               Get Involved
@@ -112,14 +123,14 @@ const Header = () => {
                 {navItems.map((item) => (
                   <button
                     key={item.href}
-                    onClick={() => scrollToSection(item.href)}
+                    onClick={() => handleNavClick(item)}
                     className="px-4 py-3 text-left font-medium rounded-lg hover:bg-muted transition-colors"
                   >
                     {item.label}
                   </button>
                 ))}
                 <Button 
-                  onClick={() => scrollToSection("#get-involved")}
+                  onClick={() => handleNavClick({ href: "#get-involved" })}
                   className="mt-4"
                 >
                   Get Involved
