@@ -19,10 +19,15 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FundingSection from "@/components/sections/FundingSection";
 import GetInvolvedSection from "@/components/sections/GetInvolvedSection";
 import ContactSection from "@/components/sections/ContactSection";
+import AwardsSection from "@/components/sections/AwardsSection";
+import PublicationsSection from "@/components/sections/PublicationsSection";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import AnnouncementBanner from "@/components/sections/AnnouncementBanner";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <AnnouncementBanner />
       <Header />
       <main>
         {/* Introduction */}
@@ -39,10 +44,12 @@ const Index = () => {
         <ProgramsSection />
         <WorkshopsSection />
         <ResearchPhilosophySection />
+        <PublicationsSection />
         
         {/* Impact & Evidence */}
         <ImpactSection />
         <EvidenceHopeSection />
+        <AwardsSection />
         <WhyNHFSection />
         
         {/* Partners & Team */}
@@ -57,6 +64,7 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

@@ -7,10 +7,14 @@ import {
   CheckCircle2,
   XCircle,
   TrendingUp,
-  BookOpen
+  BookOpen,
+  Sparkles
 } from "lucide-react";
+import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
 
 const ResearchPhilosophySection = () => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+
   const researchDomains = [
     "Behaviour",
     "Communication", 
@@ -45,21 +49,28 @@ const ResearchPhilosophySection = () => {
   ];
 
   const iterativeLearning = [
-    { icon: CheckCircle2, text: "Identify effective interventions", color: "text-green-600" },
-    { icon: TrendingUp, text: "Refine approaches that show partial impact", color: "text-amber-600" },
-    { icon: XCircle, text: "Discontinue practices that do not meaningfully benefit children", color: "text-red-500" }
+    { icon: CheckCircle2, text: "Identify effective interventions", color: "from-green-400 to-emerald-500" },
+    { icon: TrendingUp, text: "Refine approaches that show partial impact", color: "from-amber-400 to-orange-500" },
+    { icon: XCircle, text: "Discontinue practices that do not meaningfully benefit children", color: "from-red-400 to-rose-500" }
   ];
 
   return (
-    <section id="research-philosophy" className="py-20 lg:py-28 bg-card">
-      <div className="container">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-            Research & Publications
-          </span>
+    <section ref={ref} id="research-philosophy" className="py-20 lg:py-28 bg-card relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/5 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-pink-500/5 to-transparent rounded-full blur-3xl" />
+      
+      <div className="container relative">
+        <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-full px-4 py-2 mb-6">
+            <Sparkles className="w-4 h-4 text-purple-500 animate-pulse" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-semibold text-sm uppercase tracking-wider">
+              Research & Publications
+            </span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-serif font-bold mt-3 mb-6">
             Asking the Right Question:{" "}
-            <span className="text-primary">"What Works?"</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">"What Works?"</span>
           </h2>
           <p className="text-muted-foreground text-lg">
             At NHF, research begins with curiosity grounded in care. The central question 
@@ -70,37 +81,44 @@ const ResearchPhilosophySection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
           {/* Research Domains */}
-          <div>
+          <div className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-              <Microscope className="w-5 h-5 text-primary" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg">
+                <Microscope className="w-5 h-5 text-white" />
+              </div>
               Research Domains
             </h3>
-            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20">
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+            <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-2xl p-8 relative overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(168,85,247,0.15),transparent_50%)]" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500" />
+              
+              <div className="relative grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
                 {researchDomains.map((domain, index) => (
                   <div 
                     key={index}
-                    className="bg-card rounded-lg p-4 text-center border border-border/50 shadow-sm"
+                    style={getStaggerDelay(index, 80)}
+                    className={`bg-white/5 backdrop-blur-sm rounded-lg p-4 text-center border border-white/10 shadow-lg hover:border-purple-400/50 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                   >
-                    <span className="font-medium text-foreground">{domain}</span>
+                    <span className="font-medium text-white">{domain}</span>
                   </div>
                 ))}
               </div>
               
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <div className="h-px flex-1 bg-border" />
-                <span className="text-sm text-muted-foreground">This leads to</span>
-                <div className="h-px flex-1 bg-border" />
+              <div className="relative flex items-center justify-center gap-2 mb-4">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+                <span className="text-sm text-white/60">This leads to</span>
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
               </div>
 
-              <div className="grid sm:grid-cols-3 gap-4">
+              <div className="relative grid sm:grid-cols-3 gap-4">
                 {outcomes.map((outcome, index) => (
                   <div 
                     key={index}
-                    className="flex items-center gap-2 justify-center p-3 bg-card rounded-lg border border-primary/30"
+                    style={getStaggerDelay(index + 5, 80)}
+                    className={`flex items-center gap-2 justify-center p-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg border border-purple-400/30 hover:border-purple-400/60 hover:scale-105 transition-all duration-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
                   >
-                    <outcome.icon className="w-5 h-5 text-primary" />
-                    <span className="text-sm font-medium">{outcome.label}</span>
+                    <outcome.icon className="w-5 h-5 text-purple-300" />
+                    <span className="text-sm font-medium text-white">{outcome.label}</span>
                   </div>
                 ))}
               </div>
@@ -108,25 +126,29 @@ const ResearchPhilosophySection = () => {
           </div>
 
           {/* Current Research */}
-          <div>
+          <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-              <BookOpen className="w-5 h-5 text-secondary" />
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center shadow-lg">
+                <BookOpen className="w-5 h-5 text-white" />
+              </div>
               Current & Ongoing Work
             </h3>
             <div className="space-y-4">
               {currentResearch.map((research, index) => (
                 <Card 
                   key={index}
-                  className="border-border/50 hover:border-secondary/30 transition-all duration-300"
+                  style={getStaggerDelay(index, 100)}
+                  className={`group border-border/50 hover:border-pink-400/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                 >
-                  <CardContent className="p-5">
-                    <h4 className="font-semibold mb-1">{research.title}</h4>
+                  <CardContent className="p-5 relative">
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-pink-500 to-rose-500 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
+                    <h4 className="font-semibold mb-1 group-hover:text-pink-600 transition-colors">{research.title}</h4>
                     <p className="text-sm text-muted-foreground">{research.description}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
-            <p className="text-sm text-muted-foreground mt-4 italic">
+            <p className={`text-sm text-muted-foreground mt-4 italic transition-all duration-700 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
               Research outputs include reports, toolkits, and publications that translate 
               data into actionable insights.
             </p>
@@ -134,13 +156,16 @@ const ResearchPhilosophySection = () => {
         </div>
 
         {/* Iterative Learning */}
-        <div className="bg-gradient-to-br from-foreground via-foreground to-foreground/95 rounded-3xl p-8 lg:p-12 text-primary-foreground">
-          <div className="max-w-4xl mx-auto">
+        <div className={`relative bg-gradient-to-br from-slate-900 via-purple-950 to-slate-900 rounded-3xl p-8 lg:p-12 overflow-hidden transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.2),transparent_70%)]" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500" />
+          
+          <div className="relative max-w-4xl mx-auto">
             <div className="text-center mb-10">
-              <h3 className="text-2xl font-serif font-bold mb-4">
-                A Culture of Inquiry & Accountability
+              <h3 className="text-2xl font-serif font-bold mb-4 text-white">
+                A Culture of <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300">Inquiry & Accountability</span>
               </h3>
-              <p className="text-primary-foreground/70">
+              <p className="text-white/70">
                 By encouraging iterative learning and reflective practice, NHF enables 
                 clinicians, researchers, and systems to examine outcomes honestly.
               </p>
@@ -150,15 +175,18 @@ const ResearchPhilosophySection = () => {
               {iterativeLearning.map((item, index) => (
                 <div 
                   key={index}
-                  className="flex flex-col items-center text-center p-6 rounded-xl bg-primary-foreground/5 border border-primary-foreground/10"
+                  style={getStaggerDelay(index, 100)}
+                  className={`group flex flex-col items-center text-center p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:border-purple-400/50 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
                 >
-                  <item.icon className={`w-10 h-10 ${item.color} mb-4`} />
-                  <p className="text-primary-foreground/90 text-sm">{item.text}</p>
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                    <item.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <p className="text-white/90 text-sm">{item.text}</p>
                 </div>
               ))}
             </div>
 
-            <p className="text-center text-primary-foreground/70 mt-8 text-sm">
+            <p className={`text-center text-white/60 mt-8 text-sm transition-all duration-700 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
               This culture of inquiry supports accountability, learning, and continuous improvement.
             </p>
           </div>

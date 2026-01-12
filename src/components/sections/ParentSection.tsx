@@ -2,35 +2,42 @@ import { Card, CardContent } from "@/components/ui/card";
 import { 
   Users, 
   Target, 
-  MessageCircle, 
   Calendar, 
   Heart,
   CheckCircle2,
   Lightbulb,
-  TrendingUp
+  TrendingUp,
+  Sparkles
 } from "lucide-react";
+import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
 
 const ParentSection = () => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+  
   const parentGains = [
     {
       icon: Lightbulb,
       title: "Practical Strategies",
-      description: "Practical strategies to support development in daily routines"
+      description: "Practical strategies to support development in daily routines",
+      gradient: "from-amber-500 to-orange-600"
     },
     {
       icon: Target,
       title: "Clear Action Plans",
-      description: "Clear action plans tailored to their child's developmental profile"
+      description: "Clear action plans tailored to their child's developmental profile",
+      gradient: "from-emerald-500 to-teal-600"
     },
     {
       icon: TrendingUp,
       title: "Ongoing Coaching",
-      description: "Ongoing coaching to strengthen confidence and consistency"
+      description: "Ongoing coaching to strengthen confidence and consistency",
+      gradient: "from-blue-500 to-indigo-600"
     },
     {
       icon: Calendar,
       title: "Predictability & Structure",
-      description: "Predictability and structure, enabling children to feel safe and regulated"
+      description: "Predictability and structure, enabling children to feel safe and regulated",
+      gradient: "from-violet-500 to-purple-600"
     }
   ];
 
@@ -42,50 +49,59 @@ const ParentSection = () => {
   ];
 
   return (
-    <section id="parents" className="py-20 lg:py-28 bg-card">
-      <div className="container">
+    <section id="parents" ref={ref} className="py-20 lg:py-28 bg-white relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-20 left-0 w-96 h-96 bg-gradient-to-br from-orange-100/40 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-0 w-80 h-80 bg-gradient-to-br from-teal-100/30 to-transparent rounded-full blur-3xl" />
+      
+      <div className="container relative">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-20">
           {/* Role of Parents */}
-          <div>
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+          <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider">
+              <Sparkles className="w-4 h-4" />
               Role of Parents
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mt-3 mb-6">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mt-4 mb-6 text-gray-800">
               Parents as Partners in the{" "}
-              <span className="text-primary">Developmental Journey</span>
+              <span className="text-gradient">Developmental Journey</span>
             </h2>
-            <p className="text-muted-foreground text-lg mb-6">
+            <p className="text-gray-600 text-lg mb-6 leading-relaxed">
               Parents play a central role in enabling healthy development. Families approach 
               the New Horizons (NH) program seeking clarity, guidance, and deeper understanding 
               of their child's needs, strengths, and challenges.
             </p>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-gray-600 mb-6 leading-relaxed">
               At NH, parents are supported to move beyond uncertainty and into confident, 
               purposeful engagement with their child. The focus is not only on addressing 
               developmental concerns, but on strengthening everyday interactions that promote 
               growth, safety, and emotional connection.
             </p>
 
-            <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-6 border border-primary/20">
-              <h3 className="font-semibold mb-4 flex items-center gap-2">
-                <Users className="w-5 h-5 text-primary" />
+            <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-2xl p-6 overflow-hidden">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(251,146,60,0.1),transparent_50%)]" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 to-pink-500" />
+              <h3 className="relative font-bold mb-4 flex items-center gap-2 text-white">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center">
+                  <Users className="w-4 h-4 text-white" />
+                </div>
                 Through structured guidance, parents are empowered to help their children:
               </h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+              <ul className="space-y-3 text-white/70 relative">
+                <li className="flex items-start gap-3 group">
+                  <CheckCircle2 className="w-5 h-5 text-orange-400 mt-0.5 shrink-0 group-hover:scale-110 transition-transform" />
                   <span>Engage meaningfully with their environment</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                <li className="flex items-start gap-3 group">
+                  <CheckCircle2 className="w-5 h-5 text-orange-400 mt-0.5 shrink-0 group-hover:scale-110 transition-transform" />
                   <span>Develop independence and self-awareness</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                <li className="flex items-start gap-3 group">
+                  <CheckCircle2 className="w-5 h-5 text-orange-400 mt-0.5 shrink-0 group-hover:scale-110 transition-transform" />
                   <span>Make sound decisions related to their health and well-being</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 shrink-0" />
+                <li className="flex items-start gap-3 group">
+                  <CheckCircle2 className="w-5 h-5 text-orange-400 mt-0.5 shrink-0 group-hover:scale-110 transition-transform" />
                   <span>Build skills that support long-term participation in family, school, and community life</span>
                 </li>
               </ul>
@@ -93,14 +109,15 @@ const ParentSection = () => {
           </div>
 
           {/* What Parents Gain */}
-          <div>
-            <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
+          <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <span className="inline-flex items-center gap-2 text-teal-600 font-semibold text-sm uppercase tracking-wider">
+              <Sparkles className="w-4 h-4" />
               What Parents Gain
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mt-3 mb-6">
-              From the <span className="text-secondary">NH Program</span>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mt-4 mb-6 text-gray-800">
+              From the <span className="text-gradient">NH Program</span>
             </h2>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-gray-600 mb-8 leading-relaxed">
               Through the NH program, parents receive comprehensive support that transforms 
               their approach from reactive responses to intentional support, fostering 
               development that is both measurable and meaningful.
@@ -110,14 +127,18 @@ const ParentSection = () => {
               {parentGains.map((gain, index) => (
                 <Card 
                   key={index}
-                  className="group hover:shadow-md transition-all duration-300 border-border/50 hover:border-secondary/30"
+                  className={`group bg-white border-0 shadow-lg shadow-gray-100/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                  }`}
+                  style={getStaggerDelay(index + 3, 100)}
                 >
-                  <CardContent className="p-5">
-                    <div className="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center mb-3 group-hover:bg-secondary/20 transition-colors">
-                      <gain.icon className="w-5 h-5 text-secondary" />
+                  <CardContent className="p-5 relative">
+                    <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${gain.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`} />
+                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${gain.gradient} flex items-center justify-center mb-3 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <gain.icon className="w-5 h-5 text-white" />
                     </div>
-                    <h3 className="font-semibold mb-1 text-sm">{gain.title}</h3>
-                    <p className="text-xs text-muted-foreground">{gain.description}</p>
+                    <h3 className="font-bold mb-1 text-sm text-gray-800 group-hover:text-teal-600 transition-colors">{gain.title}</h3>
+                    <p className="text-xs text-gray-600 leading-relaxed">{gain.description}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -126,16 +147,20 @@ const ParentSection = () => {
         </div>
 
         {/* Ultimate Goal */}
-        <div className="bg-gradient-to-br from-foreground via-foreground to-foreground/95 rounded-3xl p-8 lg:p-12 text-primary-foreground">
-          <div className="max-w-4xl mx-auto">
+        <div className={`relative bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-3xl p-8 lg:p-12 overflow-hidden transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(20,184,166,0.15),transparent_50%)]" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400" />
+          
+          <div className="max-w-4xl mx-auto relative">
             <div className="text-center mb-10">
-              <span className="text-secondary font-semibold text-sm uppercase tracking-wider">
+              <span className="inline-flex items-center gap-2 text-teal-400 font-semibold text-sm uppercase tracking-wider">
+                <Sparkles className="w-4 h-4" />
                 The Ultimate Goal
               </span>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold mt-3 mb-4">
-                For Children to <span className="text-secondary">Thrive</span>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold mt-4 mb-4 text-white">
+                For Children to <span className="text-gradient-animated">Thrive</span>
               </h2>
-              <p className="text-primary-foreground/70 text-lg max-w-2xl mx-auto">
+              <p className="text-white/60 text-lg max-w-2xl mx-auto">
                 By strengthening parents as partners and grounding intervention in human connection, 
                 development becomes a lived process, not a checklist.
               </p>
@@ -145,20 +170,20 @@ const ParentSection = () => {
               {ultimateGoals.map((goal, index) => (
                 <div 
                   key={index}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-primary-foreground/5 border border-primary-foreground/10"
+                  className="flex items-start gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 group"
                 >
-                  <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
-                    <span className="text-secondary font-bold text-sm">{index + 1}</span>
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white font-bold text-sm">{index + 1}</span>
                   </div>
-                  <p className="text-primary-foreground/90">{goal}</p>
+                  <p className="text-white/80 leading-relaxed">{goal}</p>
                 </div>
               ))}
             </div>
 
             <div className="mt-10 text-center">
-              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-secondary/20 text-secondary">
-                <Heart className="w-5 h-5 fill-current" />
-                <span className="font-medium">Development through Connection</span>
+              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-teal-500/20 to-emerald-500/20 border border-teal-400/30 text-teal-300 shadow-lg">
+                <Heart className="w-5 h-5 fill-current animate-pulse" />
+                <span className="font-semibold">Development through Connection</span>
               </div>
             </div>
           </div>
