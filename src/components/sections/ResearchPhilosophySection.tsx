@@ -32,7 +32,7 @@ const ResearchPhilosophySection = () => {
   const currentResearch = [
     {
       title: "Randomized Controlled Trials",
-      description: "E.g., L-Carnosine in Autism Spectrum Disorder"
+      description: "Designing and Feasibility Scoping, along with Ethical Considerations"
     },
     {
       title: "Clinical Profiling & Outcome Tracking",

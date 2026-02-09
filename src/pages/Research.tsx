@@ -17,11 +17,11 @@ import { Link } from "react-router-dom";
 const Research = () => {
   const ongoingResearch = [
     {
-      title: "L-Carnosine Randomized Controlled Trial",
+      title: "Randomized Controlled Trial – Designing and Feasibility Scoping",
       status: "Ongoing",
-      description: "A double-blind, placebo-controlled RCT investigating the effects of L-Carnosine supplementation on language development and behavioral outcomes in children with Autism Spectrum Disorder (ASD).",
+      description: "Designing and Feasibility Scoping for Randomized Controlled Trials, along with Ethical Considerations to ensure rigorous, ethical, and impactful research in developmental pediatrics.",
       methodology: "Multi-center study with rigorous ethical oversight",
-      expectedOutcome: "Evidence-based recommendations for nutritional interventions"
+      expectedOutcome: "Evidence-based frameworks for ethical RCT design"
     },
     {
       title: "Clinical and Behavioral Profiling Study",

@@ -74,7 +74,7 @@ const GetInvolvedSection = () => {
     {
       name: "Ms Devika Mohanan",
       role: "Research Intern",
-      institution: "New Horizons CDC",
+      institution: "KC College",
       degree: "Bachelor's Degree Graduate",
       image: devikaMohananImg,
       quote:

@@ -65,27 +65,27 @@ const HeroSection = () => {
   }, [carouselApi, isPaused]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-orange-50 via-white to-teal-50/30">
-      {/* Warm Top Gradient Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-200/40 via-orange-100/20 to-transparent" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-teal-200/30 via-transparent to-transparent" />
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-orange-50/70 via-white to-teal-50/20">
+      {/* Warm Top Gradient Overlay - Refined */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-100/30 via-orange-50/10 to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-teal-100/20 via-transparent to-transparent" />
       
       {/* Subtle Pattern Overlay */}
       <div 
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-20"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(249,115,22,0.15) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(249,115,22,0.1) 1px, transparent 0)`,
           backgroundSize: '40px 40px',
           transform: `translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)`,
           transition: 'transform 0.3s ease-out'
         }}
       />
 
-      {/* Floating Decorative Shapes */}
+      {/* Floating Decorative Shapes - Refined */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-orange-300/30 to-amber-200/20 rounded-full blur-3xl animate-morph" />
-        <div className="absolute -bottom-32 -left-20 w-[500px] h-[500px] bg-gradient-to-tr from-teal-300/25 to-cyan-200/15 rounded-full blur-3xl animate-morph animate-delay-400" />
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-gradient-to-br from-orange-200/20 to-rose-200/10 rounded-full blur-2xl animate-pulse-glow" />
+        <div className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-orange-200/20 to-amber-100/10 rounded-full blur-3xl animate-morph" />
+        <div className="absolute -bottom-32 -left-20 w-[500px] h-[500px] bg-gradient-to-tr from-teal-200/15 to-cyan-100/10 rounded-full blur-3xl animate-morph animate-delay-400" />
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-gradient-to-br from-orange-100/15 to-rose-100/5 rounded-full blur-2xl animate-pulse-glow" />
         
         {/* Floating Icons */}
         <Star className="absolute top-32 right-1/4 w-6 h-6 text-orange-400/50 animate-float" />
@@ -95,7 +95,22 @@ const HeroSection = () => {
 
       {/* Main Content */}
       <div className="container relative z-10 py-20 lg:py-32">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+        {/* Centralized Main Heading */}
+        <div className="text-center max-w-4xl mx-auto mb-12">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-slate-800 mb-6" style={{ lineHeight: '1.15' }}>
+            <span className="block opacity-0 animate-slide-up">
+              Human Engagement
+            </span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-600 to-teal-600 opacity-0 animate-slide-up animate-delay-200 pb-2">
+              Powers Learning
+            </span>
+          </h1>
+          <h2 className="text-xl md:text-2xl font-serif text-slate-700 opacity-0 animate-blur-in animate-delay-400">
+            The Ultimate Goal: For All Children to Thrive
+          </h2>
+        </div>
+
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-start">
           <div className="max-w-3xl">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm border border-orange-200/50 shadow-lg shadow-orange-100/50 opacity-0 animate-slide-down">
@@ -107,20 +122,6 @@ const HeroSection = () => {
                 Research & Advocacy for Child Development
               </span>
             </div>
-            
-            {/* Main Heading */}
-            <h1 className="text-4xl md:text-6xl lg:text-6xl font-serif font-bold text-slate-800 mb-10 pb-2" style={{ lineHeight: '1.2' }}>
-              <span className="block opacity-0 animate-slide-up mb-2">
-                Human Engagement
-              </span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-orange-600 to-teal-600 opacity-0 animate-slide-up animate-delay-200 pb-1">
-                Powers Learning
-              </span>
-            </h1>
-
-            <h2 className="text-xl md:text-2xl font-serif text-slate-700 mb-8 opacity-0 animate-blur-in animate-delay-400">
-              The Ultimate Goal: For All Children to Thrive
-            </h2>
 
             <p className="text-lg text-slate-600 mb-4 opacity-0 animate-blur-in animate-delay-500">
               For children to be able to:
@@ -169,10 +170,9 @@ const HeroSection = () => {
                 size="lg"
                 variant="ghost"
                 className="border border-orange-200 text-orange-700 hover:bg-orange-50 transition-all duration-300"
-                onClick={() => setLikes((prev) => prev + 1)}
               >
-                <Heart className="mr-2 w-4 h-4 text-orange-500" />
-                {likes.toLocaleString()} Appreciations
+                <Heart className="mr-2 w-4 h-4 text-orange-500 fill-orange-500" />
+                Development through connection
               </Button>
             </div>
           </div>
@@ -184,26 +184,33 @@ const HeroSection = () => {
             onMouseLeave={() => setIsPaused(false)}
           >
             <Carousel
-              className="relative"
-              opts={{ loop: true }}
+              className="relative w-full"
+              opts={{ loop: true, align: "center" }}
               setApi={setCarouselApi}
             >
-              <CarouselContent>
+              <CarouselContent className="-ml-0">
                 {slides.map((slide, index) => (
-                  <CarouselItem key={slide.title}>
-                    <div className="relative rounded-3xl overflow-hidden border border-white/60 shadow-2xl bg-white/70 backdrop-blur-xl">
+                  <CarouselItem key={slide.title} className="pl-0">
+                    <div className="relative rounded-3xl overflow-hidden border border-white/60 shadow-2xl bg-white/70 backdrop-blur-xl mx-2">
                       <div
-                        className="h-[360px] md:h-[420px] w-full bg-gradient-to-br from-orange-100/70 via-white to-teal-100/60 flex items-end p-8"
-                        style={slide.image ? { backgroundImage: `linear-gradient(180deg, rgba(15,23,42,0.1), rgba(15,23,42,0.6)), url(${slide.image})`, backgroundSize: "cover", backgroundPosition: "center" } : undefined}
+                        className="h-[340px] md:h-[400px] w-full flex flex-col justify-end p-6 md:p-8"
+                        style={slide.image ? { 
+                          backgroundImage: `linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(15,23,42,0.5) 100%), url(${slide.image})`, 
+                          backgroundSize: "cover", 
+                          backgroundPosition: "center" 
+                        } : {
+                          background: "linear-gradient(135deg, rgba(251,146,60,0.15) 0%, rgba(255,255,255,0.9) 50%, rgba(45,212,191,0.15) 100%)"
+                        }}
                       >
-                        <div className="space-y-3 text-slate-800">
-                          <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-slate-600">
+                        <div className="space-y-3">
+                          <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-slate-500 bg-white/80 px-3 py-1 rounded-full backdrop-blur-sm">
+                            <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
                             Slide {index + 1} of {slides.length}
                           </span>
-                          <h3 className="text-2xl md:text-3xl font-serif font-bold text-slate-800">
+                          <h3 className="text-xl md:text-2xl font-serif font-bold text-slate-800 leading-tight">
                             {slide.title}
                           </h3>
-                          <p className="text-sm md:text-base text-slate-600 max-w-sm">
+                          <p className="text-sm text-slate-600 max-w-sm leading-relaxed">
                             {slide.description}
                           </p>
                         </div>
@@ -212,23 +219,23 @@ const HeroSection = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden md:flex" />
-              <CarouselNext className="hidden md:flex" />
+              <CarouselPrevious className="hidden md:flex -left-4 bg-white/90 border-orange-200 hover:bg-orange-50 hover:border-orange-300" />
+              <CarouselNext className="hidden md:flex -right-4 bg-white/90 border-orange-200 hover:bg-orange-50 hover:border-orange-300" />
             </Carousel>
 
-            <div className="flex items-center justify-center gap-2 mt-4">
+            <div className="flex items-center justify-center gap-2 mt-6">
               {slides.map((_, index) => (
                 <button
                   key={index}
                   aria-label={`Go to slide ${index + 1}`}
                   onClick={() => carouselApi?.scrollTo(index)}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
-                    activeSlide === index ? "w-8 bg-gradient-to-r from-orange-500 to-teal-500" : "w-2.5 bg-orange-200"
+                    activeSlide === index ? "w-8 bg-gradient-to-r from-orange-500 to-teal-500" : "w-2.5 bg-orange-200 hover:bg-orange-300"
                   }`}
                 />
               ))}
             </div>
-            <p className="text-center text-xs text-slate-500 mt-2">Auto-slides every 6 seconds. Hover to pause.</p>
+            <p className="text-center text-xs text-slate-400 mt-3">Auto-slides every 6 seconds. Hover to pause.</p>
           </div>
         </div>
       </div>
