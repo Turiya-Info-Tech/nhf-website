@@ -48,8 +48,8 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
       {/* Mobile Header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-card border-b border-border z-50 flex items-center justify-between px-4">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-            <span className="font-bold text-sm text-primary-foreground">NHF</span>
+          <div className="w-8 h-8 rounded-lg bg-card border border-border flex items-center justify-center overflow-hidden">
+            <img src="/logo.jpeg" alt="NHF Logo" className="w-6 h-6 object-contain" loading="lazy" />
           </div>
           <span className="font-semibold">Admin</span>
         </div>
@@ -64,8 +64,8 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
       }`}>
         {/* Logo */}
         <div className="h-16 flex items-center gap-2 px-4 border-b border-border">
-          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-            <span className="font-bold text-lg text-primary-foreground">NHF</span>
+          <div className="w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center overflow-hidden">
+            <img src="/logo.jpeg" alt="NHF Logo" className="w-8 h-8 object-contain" loading="lazy" />
           </div>
           <div>
             <p className="font-semibold text-sm">NHF Admin</p>

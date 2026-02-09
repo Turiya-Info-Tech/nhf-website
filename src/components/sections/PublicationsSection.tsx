@@ -8,6 +8,12 @@ const PublicationsSection = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
   const { publications, loading } = useContent();
 
+  const orderedPublications = [...publications].sort((a, b) => {
+    const yearA = Number(a.year) || 0;
+    const yearB = Number(b.year) || 0;
+    return yearB - yearA;
+  });
+
   const getTypeStyles = (type: string) => {
     switch (type) {
       case "Research Paper":
@@ -42,8 +48,8 @@ const PublicationsSection = () => {
           </p>
         </div>
 
-        <div className="grid gap-4">
-          {publications.map((pub, index) => {
+        <div className="grid md:grid-cols-2 gap-4">
+          {orderedPublications.map((pub, index) => {
             const typeStyles = getTypeStyles(pub.type);
             return (
             <Card 
@@ -102,6 +108,54 @@ const PublicationsSection = () => {
             </Card>
             );
           })}
+        </div>
+
+        {/* Outcome-driven collaboration content */}
+        <div className={`mt-14 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 md:p-10 text-white shadow-2xl relative overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.25),transparent_60%)]" />
+            <h3 className="relative text-2xl md:text-3xl font-serif font-bold mb-3">Outcome-oriented partnerships</h3>
+            <p className="relative text-white/70 max-w-2xl mb-6">
+              We collaborate with partners who value measurable outcomes for children and families.
+              If you want evidence-informed impact with clear metrics, let's build it together.
+            </p>
+            <Button
+              variant="outline"
+              size="lg"
+              className="relative bg-white text-slate-900 border-white hover:bg-gray-100 font-semibold"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Partner for measurable outcomes
+            </Button>
+          </div>
+        </div>
+
+        <div className={`grid md:grid-cols-3 gap-6 mt-10 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {[
+            {
+              title: "Get to know what we have done before",
+              description: "Explore previous programs, pilots, and evidence-backed initiatives.",
+              gradient: "from-blue-500 to-indigo-500",
+            },
+            {
+              title: "Free Medical Camps (equity focus)",
+              description: "Community-based camps designed to close access gaps for underserved children.",
+              gradient: "from-emerald-500 to-teal-500",
+            },
+            {
+              title: "Advocacy: Children’s Manifesto",
+              description: "Policy commitments that prioritize child development and inclusive systems.",
+              gradient: "from-orange-500 to-pink-500",
+            },
+          ].map((item) => (
+            <Card key={item.title} className="border-0 shadow-lg shadow-gray-100/60">
+              <CardContent className="p-6">
+                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${item.gradient} mb-4`} />
+                <h4 className="text-lg font-semibold text-gray-800 mb-2">{item.title}</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         {/* View All Link */}

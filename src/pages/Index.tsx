@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import FounderMessageSection from "@/components/sections/FounderMessageSection";
+import DirectorMessageSection from "@/components/sections/DirectorMessageSection";
 import PhilosophySection from "@/components/sections/PhilosophySection";
 import ParentSection from "@/components/sections/ParentSection";
 import WorkSection from "@/components/sections/WorkSection";
@@ -15,7 +16,6 @@ import WhyNHFSection from "@/components/sections/WhyNHFSection";
 import CollaborationsSection from "@/components/sections/CollaborationsSection";
 import TeamSection from "@/components/sections/TeamSection";
 import MediaSection from "@/components/sections/MediaSection";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import FundingSection from "@/components/sections/FundingSection";
 import GetInvolvedSection from "@/components/sections/GetInvolvedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -34,10 +34,11 @@ const Index = () => {
         <HeroSection />
         <AboutSection />
         <FounderMessageSection />
+        {/* DirectorMessageSection removed */}
         
         {/* Philosophy & Approach */}
         <PhilosophySection />
-        <ParentSection />
+        {/* ParentSection moved to blog - "Parents as Partners in the Developmental Journey" */}
         
         {/* What We Do */}
         <WorkSection />
@@ -56,7 +57,6 @@ const Index = () => {
         <CollaborationsSection />
         <TeamSection />
         <MediaSection />
-        <TestimonialsSection />
         
         {/* Get Involved */}
         <FundingSection />

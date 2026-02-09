@@ -1,36 +1,8 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Shield, Target, Baby, Brain, Sparkles, Users, Award, Microscope, HandHeart } from "lucide-react";
-import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
+import { Heart, Shield, Target, Sparkles, Microscope, HandHeart } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const PhilosophySection = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
-  
-  const stages = [
-    {
-      icon: Baby,
-      title: "Foundation",
-      description: "Building trust, safety, and early engagement with caregivers and environment.",
-      gradient: "from-rose-500 to-pink-600"
-    },
-    {
-      icon: Heart,
-      title: "Connection",
-      description: "Developing meaningful relationships and emotional regulation through consistent support.",
-      gradient: "from-orange-500 to-amber-600"
-    },
-    {
-      icon: Brain,
-      title: "Growth",
-      description: "Acquiring skills across developmental domains with appropriate structure and responsiveness.",
-      gradient: "from-emerald-500 to-teal-600"
-    },
-    {
-      icon: Target,
-      title: "Independence",
-      description: "Building self-awareness, decision-making, and meaningful integration into society.",
-      gradient: "from-blue-500 to-indigo-600"
-    }
-  ];
 
   return (
     <section id="philosophy" ref={ref} className="py-20 lg:py-28 bg-gray-50 relative overflow-hidden">
@@ -63,15 +35,15 @@ const PhilosophySection = () => {
             <ul className="space-y-3 text-gray-600">
               <li className="flex items-start gap-3 group">
                 <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 mt-2 shrink-0 group-hover:scale-125 transition-transform" />
-                <span>Close the gap between clinical insight, ethical research, and systems-level action in child neurodevelopment in Indian and South Asian contexts</span>
+                <span>Bridge clinical insight, research, and systems-level action for child neurodevelopment in South Asian contexts</span>
               </li>
               <li className="flex items-start gap-3 group">
                 <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 mt-2 shrink-0 group-hover:scale-125 transition-transform" />
-                <span>Demonstrate institutional credibility through consistent execution, accountability, and measurable outcomes</span>
+                <span>Build institutional credibility through accountability and measurable outcomes</span>
               </li>
               <li className="flex items-start gap-3 group">
                 <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 mt-2 shrink-0 group-hover:scale-125 transition-transform" />
-                <span>Attract sustained funding and strategic partnerships for capacity building and research-driven work</span>
+                <span>Attract strategic partnerships for research-driven capacity building</span>
               </li>
             </ul>
           </div>
@@ -126,27 +98,27 @@ const PhilosophySection = () => {
             <ul className="space-y-3 text-gray-600 text-sm">
               <li className="flex items-start gap-3 group">
                 <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-orange-500 to-pink-600 mt-1.5 shrink-0 group-hover:scale-125 transition-transform" />
-                <span>Drive cross-sector collaboration to strengthen public systems that influence child health, wellbeing, and safety</span>
+                <span>Strengthen public systems for child health, wellbeing, and safety</span>
               </li>
               <li className="flex items-start gap-3 group">
                 <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-orange-500 to-pink-600 mt-1.5 shrink-0 group-hover:scale-125 transition-transform" />
-                <span>Generate community awareness and catalyse collective action around child neurodevelopment and disability inclusion</span>
+                <span>Build awareness and collective action for neurodevelopment and disability inclusion</span>
               </li>
               <li className="flex items-start gap-3 group">
                 <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-orange-500 to-pink-600 mt-1.5 shrink-0 group-hover:scale-125 transition-transform" />
-                <span>Advance evidence-informed advocacy to influence policy, practice, and resource allocation</span>
+                <span>Influence policy and practice through evidence-informed advocacy</span>
               </li>
               <li className="flex items-start gap-3 group">
                 <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-orange-500 to-pink-600 mt-1.5 shrink-0 group-hover:scale-125 transition-transform" />
-                <span>Secure and deploy funding to sustain mission-critical programs, applied research, and on-ground implementation</span>
+                <span>Sustain mission-critical programs through strategic funding</span>
               </li>
               <li className="flex items-start gap-3 group">
                 <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-orange-500 to-pink-600 mt-1.5 shrink-0 group-hover:scale-125 transition-transform" />
-                <span>Equip families and caregivers to function as primary agents of change for children with unmet neurodevelopmental needs</span>
+                <span>Empower families as primary agents of change for their children</span>
               </li>
               <li className="flex items-start gap-3 group">
                 <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-orange-500 to-pink-600 mt-1.5 shrink-0 group-hover:scale-125 transition-transform" />
-                <span>Build workforce capacity among medical, paramedical, clinical and non-clinical workforce to respond effectively to public-health challenges</span>
+                <span>Build workforce capacity to address public-health challenges</span>
               </li>
             </ul>
           </div>
@@ -163,10 +135,8 @@ const PhilosophySection = () => {
               The Child is a <span className="text-gradient">Whole</span>
             </h2>
             <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-              A very well understood and communicated system helps children understand 
-              their abilities, goals and challenges, understand their emotional responses, 
-              and helps in attaining ability across developmental areas with the priority 
-              of human connection.
+              When children understand their abilities, challenges, and emotions — and receive 
+              consistent human connection — they develop across all areas more naturally.
             </p>
             <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-2xl p-6 overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(251,146,60,0.1),transparent_50%)]" />
@@ -178,10 +148,8 @@ const PhilosophySection = () => {
                 <h3 className="font-bold text-lg text-white">Trust & Autonomy</h3>
               </div>
               <p className="text-white/70 leading-relaxed relative">
-                A good mix of safe trust formation helps children navigate challenges of growth. 
-                It gives them the ability to develop independence, responsibility, self-regulation, 
-                and also to make decisions. The strongest people around them then become support 
-                for those same hurdles in cultivating a stronger foundation.
+                Safe trust formation helps children develop independence, self-regulation, 
+                and decision-making. Strong caregivers become the foundation for overcoming challenges.
               </p>
             </div>
           </div>
@@ -191,8 +159,8 @@ const PhilosophySection = () => {
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.15),transparent_50%)]" />
               <h3 className="relative text-2xl font-serif font-bold mb-4">Child-First Approach</h3>
               <p className="relative text-lg opacity-90 mb-6 leading-relaxed">
-                Our work is rooted in a simple belief: children thrive when systems respond 
-                to their unmet developmental needs with understanding, structure, and respect.
+                Children thrive when systems respond to their developmental needs with 
+                understanding, structure, and respect.
               </p>
               <div className="relative flex items-center gap-2 text-sm opacity-80">
                 <Heart className="w-4 h-4 fill-current animate-pulse" />
@@ -203,55 +171,8 @@ const PhilosophySection = () => {
           </div>
         </div>
 
-        {/* Stages of Child Development */}
-        <div className={`text-center max-w-3xl mx-auto mb-12 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm uppercase tracking-wider">
-            <Sparkles className="w-4 h-4" />
-            Developmental Framework
-          </span>
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mt-4 mb-6 text-gray-800">
-            Stages of <span className="text-gradient">Child Development</span>
-          </h2>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            A child progresses through multiple stages of development with the ultimate goal 
-            of becoming independent and meaningfully integrated into society. Development is 
-            not limited to acquiring skills in isolation; it involves learning how to express 
-            needs, feel safe, engage with others, and function confidently within one's environment.
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {stages.map((stage, index) => (
-            <Card 
-              key={index}
-              className={`group bg-white border-0 shadow-lg shadow-gray-100/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 text-center relative overflow-hidden ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-              }`}
-              style={getStaggerDelay(index + 5, 100)}
-            >
-              <CardContent className="p-6">
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${stage.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`} />
-                <div className="absolute top-4 right-4 text-5xl font-bold text-gray-100 group-hover:text-gray-200 transition-colors">
-                  {index + 1}
-                </div>
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${stage.gradient} flex items-center justify-center mb-4 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300`}>
-                  <stage.icon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">{stage.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{stage.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className={`bg-white rounded-3xl p-8 border border-gray-100 shadow-xl max-w-3xl mx-auto text-center transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <p className="text-gray-600 leading-relaxed">
-            Each stage builds upon the previous one. When a child is supported with appropriate 
-            engagement, structure, and responsiveness, developmental growth becomes more natural 
-            and sustainable. <span className="text-gradient font-semibold">Independence emerges not 
-            from pressure, but from consistent opportunities to connect, explore, and self-regulate.</span>
-          </p>
-        </div>
+        {/* Stages of Child Development - Moved to Blog */}
+        {/* Content available as blog post: "Stages of Child Development" */}
       </div>
     </section>
   );

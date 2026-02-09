@@ -70,17 +70,16 @@ const Header = () => {
           {/* Logo with hover effect */}
           <Link 
             to="/"
-            className="flex items-center gap-3 group"
+            className="flex items-center group"
           >
-            <div className={`relative w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 bg-gradient-to-br from-orange-500 to-orange-600 shadow-lg shadow-orange-500/25`}>
-              <span className="font-bold text-lg text-white">
-                NHF
-              </span>
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-orange-400 to-pink-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-lg" />
+            <div className="relative h-12 lg:h-14 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <img
+                src="/NHF-LOGO.png"
+                alt="NHF Logo"
+                className="h-full w-auto object-contain"
+                loading="lazy"
+              />
             </div>
-            <span className={`font-serif font-bold text-lg hidden sm:block transition-all duration-300 text-slate-800`}>
-              New Horizons Health & Research Foundation
-            </span>
           </Link>
 
           {/* Desktop Navigation with animated underline */}

@@ -33,13 +33,12 @@ const ImpactSection = () => {
     <section 
       id="impact" 
       ref={sectionRef}
-      className="py-20 lg:py-28 bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 text-white relative overflow-hidden"
+      className="py-20 lg:py-28 bg-white text-slate-800 relative overflow-hidden"
     >
-      {/* Animated background elements */}
+      {/* Subtle background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse-glow" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-teal-500/15 to-blue-500/15 rounded-full blur-3xl animate-pulse-glow animate-delay-500" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-purple-500/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-100/40 to-teal-100/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-teal-100/30 to-blue-100/20 rounded-full blur-3xl" />
       </div>
       
       {/* Grid pattern */}
@@ -50,15 +49,15 @@ const ImpactSection = () => {
 
       <div className="container relative">
         <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="inline-flex items-center gap-2 text-orange-400 font-semibold text-sm uppercase tracking-wider">
-            <Sparkles className="w-4 h-4 animate-pulse" />
+          <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider">
+            <Sparkles className="w-4 h-4" />
             Our Impact
           </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight text-slate-800">
             From Care to Evidence.{" "}
-            <span className="text-gradient-animated">From Evidence to Impact.</span>
+            <span className="text-gradient">From Evidence to Impact.</span>
           </h2>
-          <p className="text-white/60 text-lg">
+          <p className="text-gray-600 text-lg">
             Our work creates measurable change in the lives of children, families, 
             and the systems that serve them.
           </p>
@@ -70,22 +69,22 @@ const ImpactSection = () => {
             return (
               <div 
                 key={index}
-                className={`text-center p-6 rounded-2xl glass border border-white/10 hover-lift transition-all duration-500 group ${
+                className={`text-center p-6 rounded-2xl bg-gray-50 border border-gray-100 shadow-lg hover:-translate-y-1 transition-all duration-500 group ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-6 h-6 text-orange-400" />
+                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-teal-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">
+                <div className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-orange-500 to-teal-500 bg-clip-text text-transparent">
                   {isVisible ? (
                     <CountUp end={stat.value} suffix={stat.suffix} />
                   ) : (
                     <span>0{stat.suffix}</span>
                   )}
                 </div>
-                <p className="text-white/50 text-sm">{stat.label}</p>
+                <p className="text-gray-500 text-sm">{stat.label}</p>
               </div>
             );
           })}
@@ -109,18 +108,18 @@ const ImpactSection = () => {
           ].map((card, index) => (
             <div 
               key={index}
-              className={`p-8 rounded-2xl glass border border-white/10 hover-lift group transition-all duration-500 ${
+              className={`p-8 rounded-2xl bg-gray-50 border border-gray-100 shadow-lg hover:-translate-y-1 group transition-all duration-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${600 + index * 150}ms` }}
             >
-              <h3 className="text-xl font-semibold mb-4 group-hover:text-orange-400 transition-colors">{card.title}</h3>
-              {card.content && <p className="text-white/60 mb-3">{card.content}</p>}
+              <h3 className="text-xl font-semibold mb-4 text-slate-800 group-hover:text-orange-600 transition-colors">{card.title}</h3>
+              {card.content && <p className="text-gray-600 mb-3">{card.content}</p>}
               {card.list && (
-                <ul className="text-white/60 text-sm space-y-2">
+                <ul className="text-gray-600 text-sm space-y-2">
                   {card.list.map((item, i) => (
                     <li key={i} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-400 to-pink-400" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-500 to-teal-500" />
                       {item}
                     </li>
                   ))}

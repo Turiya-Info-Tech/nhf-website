@@ -52,8 +52,13 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6 group">
-              <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center shadow-lg shadow-orange-500/25 group-hover:scale-110 transition-transform duration-300">
-                <span className="font-bold text-lg text-white">NHF</span>
+              <div className="relative w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center shadow-lg shadow-orange-500/10 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                <img
+                  src="/logo.jpeg"
+                  alt="NHF Logo"
+                  className="w-12 h-12 object-contain"
+                  loading="lazy"
+                />
               </div>
               <span className="font-serif font-bold text-xl">New Horizons Health & Research Foundation</span>
             </div>

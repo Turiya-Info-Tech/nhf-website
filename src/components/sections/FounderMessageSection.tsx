@@ -51,43 +51,26 @@ const FounderMessageSection = () => {
               
               <div className="space-y-6 text-gray-600 relative z-10">
                 <p className="text-lg leading-relaxed">
-                  At the heart of my work in developmental pediatrics lies a fundamental conviction: 
-                  <span className="text-gray-800 font-medium"> every child has the capacity to grow, 
-                  communicate, and connect when we respond to their unmet needs with understanding 
-                  and consistent engagement.</span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+                  ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
 
                 <p className="leading-relaxed">
-                  Developmental delays and behavioural differences are not problems to be "fixed." 
-                  They are signals. Signals that a child's environment, experiences, or relationships 
-                  require adjustment, support, and human connection.
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                  mollit anim id est laborum.
                 </p>
 
                 <p className="leading-relaxed">
-                  Modern medicine has given us powerful tools for diagnosis, but progress cannot come 
-                  from labels alone. <span className="text-orange-600 font-medium">True development begins 
-                  when we shift our focus from symptoms to engagement, from milestones to relationships, 
-                  and from isolated interventions to everyday human interaction.</span>
-                </p>
-
-                <p className="leading-relaxed">
-                  Parents are central to this journey. When caregivers are empowered with knowledge, 
-                  clarity, and confidence, development becomes part of daily life, not just a clinic-based 
-                  activity. This philosophy extends beyond families to professionals, institutions, and systems.
-                </p>
-
-                <p className="leading-relaxed">
-                  Through the New Horizons Health and Research Foundation, we aim to embed this 
-                  human-centred, evidence-based approach within research practices, government programs, 
-                  and policy frameworks. Our goal is to ensure that developmental care is ethical, 
-                  accessible, and grounded in dignity.
+                  Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis
+                  interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
                 </p>
 
                 <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-2xl p-6 mt-8 overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
                   <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-500 via-pink-500 to-rose-500" />
                   <p className="text-lg font-serif italic text-white/90 relative z-10">
-                    "When science and humanity work together, development does not remain delayed. 
-                    It simply begins anew."
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante."
                   </p>
                   <p className="text-sm text-orange-400 font-medium mt-3 relative z-10">
                     — Dr. Samir H. Dalwai

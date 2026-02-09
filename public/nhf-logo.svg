@@ -1,0 +1,13 @@
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nhfGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F97316" />
+      <stop offset="50%" stop-color="#FB7185" />
+      <stop offset="100%" stop-color="#14B8A6" />
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="200" height="200" rx="36" fill="url(#nhfGradient)" />
+  <rect x="22" y="22" width="176" height="176" rx="30" fill="rgba(255,255,255,0.15)" />
+  <text x="110" y="132" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="700" fill="#FFFFFF">NHF</text>
+  <text x="110" y="160" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="500" fill="#FFFFFF" opacity="0.85">Foundation</text>
+</svg>

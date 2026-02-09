@@ -1,15 +1,54 @@
-import { CheckCircle2, Sparkles } from "lucide-react";
+import { FlaskConical, GraduationCap, HandHeart, Megaphone, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  const highlights = [
-    "Clinical grounding with 12+ years of experience",
-    "Ethics-first approach to all research",
-    "Outcome-oriented methodology",
-    "Government engagement capability"
+  const fundamentals = [
+    {
+      title: "Research",
+      icon: FlaskConical,
+      gradient: "from-blue-500 to-indigo-500",
+      items: [
+        "Publications",
+        "Scientific Conferences",
+        "Dissemination activities",
+        "Vignettes and Archives",
+      ],
+    },
+    {
+      title: "Training",
+      icon: GraduationCap,
+      gradient: "from-teal-500 to-emerald-500",
+      items: [
+        "Institutional and IAP Fellowships in Neurodevelopmental and Behavioral Pediatrics",
+        "Research Internships",
+        "Systems Strengthening & Innovation",
+      ],
+    },
+    {
+      title: "Advocacy",
+      icon: Megaphone,
+      gradient: "from-orange-500 to-pink-500",
+      items: [
+        "Early Childhood Development Initiatives",
+        "Nutrition Initiatives",
+        "School-centric Initiatives",
+        "Webinars, Workshops, School & Parent Awareness Programs",
+        "Global and local outreach",
+      ],
+    },
+    {
+      title: "Rehabilitation",
+      icon: HandHeart,
+      gradient: "from-purple-500 to-violet-500",
+      items: [
+        "Free Medical Camps",
+        "Capacity Building Initiatives",
+        "Parent/Child Engagement Programs",
+      ],
+    },
   ];
 
   useEffect(() => {
@@ -36,72 +75,70 @@ const AboutSection = () => {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-teal-100/50 to-transparent rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
       
       <div className="container relative">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Content */}
-          <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+        <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider mb-3">
               <Sparkles className="w-4 h-4" />
               About NHF
             </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mt-3 mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold mt-3 mb-4 leading-tight">
               Bridging Science, Service & Policy for{" "}
               <span className="text-gradient">Child Development</span>
             </h2>
-            <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-              As the research and advocacy arm of New Horizons Child Development 
-              Centre (NHCDC), NHF works at the confluence of science, service 
-              delivery, and policy action. We are uniquely positioned to influence 
-              systems change by leveraging evidence, capacity building, and partnerships.
+            <p className="text-gray-600 text-lg leading-relaxed">
+              NHF is positioned at the intersection of science, service delivery, and policy action.
+              We build evidence, strengthen systems, and advocate for child-rights-centered development.
             </p>
-            <p className="text-gray-500 mb-8 leading-relaxed">
-              We believe in asking "What Works?" — focusing on observable, 
-              functional improvements rather than labels. Our child-first, 
-              whole-child approach ensures that every intervention is designed 
-              with respect, dignity, and the protection of vulnerable populations 
-              at its core.
-            </p>
+          </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-              {highlights.map((item, index) => (
-                <div 
-                  key={index}
-                  className={`flex items-start gap-3 p-4 rounded-xl bg-white shadow-sm border border-gray-100 hover-lift cursor-default transition-all duration-500 ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                  }`}
-                  style={{ transitionDelay: `${300 + index * 100}ms` }}
-                >
-                  <CheckCircle2 className="w-5 h-5 text-orange-500 mt-0.5 shrink-0" />
-                  <span className="text-sm font-medium text-gray-700">{item}</span>
-                </div>
-              ))}
+          <div className="grid lg:grid-cols-2 gap-10 items-start mb-12">
+            <div className="bg-white rounded-3xl p-8 shadow-lg shadow-gray-100/60 border border-gray-100">
+              <h3 className="text-xl font-serif font-bold mb-3 text-slate-800">NHF Positioning Statement</h3>
+              <p className="text-gray-600 leading-relaxed">
+                We advance child development by integrating scientific research, service implementation,
+                and policy engagement. Our work ensures that ethical, evidence-based practice reaches the
+                children and families who need it most.
+              </p>
+            </div>
+            <div className="bg-white rounded-3xl p-8 shadow-lg shadow-gray-100/60 border border-gray-100">
+              <h3 className="text-xl font-serif font-bold mb-3 text-slate-800">What We Do</h3>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                NHF supports the design, evaluation, and strengthening of child development initiatives by embedding evidence-based approaches into real-world systems. Our work focuses on improving how programs are implemented, how learning is generated from practice, and how insights inform policy and scale.
+              </p>
+              <p className="text-orange-600 font-medium text-sm">
+                Learn more about our work, our impact, and opportunities to collaborate.
+              </p>
             </div>
           </div>
 
-          {/* Philosophy Card */}
-          <div className={`relative transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-3xl p-8 lg:p-10 text-white overflow-hidden group">
-              {/* Animated gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-pink-500/20 to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              {/* Decorative lines */}
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-pink-500 to-teal-500" />
-              
-              <h3 className="relative text-2xl font-serif font-bold mb-4 flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-orange-400 animate-pulse-glow" />
-                Our Philosophy
-              </h3>
-              <blockquote className="relative text-lg italic mb-6 text-white/90 leading-relaxed">
-                "We focus on outcomes over labels — what truly matters is the 
-                observable change in a child's life and their family's hope."
-              </blockquote>
-              <p className="relative text-sm text-white/60 font-medium">
-                — Dr. Samir Dalwai, Founder
-              </p>
-            </div>
-            
-            {/* Decorative elements */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-orange-400/30 to-pink-400/30 rounded-full blur-2xl animate-pulse-glow" />
-            <div className="absolute -top-6 -left-6 w-40 h-40 bg-gradient-to-br from-teal-400/20 to-blue-400/20 rounded-full blur-3xl animate-pulse-glow animate-delay-500" />
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <h3 className="text-2xl md:text-3xl font-serif font-bold mb-3">4 Fundamentals of NHF</h3>
+            <p className="text-gray-600">Each pillar is grounded in measurable outcomes and equity for every child.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {fundamentals.map((pillar, index) => (
+              <div
+                key={pillar.title}
+                className={`bg-white rounded-2xl p-6 shadow-lg shadow-gray-100/60 border border-gray-100 transition-all duration-500 hover:-translate-y-2 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
+                style={{ transitionDelay: `${200 + index * 120}ms` }}
+              >
+                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${pillar.gradient} flex items-center justify-center mb-4 shadow-lg`}>
+                  <pillar.icon className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-semibold mb-3 text-slate-800">{pillar.title}</h4>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  {pillar.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-orange-400" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </div>
