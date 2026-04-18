@@ -57,7 +57,7 @@ const WhyNHFSection = () => {
     "Proven ability to engage with government systems",
     "Clear pathways from data to implementation",
     "Strong ethical framework for child-focused research",
-    "Backed by New Horizons Child Development Centre"
+    "Backed by New Horizons Child Development Centre (NHCDC)"
   ];
 
   return (
@@ -96,7 +96,13 @@ const WhyNHFSection = () => {
                   <reason.icon className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-violet-600 transition-colors">{reason.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{reason.description}</p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {reason.description.includes("NHCDC") ? (
+                    <>
+                      Embedded within an active pediatric neurodevelopment centre (<a href="https://www.newhorizonscdc.in/" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-semibold hover:underline whitespace-nowrap">NHCDC</a>)
+                    </>
+                  ) : reason.description}
+                </p>
               </CardContent>
             </Card>
           ))}
@@ -107,7 +113,7 @@ const WhyNHFSection = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(139,92,246,0.15),transparent_50%)]" />
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-violet-500 via-purple-500 to-pink-500" />
           <h3 className="text-xl font-bold text-center mb-8 text-white relative">Our Capabilities</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 relative">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative">
             {capabilities.map((capability, index) => (
               <div 
                 key={index}
@@ -116,7 +122,14 @@ const WhyNHFSection = () => {
                 <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-violet-400 to-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300">
                   <CheckCircle2 className="w-3.5 h-3.5 text-white" />
                 </div>
-                <span className="text-sm text-white/80 leading-relaxed">{capability}</span>
+                {capability.includes("NHCDC") ? (
+                  <span className="text-sm text-white/80 leading-relaxed">
+                    Backed by{" "}
+                    <a href="https://www.newhorizonscdc.in/" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:underline whitespace-nowrap">New Horizons Child Development Centre (<span className="whitespace-nowrap">NHCDC</span>)</a>
+                  </span>
+                ) : (
+                  <span className="text-sm text-white/80 leading-relaxed">{capability}</span>
+                )}
               </div>
             ))}
           </div>

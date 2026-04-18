@@ -105,14 +105,27 @@
 @layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
+    -webkit-text-size-adjust: 100%;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Ensure images don't overflow on mobile */
+  img, video, svg {
+    max-width: 100%;
+    height: auto;
   }
 }
 

@@ -19,7 +19,7 @@ const PhilosophySection = () => {
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight text-gray-800">
             Closing the Gap Between{" "}
-            <span className="text-gradient">Insight & Action</span>
+            <span className="text-gradient md:whitespace-nowrap">Insight & Action</span>
           </h2>
         </div>
 
@@ -57,7 +57,7 @@ const PhilosophySection = () => {
                 className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-violet-900/60 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg">
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg cursor-pointer hover:bg-orange-50 transition-colors" onClick={() => document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth' })}>
                 <Microscope className="w-5 h-5 text-violet-600" />
                 <span className="text-sm font-semibold text-slate-700">Evidence-Based Research</span>
               </div>

@@ -24,7 +24,6 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Update active section based on scroll position
       const sections = navItems.map(item => item.href.replace('#', ''));
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
@@ -59,98 +58,140 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-white/80 backdrop-blur-xl shadow-lg shadow-black/5 border-b border-gray-200/50" 
+          ? "bg-white/90 backdrop-blur-xl shadow-md border-b border-gray-100" 
           : "bg-transparent"
       }`}
+      style={{ width: '100%' }}
     >
-      <div className="container">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo with hover effect */}
-          <Link 
-            to="/"
-            className="flex items-center group"
-          >
-            <div className="relative h-12 lg:h-14 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-              <img
-                src="/NHF-LOGO.png"
-                alt="NHF Logo"
-                className="h-full w-auto object-contain"
-                loading="lazy"
-              />
-            </div>
+      {/* Mobile Header (< lg) */}
+      <div className="block lg:hidden" style={{ width: '100%', overflow: 'hidden' }}>
+        <div 
+          style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'space-between',
+            height: '56px',
+            paddingLeft: '16px',
+            paddingRight: '16px',
+            width: '100%',
+            boxSizing: 'border-box'
+          }}
+        >
+          <Link to="/" style={{ flexShrink: 0 }}>
+            <img
+              src="/NHF-LOGO.png"
+              alt="NHF Logo"
+              style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
+            />
           </Link>
 
-          {/* Desktop Navigation with animated underline */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => {
-              const isActive = activeSection === item.href.replace('#', '');
-              return (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavClick(item)}
-                  className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${isActive ? 'text-orange-600' : 'text-slate-700'} hover:text-orange-600 hover:bg-orange-50`}
-                >
-                  {item.label}
-                  {/* Active indicator */}
-                  <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full transition-all duration-300 ${
-                    isActive ? 'w-6' : 'w-0'
-                  }`} />
-                </button>
-              );
-            })}
-          </nav>
-
-          {/* CTA Button with glow effect */}
-          <div className="hidden lg:block">
-            <Button 
-              onClick={() => handleNavClick({ href: "#get-involved" })}
-              className="relative overflow-hidden transition-all duration-300 group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40"
-            >
-              <Sparkles className="w-4 h-4 mr-2 group-hover:animate-wiggle" />
-              Get Involved
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-            </Button>
-          </div>
-
-          {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="lg:hidden">
-              <Button 
-                variant="ghost" 
-                size="icon"
-                className={`transition-all duration-300 ${
-                  isScrolled 
-                    ? "text-gray-700 hover:bg-gray-100" 
-                    : "text-white hover:bg-white/10"
-                }`}
+            <SheetTrigger asChild>
+              <button 
+                style={{
+                  padding: '8px',
+                  borderRadius: '8px',
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                className={isScrolled ? "text-gray-700" : "text-slate-800"}
+                aria-label="Open menu"
               >
-                <Menu className="w-6 h-6" />
-              </Button>
+                <Menu style={{ width: '24px', height: '24px' }} />
+              </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-white/95 backdrop-blur-xl">
-              <nav className="flex flex-col gap-2 mt-8">
-                {navItems.map((item, index) => (
-                  <button
-                    key={item.href}
-                    onClick={() => handleNavClick(item)}
-                    className="px-4 py-3 text-left font-medium rounded-xl hover:bg-gradient-to-r hover:from-orange-50 hover:to-pink-50 transition-all duration-300 opacity-0 animate-fade-in-left"
-                    style={{ animationDelay: `${index * 100}ms`, animationFillMode: 'forwards' }}
+            
+            <SheetContent 
+              side="right" 
+              className="w-[280px] bg-white p-0"
+            >
+              <div className="flex items-center p-4 border-b border-gray-100">
+                <img
+                  src="/NHF-LOGO.png"
+                  alt="NHF Logo"
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+              
+              <nav className="flex flex-col p-4">
+                {navItems.map((item) => {
+                  const isActive = activeSection === item.href.replace('#', '');
+                  return (
+                    <button
+                      key={item.href}
+                      onClick={() => handleNavClick(item)}
+                      className={`px-4 py-3 text-left font-medium rounded-lg transition-all duration-200 ${
+                        isActive 
+                          ? 'bg-orange-50 text-orange-600' 
+                          : 'text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      {item.label}
+                    </button>
+                  );
+                })}
+                
+                <div className="mt-6 pt-4 border-t border-gray-100">
+                  <Button 
+                    onClick={() => handleNavClick({ href: "#get-involved" })}
+                    className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white"
                   >
-                    {item.label}
-                  </button>
-                ))}
-                <Button 
-                  onClick={() => handleNavClick({ href: "#get-involved" })}
-                  className="mt-4 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white"
-                >
-                  <Sparkles className="w-4 h-4 mr-2" />
-                  Get Involved
-                </Button>
+                    <Sparkles className="w-4 h-4 mr-2" />
+                    Get Involved
+                  </Button>
+                </div>
               </nav>
             </SheetContent>
           </Sheet>
+        </div>
+      </div>
+
+      {/* Desktop Header (>= lg) */}
+      <div className="hidden lg:block">
+        <div className="max-w-[1400px] mx-auto px-8">
+          <div className="flex items-center justify-between h-20">
+            <Link to="/" className="flex-shrink-0 group">
+              <img
+                src="/NHF-LOGO.png"
+                alt="NHF Logo"
+                className="h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+              />
+            </Link>
+
+            <nav className="flex items-center gap-1">
+              {navItems.map((item) => {
+                const isActive = activeSection === item.href.replace('#', '');
+                return (
+                  <button
+                    key={item.href}
+                    onClick={() => handleNavClick(item)}
+                    className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
+                      isActive ? 'text-orange-600' : 'text-slate-700'
+                    } hover:text-orange-600 hover:bg-orange-50`}
+                  >
+                    {item.label}
+                    <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full transition-all duration-300 ${
+                      isActive ? 'w-6' : 'w-0'
+                    }`} />
+                  </button>
+                );
+              })}
+            </nav>
+
+            <Button 
+              onClick={() => handleNavClick({ href: "#get-involved" })}
+              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25"
+            >
+              <Sparkles className="w-4 h-4 mr-2" />
+              Get Involved
+            </Button>
+          </div>
         </div>
       </div>
     </header>

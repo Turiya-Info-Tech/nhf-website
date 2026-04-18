@@ -26,10 +26,10 @@ import AnnouncementBanner from "@/components/sections/AnnouncementBanner";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden w-full">
       <AnnouncementBanner />
       <Header />
-      <main>
+      <main className="w-full">
         {/* Introduction */}
         <HeroSection />
         <AboutSection />
@@ -50,7 +50,8 @@ const Index = () => {
         {/* Impact & Evidence */}
         <ImpactSection />
         <EvidenceHopeSection />
-        <AwardsSection />
+        {/* AwardsSection hidden for now - pending verified award data */}
+        {/* <AwardsSection /> */}
         <WhyNHFSection />
         
         {/* Partners & Team */}

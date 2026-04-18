@@ -77,38 +77,49 @@ const PublicationsSection = () => {
                 }`}
                 style={getStaggerDelay(index + 2, 80)}
               >
-                <CardContent className="p-5 relative">
+                <CardContent className="p-4 md:p-5 relative">
                   <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-                  <div className="flex flex-col md:flex-row md:items-center gap-4">
+                  <div className="flex items-start gap-3 md:gap-4">
                     {/* Icon */}
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${typeStyles.bg} flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
-                      <FileText className="w-6 h-6 text-white" />
+                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br ${typeStyles.bg} flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
+                      <FileText className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
                     
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <span className={`text-xs font-bold px-3 py-1 rounded-full border ${typeStyles.text}`}>
+                      <div className="flex flex-wrap items-center gap-1.5 md:gap-2 mb-1.5 md:mb-2">
+                        <span className={`text-[10px] md:text-xs font-bold px-2 md:px-3 py-0.5 md:py-1 rounded-full border ${typeStyles.text}`}>
                           {pub.type}
                         </span>
-                        <span className="text-xs text-gray-500 font-medium">
+                        <span className="text-[10px] md:text-xs text-gray-500 font-medium">
                           {pub.year}
                         </span>
+                        {/* View Button - inline on mobile */}
+                        {hasLink && (
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            className="ml-auto p-1 h-auto md:hidden text-blue-600 hover:bg-blue-50"
+                            onClick={() => window.open(pub.link, '_blank')}
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                          </Button>
+                        )}
                       </div>
-                      <h3 className="text-base font-bold text-gray-800 mb-1 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-sm md:text-base font-bold text-gray-800 mb-1 line-clamp-2 group-hover:text-blue-600 transition-colors">
                         {pub.title}
                       </h3>
-                      <p className="text-sm text-gray-600 mb-1 line-clamp-1">
+                      <p className="text-xs md:text-sm text-gray-600 mb-1 line-clamp-1">
                         {pub.authors}
                       </p>
-                      <p className="text-xs text-blue-500 font-medium">
+                      <p className="text-[10px] md:text-xs text-blue-500 font-medium">
                         {pub.journal}
                       </p>
                     </div>
                     
-                    {/* View Button */}
+                    {/* View Button - visible on desktop only */}
                     {hasLink && (
-                    <div className="flex gap-2 shrink-0">
+                    <div className="hidden md:flex gap-2 shrink-0 self-center">
                       <Button 
                         variant="outline" 
                         size="sm"
@@ -116,7 +127,7 @@ const PublicationsSection = () => {
                         onClick={() => window.open(pub.link, '_blank')}
                       >
                         <ExternalLink className="w-4 h-4" />
-                        <span className="hidden sm:inline">View</span>
+                        <span>View</span>
                       </Button>
                     </div>
                     )}
@@ -191,13 +202,13 @@ const PublicationsSection = () => {
 
       {/* Full Publications Modal */}
       {showAllModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-white rounded-3xl shadow-2xl w-full max-w-7xl max-h-[90vh] overflow-hidden flex flex-col">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl w-full max-w-7xl max-h-[95vh] md:max-h-[90vh] overflow-hidden flex flex-col">
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-gray-100 bg-white">
+            <div className="flex items-center justify-between p-4 md:p-6 border-b border-gray-100 bg-white">
               <div>
-                <h2 className="text-2xl font-serif font-bold text-gray-800">All Publications</h2>
-                <p className="text-gray-500 text-sm mt-1">
+                <h2 className="text-lg md:text-2xl font-serif font-bold text-gray-800">All Publications</h2>
+                <p className="text-gray-500 text-xs md:text-sm mt-1">
                   {allPublications.length} publications from 2010 to 2025
                 </p>
               </div>
@@ -214,22 +225,22 @@ const PublicationsSection = () => {
             {/* Table Container */}
             <div className="flex-1 overflow-hidden flex flex-col">
               {/* Fixed Table Header */}
-              <div className="bg-gray-50 border-b border-gray-200 px-6">
+              <div className="bg-gray-50 border-b border-gray-200 px-3 md:px-6">
                 <table className="w-full table-fixed">
                   <thead>
                     <tr>
-                      <th className="w-[70px] text-left py-4 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Year</th>
-                      <th className="w-[40%] text-left py-4 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Title</th>
-                      <th className="w-[20%] text-left py-4 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider hidden lg:table-cell">Journal</th>
-                      <th className="w-[140px] text-left py-4 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Type</th>
-                      <th className="w-[70px] text-center py-4 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Link</th>
+                      <th className="w-[50px] md:w-[70px] text-left py-3 md:py-4 px-2 md:px-4 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">Year</th>
+                      <th className="text-left py-3 md:py-4 px-2 md:px-4 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">Title</th>
+                      <th className="w-[20%] text-left py-3 md:py-4 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider hidden lg:table-cell">Journal</th>
+                      <th className="w-[80px] md:w-[140px] text-left py-3 md:py-4 px-2 md:px-4 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider hidden sm:table-cell">Type</th>
+                      <th className="w-[50px] md:w-[70px] text-center py-3 md:py-4 px-2 md:px-4 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">Link</th>
                     </tr>
                   </thead>
                 </table>
               </div>
 
               {/* Scrollable Table Body */}
-              <div className="flex-1 overflow-auto px-6">
+              <div className="flex-1 overflow-auto px-3 md:px-6">
                 <table className="w-full table-fixed">
                   <tbody className="divide-y divide-gray-100">
                     {paginatedPublications.map((pub) => {
@@ -237,29 +248,33 @@ const PublicationsSection = () => {
                       const hasLink = pub.link && pub.link !== "" && pub.link !== "_";
                       return (
                         <tr key={pub.id} className="hover:bg-gray-50 transition-colors">
-                          <td className="w-[70px] py-4 px-4 text-sm font-medium text-gray-800 align-top">{pub.year}</td>
-                          <td className="w-[40%] py-4 px-4 align-top">
-                            <p className="text-sm font-medium text-gray-800 line-clamp-2">{pub.title}</p>
-                            <p className="text-xs text-gray-500 mt-1 line-clamp-1">{pub.authors}</p>
-                          </td>
-                          <td className="w-[20%] py-4 px-4 text-xs text-gray-600 hidden lg:table-cell align-top line-clamp-2">{pub.journal}</td>
-                          <td className="w-[140px] py-4 px-4 align-top">
-                            <span className={`inline-block text-xs font-bold px-3 py-1.5 rounded-full border whitespace-nowrap ${typeStyles.text}`}>
+                          <td className="w-[50px] md:w-[70px] py-3 md:py-4 px-2 md:px-4 text-xs md:text-sm font-medium text-gray-800 align-top">{pub.year}</td>
+                          <td className="py-3 md:py-4 px-2 md:px-4 align-top">
+                            <p className="text-xs md:text-sm font-medium text-gray-800 line-clamp-2">{pub.title}</p>
+                            <p className="text-[10px] md:text-xs text-gray-500 mt-1 line-clamp-1">{pub.authors}</p>
+                            {/* Show type badge on mobile inline */}
+                            <span className={`sm:hidden inline-block mt-1 text-[10px] font-bold px-2 py-0.5 rounded-full border ${typeStyles.text}`}>
                               {pub.type}
                             </span>
                           </td>
-                          <td className="w-[70px] py-4 px-4 text-center align-top">
+                          <td className="w-[20%] py-3 md:py-4 px-4 text-xs text-gray-600 hidden lg:table-cell align-top line-clamp-2">{pub.journal}</td>
+                          <td className="w-[80px] md:w-[140px] py-3 md:py-4 px-2 md:px-4 align-top hidden sm:table-cell">
+                            <span className={`inline-block text-[10px] md:text-xs font-bold px-2 md:px-3 py-1 md:py-1.5 rounded-full border whitespace-nowrap ${typeStyles.text}`}>
+                              {pub.type}
+                            </span>
+                          </td>
+                          <td className="w-[50px] md:w-[70px] py-3 md:py-4 px-2 md:px-4 text-center align-top">
                             {hasLink ? (
                               <Button
                                 variant="ghost"
                                 size="sm"
-                                className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 p-2"
+                                className="text-blue-600 hover:text-blue-700 hover:bg-blue-50 p-1.5 md:p-2"
                                 onClick={() => window.open(pub.link, '_blank')}
                               >
-                                <ExternalLink className="w-4 h-4" />
+                                <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4" />
                               </Button>
                             ) : (
-                              <span className="text-xs text-gray-400">—</span>
+                              <span className="text-[10px] md:text-xs text-gray-400">—</span>
                             )}
                           </td>
                         </tr>
@@ -271,31 +286,33 @@ const PublicationsSection = () => {
             </div>
 
             {/* Pagination */}
-            <div className="flex items-center justify-between p-4 border-t border-gray-100 bg-gray-50">
-              <p className="text-sm text-gray-500">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3 md:p-4 border-t border-gray-100 bg-gray-50">
+              <p className="text-xs md:text-sm text-gray-500 order-2 sm:order-1">
                 Showing {(currentPage - 1) * itemsPerPage + 1} - {Math.min(currentPage * itemsPerPage, allPublications.length)} of {allPublications.length}
               </p>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 md:gap-2 order-1 sm:order-2">
                 <Button
                   variant="outline"
                   size="sm"
                   disabled={currentPage === 1}
                   onClick={() => setCurrentPage(p => p - 1)}
+                  className="text-xs md:text-sm px-2 md:px-3"
                 >
-                  <ChevronLeft className="w-4 h-4" />
-                  Previous
+                  <ChevronLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  <span className="hidden sm:inline">Previous</span>
                 </Button>
-                <span className="text-sm text-gray-600 px-2">
-                  Page {currentPage} of {totalPages}
+                <span className="text-xs md:text-sm text-gray-600 px-1 md:px-2">
+                  {currentPage}/{totalPages}
                 </span>
                 <Button
                   variant="outline"
                   size="sm"
                   disabled={currentPage === totalPages}
                   onClick={() => setCurrentPage(p => p + 1)}
+                  className="text-xs md:text-sm px-2 md:px-3"
                 >
-                  Next
-                  <ChevronRight className="w-4 h-4" />
+                  <span className="hidden sm:inline">Next</span>
+                  <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
                 </Button>
               </div>
             </div>

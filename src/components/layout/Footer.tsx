@@ -52,15 +52,14 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6 group">
-              <div className="relative w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center shadow-lg shadow-orange-500/10 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+              <div className="relative h-14 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                 <img
-                  src="/logo.jpeg"
+                  src="/NHF-LOGO.png"
                   alt="NHF Logo"
-                  className="w-12 h-12 object-contain"
+                  className="h-full w-auto object-contain"
                   loading="lazy"
                 />
               </div>
-              <span className="font-serif font-bold text-xl">New Horizons Health & Research Foundation</span>
             </div>
             <p className="text-white/60 mb-6 max-w-md leading-relaxed">
               Empowering children, advancing systems, and influencing policy through 
@@ -68,7 +67,7 @@ const Footer = () => {
             </p>
             <p className="inline-flex items-center gap-2 text-sm text-white/40 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
               <Sparkles className="w-3 h-3" />
-              Research & Advocacy arm of NHCDC
+              Research & Advocacy arm of <a href="https://www.newhorizonscdc.in/" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:underline ml-1 whitespace-nowrap">NHCDC</a>
             </p>
           </div>
 
@@ -105,7 +104,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <p className="text-sm text-white/40">
             © {currentYear} New Horizons Health and Research Foundation. All rights reserved.
           </p>
@@ -118,7 +117,7 @@ const Footer = () => {
       {/* Scroll to top button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 w-12 h-12 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg shadow-orange-500/25 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-orange-500/40 z-50 ${
+        className={`fixed bottom-6 right-4 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg shadow-orange-500/25 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-orange-500/40 z-50 ${
           showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
         }`}
       >

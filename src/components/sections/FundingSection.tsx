@@ -1,26 +1,16 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
-  IndianRupee, 
   Building2, 
   Users, 
   FileText, 
   Handshake,
-  Target,
   Sparkles
 } from "lucide-react";
 import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
 
 const FundingSection = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
-  
-  const budgetBreakdown = [
-    { label: "Research Operations", percentage: 35, amount: "₹17,50,000", color: "from-orange-500 to-pink-500" },
-    { label: "Training & Capacity Building", percentage: 25, amount: "₹12,50,000", color: "from-blue-500 to-cyan-500" },
-    { label: "Outreach & Community Programs", percentage: 20, amount: "₹10,00,000", color: "from-emerald-500 to-teal-500" },
-    { label: "Technical Collaborations", percentage: 15, amount: "₹7,50,000", color: "from-violet-500 to-purple-500" },
-    { label: "Administration", percentage: 5, amount: "₹2,50,000", color: "from-gray-400 to-slate-500" },
-  ];
 
   const partnershipTypes = [
     {
@@ -70,66 +60,14 @@ const FundingSection = () => {
           </p>
         </div>
 
-        {/* Annual Budget Card */}
-        <Card className={`mb-16 border-0 shadow-2xl overflow-hidden transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <CardContent className="p-0">
-            <div className="grid lg:grid-cols-2">
-              {/* Budget Overview */}
-              <div className="p-8 lg:p-12 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(251,146,60,0.15),transparent_50%)]" />
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-pink-500 to-rose-500" />
-                <div className="relative flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center shadow-lg">
-                    <IndianRupee className="w-7 h-7 text-white" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-white/60">Annual Estimated Budget</p>
-                    <h3 className="text-3xl lg:text-4xl font-bold text-gradient-animated">₹50,00,000</h3>
-                  </div>
-                </div>
-                <p className="text-white/70 mb-6 leading-relaxed">
-                  Our annual budget supports comprehensive research operations, training 
-                  program development, community outreach initiatives, and strategic 
-                  technical collaborations aligned with national child development priorities.
-                </p>
-                <div className="flex items-center gap-2 text-sm text-orange-300">
-                  <Target className="w-4 h-4" />
-                  <span>Aligned with National Developmental Goals</span>
-                </div>
-              </div>
-
-              {/* Budget Breakdown */}
-              <div className="p-8 lg:p-12 bg-white">
-                <h4 className="font-bold text-gray-800 mb-6">Budget Allocation</h4>
-                <div className="space-y-5">
-                  {budgetBreakdown.map((item, index) => (
-                    <div key={index} className="group">
-                      <div className="flex justify-between text-sm mb-2">
-                        <span className="text-gray-600 group-hover:text-gray-800 transition-colors">{item.label}</span>
-                        <span className="font-bold text-gray-800">{item.amount}</span>
-                      </div>
-                      <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
-                        <div 
-                          className={`h-full bg-gradient-to-r ${item.color} rounded-full transition-all duration-1000 ease-out`}
-                          style={{ 
-                            width: isVisible ? `${item.percentage}%` : '0%',
-                            transitionDelay: `${index * 150 + 500}ms`
-                          }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Partnership Types */}
+        {/* Partnership Types - Combined Section */}
         <div className="mb-16">
-          <h3 className={`text-2xl font-serif font-bold text-center mb-10 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Partnership Opportunities
+          <h3 className={`text-2xl font-serif font-bold text-center mb-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            Looking for Long-term Partnerships
           </h3>
+          <p className={`text-gray-600 text-center max-w-2xl mx-auto mb-10 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            We partner with organisations and individuals committed to measurable, evidence-based outcomes for children and families.
+          </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {partnershipTypes.map((type, index) => (
               <Card 
@@ -154,7 +92,7 @@ const FundingSection = () => {
 
         {/* CSR Alignment */}
         <Card className={`border-0 shadow-xl bg-gradient-to-br from-orange-50 via-white to-pink-50 overflow-hidden transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <CardContent className="p-8 lg:p-12">
+          <CardContent className="p-6 md:p-8 lg:p-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-serif font-bold mb-4 text-gray-800">

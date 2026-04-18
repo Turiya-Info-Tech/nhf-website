@@ -63,7 +63,7 @@ const ImpactSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-16">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
@@ -77,7 +77,7 @@ const ImpactSection = () => {
                 <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-teal-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-orange-500 to-teal-500 bg-clip-text text-transparent">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-orange-500 to-teal-500 bg-clip-text text-transparent">
                   {isVisible ? (
                     <CountUp end={stat.value} suffix={stat.suffix} />
                   ) : (

@@ -6,6 +6,7 @@ import anushkaSamantImg from "@/assets/Ms Anushka Samant.jpeg";
 import manshiThakkarImg from "@/assets/Ms Manshi Thakkar.jpeg";
 import zobiaAlamImg from "@/assets/Ms Zobia Alam.jpeg";
 import devikaMohananImg from "@/assets/Ms Devika Mohanan.jpeg";
+import hrishitaKambliImg from "@/assets/Ms Hrishita Kambli.jpeg";
 
 const GetInvolvedSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -75,10 +76,19 @@ const GetInvolvedSection = () => {
       name: "Ms Devika Mohanan",
       role: "Research Intern",
       institution: "KC College",
-      degree: "Bachelor's Degree Graduate",
+      degree: "MA Psychology (Clinical) / Master of Arts (Clinical Psychology)",
       image: devikaMohananImg,
       quote:
         "I joined New Horizons CDC as a research intern in November. I was just a bachelors degree graduate at that time and was only slightly aware of the backhand work that goes into research publication. Throughout my internship, I learnt about the stages of data collection, synthesis and analysis. There were countless discussions and brainstorming sessions where ideas were exchanged and a thorough understanding of our data analysis process was initiated. Along with research, I was also exposed to the different treatment processes for children with developmental concerns. The care & consideration with which the whole process is designed is commendable. Anyone who is interested in research and wants to know what is the process and the work that goes into it should definitely work at NHCDC. You will get to learn more about the work that goes into developing better plans and advocating for children's healthcare.",
+    },
+    {
+      name: "Ms Hrishita Kambli",
+      role: "Research Intern",
+      institution: "K.C. College",
+      degree: "BA Psychology",
+      image: hrishitaKambliImg,
+      quote:
+        "During my time with the organization, I developed a strong foundation in the research process—from understanding the steps involved in conducting studies to writing comprehensive literature reviews and learned how to optimize academic search strategies to locate relevant papers efficiently. The internship fostered a collaborative environment that strengthened my teamwork skills, and I truly appreciated the emphasis placed on learning. My mentor was exceptional, providing consistent guidance throughout the internship. Overall, this experience significantly enhanced my research capabilities, and I would highly recommend this internship to anyone looking to build practical skills in research within a supportive and well-structured learning environment.",
     },
   ];
 
@@ -139,7 +149,7 @@ const GetInvolvedSection = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {researchInternTestimonials.map((testimonial, index) => (
               <Card
                 key={`${testimonial.name}-${index}`}

@@ -16,9 +16,9 @@ const FounderMessageSection = () => {
             <Sparkles className="w-4 h-4" />
             From the Founder's Desk
           </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-4 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif font-bold mt-4 mb-4 leading-tight">
             A Message from{" "}
-            <span className="text-gradient">Dr. Samir H. Dalwai</span>
+            <span className="text-gradient whitespace-nowrap">Dr.&nbsp;Samir&nbsp;H.&nbsp;Dalwai</span>
           </h2>
         </div>
 
@@ -46,7 +46,7 @@ const FounderMessageSection = () => {
 
           {/* Message Content */}
           <div className={`lg:col-span-2 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <div className="bg-white rounded-3xl p-8 lg:p-10 border border-gray-100 shadow-xl relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-gray-100 shadow-xl relative overflow-hidden">
               <Quote className="absolute top-6 left-6 w-12 h-12 text-orange-500/10" />
               
               <div className="space-y-6 text-gray-600 relative z-10">

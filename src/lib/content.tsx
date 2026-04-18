@@ -13,12 +13,21 @@ const defaultTeamMembers: TeamMember[] = [
     created_at: ''
   },
   {
+    id: '6',
+    name: "Ms. Sandhya Kulkarni",
+    role: "Training & Direction",
+    bio: "Leading capacity building programs and training initiatives.",
+    image_url: null,
+    order_index: 2,
+    created_at: ''
+  },
+  {
     id: '2',
     name: "Dr. Hilla Sookhadwala",
     role: "Developmental Pediatrician",
     bio: "Medical leadership for research and clinical program development.",
     image_url: null,
-    order_index: 2,
+    order_index: 3,
     created_at: ''
   },
   {
@@ -27,7 +36,7 @@ const defaultTeamMembers: TeamMember[] = [
     role: "Research Consultant",
     bio: "Guides research methodology, ethics, and publication development.",
     image_url: null,
-    order_index: 3,
+    order_index: 4,
     created_at: ''
   },
   {
@@ -36,25 +45,7 @@ const defaultTeamMembers: TeamMember[] = [
     role: "Research Associate",
     bio: "Supporting research operations, data analysis, and evidence generation.",
     image_url: null,
-    order_index: 4,
-    created_at: ''
-  },
-  {
-    id: '5',
-    name: "Ms. Anushka Samant",
-    role: "Research Associate",
-    bio: "Clinical research coordination and outcome tracking.",
-    image_url: null,
     order_index: 5,
-    created_at: ''
-  },
-  {
-    id: '6',
-    name: "Ms. Sandhya Kulkarni",
-    role: "Training & Direction",
-    bio: "Leading capacity building programs and training initiatives.",
-    image_url: null,
-    order_index: 6,
     created_at: ''
   }
 ];

@@ -60,14 +60,14 @@ const TeamSection = () => {
                 </div>
                 
                 {/* Bio Content */}
-                <div className="md:col-span-2 p-8 lg:p-10 text-white relative">
+                <div className="md:col-span-2 p-6 lg:p-10 text-white relative">
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-pink-500 to-teal-500" />
                   <div className="mb-4">
                     <span className="inline-flex items-center gap-2 text-xs font-bold text-orange-400 uppercase tracking-wider px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20">
                       {founder.role}
                     </span>
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-serif font-bold mb-2 text-white">
+                  <h3 className="text-2xl lg:text-3xl font-serif font-bold mb-2 text-white md:whitespace-nowrap">
                     {founder.name}
                   </h3>
                   <p className="text-orange-300 font-medium mb-6">
@@ -140,12 +140,19 @@ const TeamSection = () => {
         {/* Team & Research Culture */}
         <div className={`bg-gradient-to-br from-orange-50 to-pink-50 rounded-3xl p-8 lg:p-10 border border-orange-100 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h3 className="text-2xl font-bold mb-4 text-center text-gray-800">Team & Research Culture</h3>
+          <p className="text-orange-600 font-semibold text-center text-lg max-w-3xl mx-auto mb-6 leading-relaxed">
+            By bridging service delivery and research, NHF ensures that knowledge creation is not 
+            removed from practice, but emerges directly from it.
+          </p>
           <p className="text-gray-600 text-center max-w-3xl mx-auto mb-6 leading-relaxed">
-            NHF operates through a Memorandum of Understanding with New Horizons Child Development 
-            Centre (NHCDC), enabling strong integration between clinical practice and research.
+            NHF operates through a Memorandum of Understanding with{" "}
+            <a href="https://www.newhorizonscdc.in/" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-semibold hover:underline whitespace-nowrap">New Horizons Child Development Centre (<span className="whitespace-nowrap">NHCDC</span>)</a>,{" "}
+            enabling strong integration between clinical practice and research.
           </p>
           <p className="text-gray-500 text-center max-w-3xl mx-auto mb-8 leading-relaxed">
-            NHF actively encourages staff from NHCDC to participate in research activities as part 
+            NHF actively encourages staff from{" "}
+            <a href="https://www.newhorizonscdc.in/" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-semibold hover:underline whitespace-nowrap">NHCDC</a>{" "}
+            to participate in research activities as part 
             of their professional growth. This integration enables clinicians and practitioners to:
           </p>
           <div className="grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
@@ -161,10 +168,6 @@ const TeamSection = () => {
               </div>
             ))}
           </div>
-          <p className="text-sm text-center text-orange-600 font-semibold mt-8">
-            By bridging service delivery and research, NHF ensures that knowledge creation is not 
-            removed from practice, but emerges directly from it.
-          </p>
         </div>
       </div>
     </section>

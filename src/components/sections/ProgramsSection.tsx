@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, GraduationCap, Database, Building2, FileText, Sparkles, Heart, Star } from "lucide-react";
+import { ArrowRight, Shield, Database, Building2, Sparkles, Heart, Star } from "lucide-react";
 import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
 import heroImage from "@/assets/hero-children.jpg";
 
@@ -9,39 +9,21 @@ const ProgramsSection = () => {
   const keyInitiatives = [
     {
       icon: Building2,
-      title: "UNICEF Collaboration – DEIC Capacity Building (2025)",
-      description: "Designing and implementing training and monitoring systems for District Early Intervention Centres (DEICs), beginning with Aundh General Hospital, Pune.",
+      title: "Capacity Building and System Strengthening with Government of Maharashtra",
+      description: "Designing and implementing training and monitoring systems for District Early Intervention Centres (DEICs), beginning with Aundh General Hospital, Pune – in collaboration with UNICEF. Community and clinic-based modules that educate caregivers on goal-setting, home strategies, and system navigation.",
       gradient: "from-blue-500 to-cyan-500"
     },
     {
       icon: Database,
       title: "Clinical and Implementation Research",
-      description: "Clinical and behavioural profiling, and intervention impact assessments to inform personalized intervention models.",
+      description: "Clinical and behavioural profiling, intervention impact assessments, and implementation research within government systems and DEICs to inform personalized intervention models and scalable programs.",
       gradient: "from-purple-500 to-pink-500"
     },
     {
-      icon: GraduationCap,
-      title: "Parent Engagement Program (PEP)",
-      description: "Community and clinic-based modules that educate caregivers on goal-setting, home strategies, and system navigation.",
-      gradient: "from-orange-500 to-amber-500"
-    },
-    {
       icon: Shield,
-      title: "Ethical Committee for Neuro-Behavioural Pediatric Research",
-      description: "Establishing ethical review and guidance mechanisms to support responsible research involving children, ensuring safety, transparency, and trust.",
+      title: "Ethical Pediatric Research Frameworks with Data Protection Initiatives",
+      description: "Establishing ethical review and guidance mechanisms for responsible research involving children, developing practical guidelines and SOPs for ethical decision-making, and supporting ethical data collection, storage, and analysis practices with secure tools.",
       gradient: "from-teal-500 to-green-500"
-    },
-    {
-      icon: FileText,
-      title: "Ethical Pediatric Research Frameworks",
-      description: "Development of practical guidelines and SOPs to support ethical decision-making in behavioral and neurodevelopmental research.",
-      gradient: "from-rose-500 to-pink-500"
-    },
-    {
-      icon: Shield,
-      title: "Data Ethics & Protection Initiatives",
-      description: "Support for ethical data collection, storage, and analysis practices, including training on secure tools when working with sensitive child-related data.",
-      gradient: "from-indigo-500 to-purple-500"
     }
   ];
 
