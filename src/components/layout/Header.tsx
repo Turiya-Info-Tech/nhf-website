@@ -1,24 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Sparkles } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import LanguageToggle from "@/components/ui/LanguageToggle";
+import { useLanguage } from "@/lib/language";
 
 const Header = () => {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const location = useLocation();
   const navigate = useNavigate();
 
-  const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Our Work", href: "#focus-areas" },
-    { label: "Impact", href: "#impact" },
-    { label: "Get Involved", href: "#get-involved" },
-    { label: "Contact", href: "#contact" },
-  ];
+  const navItems = useMemo(() => [
+    { label: t('header.home'), href: "#home" },
+    { label: t('header.about'), href: "#about" },
+    { label: t('header.work'), href: "#focus-areas" },
+    { label: t('header.impact'), href: "#impact" },
+    { label: t('header.getInvolved'), href: "#get-involved" },
+    { label: t('header.contact'), href: "#contact" },
+  ], [t]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +63,7 @@ const Header = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-white/90 backdrop-blur-xl shadow-md border-b border-gray-100" 
+          ? "bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-200" 
           : "bg-transparent"
       }`}
       style={{ width: '100%' }}
@@ -138,12 +141,15 @@ const Header = () => {
                 })}
                 
                 <div className="mt-6 pt-4 border-t border-gray-100">
+                  <div className="mb-4 px-4">
+                    <LanguageToggle />
+                  </div>
                   <Button 
                     onClick={() => handleNavClick({ href: "#get-involved" })}
                     className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white"
                   >
                     <Sparkles className="w-4 h-4 mr-2" />
-                    Get Involved
+                    {t('header.getInvolved')}
                   </Button>
                 </div>
               </nav>
@@ -184,13 +190,16 @@ const Header = () => {
               })}
             </nav>
 
-            <Button 
-              onClick={() => handleNavClick({ href: "#get-involved" })}
-              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25"
-            >
-              <Sparkles className="w-4 h-4 mr-2" />
-              Get Involved
-            </Button>
+            <div className="flex items-center gap-4">
+              <LanguageToggle />
+              <Button 
+                onClick={() => handleNavClick({ href: "#get-involved" })}
+                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25"
+              >
+                <Sparkles className="w-4 h-4 mr-2" />
+                {t('header.getInvolved')}
+              </Button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,121 +1,245 @@
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Database, Building2, Sparkles, Heart, Star } from "lucide-react";
+import { useLanguage } from "@/lib/language";
+import {
+  ArrowRight,
+  Baby,
+  Building2,
+  HeartPulse,
+  MonitorSmartphone,
+  School,
+  Soup,
+  Sparkles,
+  Users,
+} from "lucide-react";
 import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
-import heroImage from "@/assets/hero-children.jpg";
+import classroomImage from "@/assets/hero-children.jpg";
+import communityImage from "@/assets/hero-community.webp";
+import clinicalImage from "@/assets/hero-medical-care.webp";
 
 const ProgramsSection = () => {
+  const { t, language } = useLanguage();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+  const [activeProgram, setActiveProgram] = useState(0);
+  const sectionHeadingClass = language === "hi"
+    ? "text-4xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-[1.3] tracking-normal text-slate-900"
+    : "text-4xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-[1.12] tracking-[-0.02em] text-slate-900";
 
-  const keyInitiatives = [
+  const programs = [
+    {
+      icon: School,
+      tab: language === "hi" ? "स्कूल स्वास्थ्य" : "School Health",
+      pillar: language === "hi" ? "स्कूल स्वास्थ्य" : "School Health",
+      title: language === "hi" ? "कक्षा से आगे तक" : "From the classroom outward",
+      description:
+        language === "hi"
+          ? "स्कूल-आधारित कार्य जो शिक्षकों और देखभालकर्ताओं को चिंताओं की जल्दी पहचान करने, दैनिक सहयोग रणनीतियों को मजबूत करने और बच्चों को समय पर विकासात्मक सहायता से जोड़ने में मदद करता है।"
+          : "School-based work that helps educators and caregivers identify concerns early, strengthen daily support strategies, and connect children to timely developmental care.",
+      image: classroomImage,
+      gradient: "from-amber-500 to-orange-500",
+      highlights:
+        language === "hi"
+          ? ["शिक्षक क्षमता निर्माण", "प्रारंभिक पहचान", "दैनिक स्कूल परिवेश में सहयोग"]
+          : ["Teacher capacity building", "Early identification", "Support inside everyday school settings"],
+    },
+    {
+      icon: Baby,
+      tab: language === "hi" ? "प्रारंभिक बचपन" : "Early Childhood",
+      pillar: language === "hi" ? "बाल विकास" : "Child Development",
+      title: language === "hi" ? "प्रारंभिक बचपन की नींव" : "Early childhood foundations",
+      description:
+        language === "hi"
+          ? "आंगनवाड़ियों, क्लीनिकों और समुदायों में किया गया कार्य, जो विकासात्मक निगरानी, देखभालकर्ता मार्गदर्शन और जीवन के सबसे प्रारंभिक और प्रभावशाली वर्षों में सहयोग पर केंद्रित है।"
+          : "Work in anganwadis, clinics, and communities focused on developmental surveillance, caregiver guidance, and support during the earliest and most influential years of life.",
+      image: communityImage,
+      gradient: "from-sky-500 to-cyan-500",
+      highlights:
+        language === "hi"
+          ? ["आंगनवाड़ी सहभागिता", "देखभालकर्ता मार्गदर्शन", "प्रारंभिक विकासात्मक सहयोग"]
+          : ["Anganwadi engagement", "Caregiver guidance", "Early developmental support"],
+    },
+    {
+      icon: HeartPulse,
+      tab: language === "hi" ? "विकासात्मक विकार" : "Developmental Disorders",
+      pillar: language === "hi" ? "स्वास्थ्य" : "Health",
+      title: language === "hi" ? "साक्ष्य-आधारित विकासात्मक देखभाल" : "Evidence-led developmental care",
+      description:
+        language === "hi"
+          ? "विकासात्मक देरी, सीखने की कठिनाइयों और न्यूरोडेवलपमेंटल स्थितियों वाले बच्चों के लिए नैदानिक और क्षेत्र-आधारित कार्य, ताकि सहायता व्यावहारिक, समय पर और साक्ष्य-आधारित हो।"
+          : "Clinical and field-informed work for children with developmental delays, learning difficulties, and neurodevelopmental conditions so support is practical, timely, and evidence-based.",
+      image: clinicalImage,
+      gradient: "from-rose-500 to-pink-500",
+      highlights:
+        language === "hi"
+          ? ["विकासात्मक आकलन", "देखभाल मार्ग", "बहु-विषयी हस्तक्षेप मॉडल"]
+          : ["Developmental assessments", "Care pathways", "Interdisciplinary intervention models"],
+    },
+    {
+      icon: MonitorSmartphone,
+      tab: language === "hi" ? "डिजिटल स्वच्छता" : "Digital Hygiene",
+      pillar: language === "hi" ? "मानसिक स्वास्थ्य" : "Mental Health",
+      title: language === "hi" ? "स्वस्थ डिजिटल परिवेश" : "Healthier digital environments",
+      description:
+        language === "hi"
+          ? "ऐसे कार्यक्रम जो जागरूकता, रोकथाम और बेहतर दिनचर्या के माध्यम से तकनीक के उपयोग, डिजिटल बोझ और बच्चों व किशोरों के कल्याण पर काम करते हैं।"
+          : "Programmes that address technology use, digital overload, and the wellbeing of children and adolescents through awareness, prevention, and healthier routines.",
+      image: classroomImage,
+      gradient: "from-violet-500 to-fuchsia-500",
+      highlights:
+        language === "hi"
+          ? ["स्क्रीन उपयोग जागरूकता", "माता-पिता और स्कूल मार्गदर्शन", "व्यवहार-केंद्रित रोकथाम"]
+          : ["Screen-use awareness", "Parent and school guidance", "Behaviour-focused prevention"],
+    },
+    {
+      icon: Soup,
+      tab: language === "hi" ? "किशोर स्वास्थ्य" : "Adolescent Health",
+      pillar: language === "hi" ? "पोषण" : "Nutrition",
+      title: language === "hi" ? "गरिमा और लचीलापन के साथ बढ़ना" : "Growing with dignity and resilience",
+      description:
+        language === "hi"
+          ? "ऐसा कार्य जो किशोरों को स्वास्थ्य, पोषण और मनोसामाजिक हस्तक्षेपों के माध्यम से सहयोग देता है, जो जीवन के इस चरण और इसके आसपास की प्रणालियों की जटिलता को समझता है।"
+          : "Work that supports adolescents through health, nutrition, and psychosocial interventions that recognise the complexity of this life stage and the systems around it.",
+      image: communityImage,
+      gradient: "from-emerald-500 to-teal-500",
+      highlights:
+        language === "hi"
+          ? ["पोषण-संबद्ध सहयोग", "मनोसामाजिक कल्याण", "आयु-उपयुक्त स्वास्थ्य शिक्षा"]
+          : ["Nutrition-linked support", "Psychosocial wellbeing", "Age-appropriate health education"],
+    },
     {
       icon: Building2,
-      title: "Capacity Building and System Strengthening with Government of Maharashtra",
-      description: "Designing and implementing training and monitoring systems for District Early Intervention Centres (DEICs), beginning with Aundh General Hospital, Pune – in collaboration with UNICEF. Community and clinic-based modules that educate caregivers on goal-setting, home strategies, and system navigation.",
-      gradient: "from-blue-500 to-cyan-500"
+      tab: language === "hi" ? "समुदाय और आउटरीच" : "Community & Outreach",
+      pillar: language === "hi" ? "सार्वजनिक प्रणालियाँ" : "Public Systems",
+      title: language === "hi" ? "ऐसी प्रणालियाँ जो और आगे पहुँचें" : "Systems that reach further",
+      description:
+        language === "hi"
+          ? "अस्पतालों, सरकारी संस्थानों और सामुदायिक मंचों के साथ कार्यान्वयन भागीदारी, जो देखभाल की डिलीवरी, पहुँच और दीर्घकालिक स्थिरता को बेहतर बनाती है।"
+          : "Implementation partnerships with hospitals, government institutions, and community platforms that improve how care is delivered, accessed, and sustained at scale.",
+      image: clinicalImage,
+      gradient: "from-slate-700 to-slate-900",
+      highlights:
+        language === "hi"
+          ? ["सरकारी भागीदारी", "सामुदायिक आउटरीच", "प्रणाली सुदृढ़ीकरण और विस्तार"]
+          : ["Government partnerships", "Community outreach", "System-strengthening and scale"],
     },
-    {
-      icon: Database,
-      title: "Clinical and Implementation Research",
-      description: "Clinical and behavioural profiling, intervention impact assessments, and implementation research within government systems and DEICs to inform personalized intervention models and scalable programs.",
-      gradient: "from-purple-500 to-pink-500"
-    },
-    {
-      icon: Shield,
-      title: "Ethical Pediatric Research Frameworks with Data Protection Initiatives",
-      description: "Establishing ethical review and guidance mechanisms for responsible research involving children, developing practical guidelines and SOPs for ethical decision-making, and supporting ethical data collection, storage, and analysis practices with secure tools.",
-      gradient: "from-teal-500 to-green-500"
-    }
   ];
+
+  const selectedProgram = programs[activeProgram];
 
   return (
     <section id="programs" ref={ref} className="py-20 lg:py-28 bg-white relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-orange-100/30 to-transparent rounded-full blur-3xl translate-x-1/2" />
-      <div className="absolute bottom-20 left-0 w-80 h-80 bg-gradient-to-br from-purple-100/30 to-transparent rounded-full blur-3xl -translate-x-1/2" />
+      <div className="absolute top-0 right-1/2 translate-x-1/2 w-96 h-96 bg-gradient-to-b from-orange-50/50 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-teal-50/40 to-transparent rounded-full blur-3xl" />
       
       <div className="container relative">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          <div className={`lg:sticky lg:top-28 transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider">
+        <div className={`max-w-3xl mb-16 lg:mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider mb-4">
               <Sparkles className="w-4 h-4" />
-              Key Initiatives
+              {t('programs.badge')}
             </span>
-            <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight">
-              Delivering Meaningful{" "}
-              <span className="text-gradient">Outcomes</span>
+            <h2 className={`${sectionHeadingClass} max-w-4xl`}>
+              {t('programs.title')}
             </h2>
-            <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-              Our programs span from ethical research frameworks to on-ground 
-              implementation, creating a comprehensive ecosystem for child development.
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              {t('programs.subtitle')}
             </p>
-            <p className="text-gray-500 mb-8 leading-relaxed">
-              Each initiative is designed with measurable outcomes, ensuring 
-              accountability and real-world impact for children and families.
+            <p className="text-base text-gray-600 mb-8 leading-relaxed">
+              {t('programs.description')}
             </p>
             <Button 
-              className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300"
+              className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300 text-base"
               onClick={() => document.getElementById('get-involved')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Partner With Us
-              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-2" />
+              {t('programs.partner')}
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
+        </div>
 
-            {/* Featured Image */}
-            <div className={`mt-10 relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-orange-500/20 group">
-                <img 
-                  src={heroImage} 
-                  alt="Children learning and growing together" 
-                  className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-                
-                {/* Floating stats badge */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                  <div className="flex items-center gap-2 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg">
-                    <Heart className="w-5 h-5 text-rose-500 animate-pulse" />
-                    <span className="text-sm font-semibold text-slate-700">5000+ Children Supported</span>
+        <div className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-8">
+            {programs.map((program, index) => {
+              const isActive = activeProgram === index;
+              return (
+                <button
+                  key={program.tab}
+                  type="button"
+                  onClick={() => setActiveProgram(index)}
+                  className={`rounded-xl border px-4 py-4 text-left transition-all duration-300 group ${
+                    isActive
+                      ? 'border-transparent bg-slate-900 text-white shadow-lg hover:shadow-xl'
+                      : 'border-gray-200 bg-white text-gray-700 hover:border-orange-200 hover:-translate-y-0.5 hover:shadow-md'
+                  } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                  style={getStaggerDelay(index, 80)}
+                >
+                  <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${program.gradient} shadow-md group-hover:scale-105 transition-transform`}>
+                    <program.icon className="h-5 w-5 text-white" />
                   </div>
-                  <div className="flex items-center gap-1 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl px-3 py-2 shadow-lg">
-                    <Star className="w-4 h-4 text-white fill-white" />
-                    <span className="text-sm font-bold text-white">12+ Years</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Decorative elements */}
-              <div className="absolute -bottom-3 -right-3 w-24 h-24 bg-gradient-to-br from-teal-400 to-teal-600 rounded-2xl -z-10 opacity-60" />
-              <div className="absolute -top-3 -left-3 w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl -z-10 opacity-60" />
-            </div>
+                  <p className="text-sm font-semibold leading-snug">{program.tab}</p>
+                </button>
+              );
+            })}
           </div>
 
-          <div className="space-y-4">
-            {keyInitiatives.map((program, index) => (
-              <div 
-                key={index}
-                className={`group p-6 rounded-2xl bg-white border border-gray-100 shadow-lg shadow-gray-100/50 hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-500 hover:-translate-y-1 ${
-                  isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
-                }`}
-                style={getStaggerDelay(index, 100)}
-              >
-                <div className="flex gap-4">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${program.gradient} flex items-center justify-center shrink-0 shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                    <program.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold mb-2 group-hover:text-orange-600 transition-colors">
-                      {program.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm leading-relaxed">
-                      {program.description}
-                    </p>
-                  </div>
-                </div>
-                {/* Hover indicator */}
-                <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-gradient-to-b ${program.gradient} rounded-r-full group-hover:h-1/2 transition-all duration-300`} />
+          <div className={`grid lg:grid-cols-[1.2fr_0.8fr] gap-8 rounded-2xl bg-slate-900 p-8 lg:p-10 xl:p-12 text-white shadow-xl transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div>
+              <div className="mb-8 flex flex-wrap items-center gap-3">
+                <span className={`inline-flex items-center gap-2 rounded-lg bg-gradient-to-r ${selectedProgram.gradient} px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white shadow-md`}>
+                  <selectedProgram.icon className="h-4 w-4" />
+                  {selectedProgram.pillar}
+                </span>
+                <span className="rounded-lg border border-white/20 px-4 py-2 text-xs uppercase tracking-wider text-white/70 bg-white/5">
+                  {language === "hi" ? "कार्यक्रम क्षेत्र" : "Programme Area"}
+                </span>
               </div>
-            ))}
+
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold leading-tight mb-6 text-white">
+                {selectedProgram.title}
+              </h3>
+              <p className="text-white/80 text-lg leading-relaxed mb-8">
+                {selectedProgram.description}
+              </p>
+
+              <div className="grid sm:grid-cols-3 gap-4 mb-8">
+                {selectedProgram.highlights.map((highlight) => (
+                  <div
+                    key={highlight}
+                    className="rounded-lg border border-white/15 bg-white/8 px-4 py-4 text-sm font-medium text-white/90 backdrop-blur-sm hover:bg-white/12 transition-colors"
+                  >
+                    {highlight}
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex items-start gap-3 text-sm text-white/75 bg-white/5 rounded-lg p-4">
+                <Users className="h-5 w-5 text-orange-400 flex-shrink-0 mt-0.5" />
+                <p className="leading-relaxed">
+                  {language === "hi"
+                    ? "बाल-केंद्रित प्रणालियों में साक्ष्य को दैनिक व्यवहार में लाने के लिए तैयार किया गया।"
+                    : "Designed to move evidence into everyday practice across child-serving systems."}
+                </p>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5">
+              <img
+                src={selectedProgram.image}
+                alt={selectedProgram.tab}
+                className="h-full min-h-[380px] w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-6">
+                <p className="text-xs font-semibold uppercase tracking-wider text-orange-300 mb-2">
+                  {language === "hi" ? "एनएचएफ कार्यक्रम" : "NHF Programme"}
+                </p>
+                <h4 className="text-2xl font-serif font-bold mb-3 text-white">{selectedProgram.tab}</h4>
+                <p className="text-sm text-white/80 leading-relaxed">
+                  {language === "hi"
+                    ? "स्वास्थ्य और सार्वजनिक प्रणालियों में अनुसंधान, कार्यान्वयन और भागीदारी पर आधारित।"
+                    : "Grounded in research, implementation, and partnerships across health and public systems."}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

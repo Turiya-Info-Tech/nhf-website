@@ -1,15 +1,16 @@
 import { useEffect, useState, useRef } from "react";
-import { TrendingUp, Users, GraduationCap, Building2, Sparkles } from "lucide-react";
+import { TrendingUp, BookOpen, Calendar, Layers, Sparkles } from "lucide-react";
+import { useLanguage } from "@/lib/language";
 
 const ImpactSection = () => {
+  const { t, language } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const stats = [
-    { value: 12, suffix: "+", label: "Years of Impact", icon: TrendingUp },
-    { value: 5000, suffix: "+", label: "Children Supported", icon: Users },
-    { value: 200, suffix: "+", label: "Professionals Trained", icon: GraduationCap },
-    { value: 15, suffix: "+", label: "Government Partnerships", icon: Building2 }
+    { value: 50, suffix: "+", label: t('impact.stat1'), icon: BookOpen },
+    { value: 23, suffix: "+", label: t('impact.stat2'), icon: Calendar },
+    { value: 4, suffix: "", label: t('impact.stat3'), icon: Layers }
   ];
 
   useEffect(() => {
@@ -37,90 +38,96 @@ const ImpactSection = () => {
     >
       {/* Subtle background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-100/40 to-teal-100/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-teal-100/30 to-blue-100/20 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-b from-orange-50/60 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-teal-50/40 to-transparent rounded-full blur-3xl" />
       </div>
-      
-      {/* Grid pattern */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)`,
-        backgroundSize: '40px 40px'
-      }} />
 
       <div className="container relative">
-        <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider">
-            <Sparkles className="w-4 h-4" />
-            Our Impact
-          </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight text-slate-800">
-            From Care to Evidence.{" "}
-            <span className="text-gradient">From Evidence to Impact.</span>
+        <div className={`text-center max-w-3xl mx-auto mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider mb-4">
+              <Sparkles className="w-4 h-4" />
+              {t('impact.badge')}
+            </span>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight text-slate-900">
+            {t('impact.title')}
           </h2>
-          <p className="text-gray-600 text-lg">
-            Our work creates measurable change in the lives of children, families, 
-            and the systems that serve them.
+          <p className="text-lg text-gray-600 leading-relaxed">
+            {t('impact.description')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 mb-20 max-w-5xl mx-auto">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
               <div 
                 key={index}
-                className={`text-center p-6 rounded-2xl bg-gray-50 border border-gray-100 shadow-lg hover:-translate-y-1 transition-all duration-500 group ${
+                className={`text-center p-8 lg:p-10 rounded-2xl bg-gradient-to-br from-white to-gray-50 border border-gray-100 shadow-md hover:shadow-lg hover:-translate-y-2 transition-all duration-500 group ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-gradient-to-br from-orange-500 to-teal-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-6 h-6 text-white" />
+                <div className="w-14 h-14 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-500 to-teal-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Icon className="w-7 h-7 text-white" />
                 </div>
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-orange-500 to-teal-500 bg-clip-text text-transparent">
+                <div className="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-orange-600 to-teal-600 bg-clip-text text-transparent">
                   {isVisible ? (
                     <CountUp end={stat.value} suffix={stat.suffix} />
                   ) : (
                     <span>0{stat.suffix}</span>
                   )}
                 </div>
-                <p className="text-gray-500 text-sm">{stat.label}</p>
+                <p className="text-gray-700 text-base font-medium">{stat.label}</p>
               </div>
             );
           })}
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {[
             {
-              title: "Impact on Families",
-              content: "Our evidence-based approach builds hope through observable change. Families report significant improvements in their children's functional abilities and quality of life."
+              title: t('impact.familiesTitle'),
+              content: t('impact.familiesDesc')
             },
             {
-              title: "Districts & Institutions",
-              content: "Active partnerships with government and institutional stakeholders:",
-              list: ["Pune (UNICEF DEIC Collaboration)", "Aundh General Hospital"]
+              title: t('impact.districtsTitle'),
+              content: t('impact.districtsDesc'),
+                list: language === "hi"
+                  ? ["पुणे (यूनिसेफ DEIC सहयोग)", "औंध जनरल हॉस्पिटल"]
+                  : ["Pune (UNICEF DEIC Collaboration)", "Aundh General Hospital"]
             },
             {
-              title: "Systems Implemented",
-              list: ["Digital data collection system", "Research facilitation system", "Implementation, monitoring & evaluation", "Ethics committee for research with vulnerable populations"]
+              title: t('impact.systemsTitle'),
+                list: language === "hi"
+                  ? [
+                      "डिजिटल डेटा संग्रह प्रणाली",
+                      "अनुसंधान सुविधा प्रणाली",
+                      "कार्यान्वयन, निगरानी और मूल्यांकन",
+                      "अनुसंधान हेतु नैतिकता समिति"
+                    ]
+                  : [
+                      "Digital data collection system",
+                      "Research facilitation system",
+                      "Implementation, monitoring & evaluation",
+                      "Ethics committee for research"
+                    ]
             }
           ].map((card, index) => (
             <div 
               key={index}
-              className={`p-8 rounded-2xl bg-gray-50 border border-gray-100 shadow-lg hover:-translate-y-1 group transition-all duration-500 ${
+              className={`p-8 lg:p-10 rounded-2xl bg-gradient-to-br from-white to-gray-50/50 border border-gray-100 shadow-md hover:shadow-lg hover:-translate-y-1 group transition-all duration-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${600 + index * 150}ms` }}
             >
-              <h3 className="text-xl font-semibold mb-4 text-slate-800 group-hover:text-orange-600 transition-colors">{card.title}</h3>
-              {card.content && <p className="text-gray-600 mb-3">{card.content}</p>}
+              <h3 className="text-xl font-serif font-bold mb-4 text-slate-900 group-hover:text-orange-600 transition-colors">{card.title}</h3>
+              {card.content && <p className="text-gray-700 mb-3 text-base leading-relaxed">{card.content}</p>}
               {card.list && (
-                <ul className="text-gray-600 text-sm space-y-2">
+                <ul className="text-gray-700 text-sm space-y-3">
                   {card.list.map((item, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-500 to-teal-500" />
-                      {item}
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-teal-500 flex-shrink-0 mt-1.5" />
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>

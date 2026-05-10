@@ -1,22 +1,56 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { useContent } from "@/lib/content";
 import { Sparkles, Users, Target, Lightbulb } from "lucide-react";
 import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
+import { useLanguage } from "@/lib/language";
+import ruchaPanchalImg from "@/assets/Ms. Rucha Panchal.jpeg";
+import sandhyaKulkarniImg from "@/assets/Mrs. Sandhya Kulkarni.jpeg";
+import sandeepBavdekarImg from "@/assets/Dr Sandeep Bavdekar.jpeg";
+import anushkaSamantImg from "@/assets/Ms Anushka Samant.jpeg";
+import hillaSookhadwalaImg from "@/assets/Dr Hilla S.JPG";
 
 const TeamSection = () => {
+  const { language } = useLanguage();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
-  const { teamMembers, loading } = useContent();
 
-  // Find founder (first member or the one with "Founder" in role)
-  const founder = teamMembers.find(m => m.role.toLowerCase().includes('founder')) || teamMembers[0];
-  
-  // Core team (excluding founder)
-  const coreTeam = teamMembers.filter(m => m.id !== founder?.id);
+  // Static team members in the specified order
+  const teamMembers = [
+    {
+      name: "Mrs. Sandhya Kulkarni",
+      role: language === "hi" ? "निदेशक एवं एनएचएफ प्रभारी" : "Director and NHF In-charge",
+      bio: language === "hi" ? "एनएचएफ की रणनीतिक दिशा और संचालन प्रबंधन का नेतृत्व।" : "Leading NHF's strategic direction and operational management.",
+      image_url: sandhyaKulkarniImg
+    },
+    {
+      name: "Dr Sandeep Bavdekar",
+      role: language === "hi" ? "पूर्व प्रोफेसर एवं प्रमुख, बाल रोग विभाग, टोपीवाला नेशनल मेडिकल कॉलेज और बीवाईएल नायर चैरिटेबल हॉस्पिटल, मुंबई" : "Former Professor and Head, Department of Pediatrics at Topiwala National Medical College and BYL Nair Charitable Hospital, Mumbai",
+      bio: language === "hi" ? "बाल रोग में व्यापक शैक्षणिक और नैदानिक विशेषज्ञता।" : "Bringing extensive academic and clinical expertise in pediatrics.",
+      image_url: sandeepBavdekarImg
+    },
+    {
+      name: "Dr Hilla Sookhadwala",
+      role: language === "hi" ? "परामर्शदाता विकासात्मक बाल रोग विशेषज्ञ और एनएचएफ कार्यक्रम प्रमुख" : "Consultant Developmental Pediatrician and NHF Program Lead",
+      bio: language === "hi" ? "एनएचएफ कार्यक्रमों और नैदानिक विकासात्मक बाल रोग पहलों का नेतृत्व।" : "Leading NHF programs and clinical developmental pediatrics initiatives.",
+      image_url: hillaSookhadwalaImg,
+      imagePosition: "center 8%"
+    },
+    {
+      name: "Ms. Rucha Panchal",
+      role: language === "hi" ? "अनुसंधान सहयोगी" : "Research Associate",
+      bio: language === "hi" ? "अनुसंधान डिज़ाइन, डेटा विश्लेषण और साक्ष्य निर्माण में योगदान।" : "Contributing to research design, data analysis, and evidence generation.",
+      image_url: ruchaPanchalImg
+    },
+    {
+      name: "Ms. Anushka Samant",
+      role: language === "hi" ? "अनुसंधान सहयोगी" : "Research Associate",
+      bio: language === "hi" ? "अनुसंधान गतिविधियों और कार्यक्रम प्रलेखन में सहयोग।" : "Supporting research activities and program documentation.",
+      image_url: anushkaSamantImg
+    }
+  ];
 
   const culturePoints = [
-    { icon: Target, text: "View their work objectively through outcomes and data" },
-    { icon: Lightbulb, text: "Reflect on the real-world impact of interventions" },
-    { icon: Users, text: "Contribute to evidence generation grounded in clinical reality" }
+    { icon: Target, text: language === "hi" ? "परिणामों और डेटा के माध्यम से कार्य को वस्तुनिष्ठ रूप से देखना" : "View their work objectively through outcomes and data" },
+    { icon: Lightbulb, text: language === "hi" ? "हस्तक्षेपों के वास्तविक दुनिया पर प्रभाव पर चिंतन करना" : "Reflect on the real-world impact of interventions" },
+    { icon: Users, text: language === "hi" ? "नैदानिक वास्तविकता पर आधारित साक्ष्य निर्माण में योगदान देना" : "Contribute to evidence generation grounded in clinical reality" }
   ];
 
   return (
@@ -29,109 +63,55 @@ const TeamSection = () => {
         <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider">
             <Sparkles className="w-4 h-4" />
-            Our Team
+            {language === "hi" ? "हमारी टीम" : "Our Team"}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight">
-            The People Behind{" "}
-            <span className="text-gradient">NHF</span>
+            {language === "hi" ? "एनएचएफ के पीछे की टीम" : "The People Behind NHF"}
           </h2>
           <p className="text-gray-600 text-lg">
-            A dedicated team of professionals united by a shared commitment 
-            to improving outcomes for children.
+            {language === "hi" ? "ऐसे पेशेवरों की समर्पित टीम जो बच्चों के बेहतर परिणामों के साझा संकल्प से जुड़ी है।" : "A dedicated team of professionals united by a shared commitment to improving outcomes for children."}
           </p>
         </div>
 
-        {/* Founder Section */}
-        {founder && (
-        <div className={`mb-16 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <Card className="overflow-hidden border-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 shadow-2xl">
-            <CardContent className="p-0">
-              <div className="grid md:grid-cols-3 gap-0">
-                {/* Photo */}
-                <div className="md:col-span-1 bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center min-h-[400px] md:min-h-full p-8 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,146,60,0.1),transparent_70%)]" />
-                  <div className="relative w-full h-full flex items-center justify-center group">
-                    <img 
-                      src={founder.image_url || "/image.png"} 
-                      alt={`${founder.name} - ${founder.role}`}
-                      className="w-full max-w-[280px] h-auto object-contain rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-                
-                {/* Bio Content */}
-                <div className="md:col-span-2 p-6 lg:p-10 text-white relative">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-500 via-pink-500 to-teal-500" />
-                  <div className="mb-4">
-                    <span className="inline-flex items-center gap-2 text-xs font-bold text-orange-400 uppercase tracking-wider px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20">
-                      {founder.role}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl lg:text-3xl font-serif font-bold mb-2 text-white md:whitespace-nowrap">
-                    {founder.name}
-                  </h3>
-                  <p className="text-orange-300 font-medium mb-6">
-                    MD (Pediatrics), DCH, FCPS, FIAP (Developmental & Behavioral Pediatrics)
-                  </p>
-                  <div className="space-y-4 text-white/70 leading-relaxed">
-                    <p>{founder.bio}</p>
-                    <p>
-                      A passionate advocate for evidence-based practice, Dr. Dalwai has trained over 2,000 
-                      professionals across India and has contributed significantly to national guidelines on 
-                      developmental disabilities. He serves on multiple advisory boards and ethics committees, 
-                      ensuring that research and clinical practice remain centered on the child's best interests.
-                    </p>
-                    <p>
-                      His philosophy of "What Works?" guides NHF's mission—focusing on measurable, 
-                      real-world outcomes that transform the lives of children and their families. Under his 
-                      leadership, NHF has established partnerships with UNICEF, government systems, and 
-                      leading academic institutions.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-        )}
-
-        {/* Team Grid */}
-        <h3 className={`text-2xl font-bold text-center mb-8 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          Our Core Team
-        </h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {coreTeam.map((member, index) => (
+        {/* Team Members - Vertical Layout */}
+        <div className="max-w-3xl mx-auto mb-12 space-y-6">
+          {teamMembers.map((member, index) => (
             <Card 
               key={index}
-              className={`group bg-white border-0 shadow-lg shadow-gray-100/50 hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-500 overflow-hidden hover:-translate-y-2 ${
+              className={`group bg-white border-0 shadow-lg shadow-gray-100/50 hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-500 overflow-hidden hover:-translate-y-1 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
-              style={getStaggerDelay(index + 4, 100)}
+              style={getStaggerDelay(index, 100)}
             >
-              <CardContent className="p-6 text-center relative">
-                {/* Top gradient line */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 to-pink-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+              <CardContent className="p-6 relative">
+                {/* Left gradient line */}
+                <div className="absolute top-0 left-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 to-pink-500 transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300" />
                 
-                {member.image_url ? (
-                  <img 
-                    src={member.image_url} 
-                    alt={member.name}
-                    className="w-16 h-16 rounded-full object-cover mb-4 mx-auto ring-4 ring-orange-100 group-hover:ring-orange-200 transition-all duration-300"
-                  />
-                ) : (
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center mb-4 mx-auto text-white font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    {member.name.split(' ').map(n => n.charAt(0)).join('').slice(0, 2)}
+                <div className="flex items-start gap-5">
+                  {member.image_url ? (
+                    <img 
+                      src={member.image_url} 
+                      alt={member.name}
+                      className="w-20 h-20 rounded-2xl object-cover ring-4 ring-orange-100 group-hover:ring-orange-200 transition-all duration-300 flex-shrink-0"
+                      style={{ objectPosition: member.imagePosition || "center" }}
+                    />
+                  ) : (
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
+                      {member.name.split(' ').map(n => n.charAt(0)).join('').slice(0, 2)}
+                    </div>
+                  )}
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold text-gray-800 mb-1 group-hover:text-orange-600 transition-colors">
+                      {member.name}
+                    </h4>
+                    <p className="text-sm font-semibold text-orange-500 mb-2 leading-relaxed">
+                      {member.role}
+                    </p>
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      {member.bio}
+                    </p>
                   </div>
-                )}
-                <h4 className="text-base font-bold text-gray-800 mb-1 group-hover:text-orange-600 transition-colors">
-                  {member.name}
-                </h4>
-                <p className="text-xs font-semibold text-orange-500 mb-2">
-                  {member.role}
-                </p>
-                <p className="text-xs text-gray-500 leading-relaxed">
-                  {member.bio}
-                </p>
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -139,21 +119,19 @@ const TeamSection = () => {
 
         {/* Team & Research Culture */}
         <div className={`bg-gradient-to-br from-orange-50 to-pink-50 rounded-3xl p-8 lg:p-10 border border-orange-100 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h3 className="text-2xl font-bold mb-4 text-center text-gray-800">Team & Research Culture</h3>
+          <h3 className="text-2xl font-bold mb-4 text-center text-gray-800">{language === "hi" ? "टीम और अनुसंधान संस्कृति" : "Team & Research Culture"}</h3>
           <p className="text-orange-600 font-semibold text-center text-lg max-w-3xl mx-auto mb-6 leading-relaxed">
-            By bridging service delivery and research, NHF ensures that knowledge creation is not 
-            removed from practice, but emerges directly from it.
+            {language === "hi" ? "सेवा-प्रदाय और अनुसंधान के बीच पुल बनाकर, एनएचएफ सुनिश्चित करता है कि ज्ञान-निर्माण व्यवहार से अलग न हो, बल्कि उसी से उत्पन्न हो।" : "By bridging service delivery and research, NHF ensures that knowledge creation is not removed from practice, but emerges directly from it."}
           </p>
           <p className="text-gray-600 text-center max-w-3xl mx-auto mb-6 leading-relaxed">
-            NHF operates through a Memorandum of Understanding with{" "}
+            {language === "hi" ? "एनएचएफ, " : "NHF operates through a Memorandum of Understanding with "}
             <a href="https://www.newhorizonscdc.in/" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-semibold hover:underline whitespace-nowrap">New Horizons Child Development Centre (<span className="whitespace-nowrap">NHCDC</span>)</a>,{" "}
-            enabling strong integration between clinical practice and research.
+            {language === "hi" ? "के साथ समझौता ज्ञापन के माध्यम से कार्य करता है, जिससे नैदानिक अभ्यास और अनुसंधान के बीच मजबूत एकीकरण संभव होता है।" : "enabling strong integration between clinical practice and research."}
           </p>
           <p className="text-gray-500 text-center max-w-3xl mx-auto mb-8 leading-relaxed">
-            NHF actively encourages staff from{" "}
+            {language === "hi" ? "एनएचएफ सक्रिय रूप से " : "NHF actively encourages staff from "}
             <a href="https://www.newhorizonscdc.in/" target="_blank" rel="noopener noreferrer" className="text-orange-600 font-semibold hover:underline whitespace-nowrap">NHCDC</a>{" "}
-            to participate in research activities as part 
-            of their professional growth. This integration enables clinicians and practitioners to:
+            {language === "hi" ? " के स्टाफ को उनके पेशेवर विकास के हिस्से के रूप में शोध गतिविधियों में भाग लेने के लिए प्रोत्साहित करता है। यह एकीकरण क्लिनिशियनों और प्रैक्टिशनरों को सक्षम बनाता है कि वे:" : " to participate in research activities as part of their professional growth. This integration enables clinicians and practitioners to:"}
           </p>
           <div className="grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {culturePoints.map((point, index) => (

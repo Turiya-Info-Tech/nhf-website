@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
 import { getPublicationsSortedByYear, Publication } from "@/data/publications";
 import { useState } from "react";
+import { useLanguage } from "@/lib/language";
 
 const PublicationsSection = () => {
+  const { language } = useLanguage();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
   const [showAllModal, setShowAllModal] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -43,6 +45,31 @@ const PublicationsSection = () => {
     }
   };
 
+  const getTypeLabel = (type: string) => {
+    if (language !== "hi") return type;
+
+    switch (type) {
+      case "Research Paper":
+        return "शोध पत्र";
+      case "Case Report":
+        return "केस रिपोर्ट";
+      case "Consensus Guidelines":
+        return "सहमति दिशानिर्देश";
+      case "Guidelines":
+        return "दिशानिर्देश";
+      case "Review Article":
+        return "समीक्षा लेख";
+      case "Book Chapter":
+        return "पुस्तक अध्याय";
+      case "Position Paper":
+        return "पोज़िशन पेपर";
+      case "Commentary":
+        return "टिप्पणी";
+      default:
+        return type;
+    }
+  };
+
   return (
     <>
       <section id="publications" ref={ref} className="py-20 lg:py-28 bg-white relative overflow-hidden">
@@ -54,14 +81,13 @@ const PublicationsSection = () => {
           <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <span className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm uppercase tracking-wider">
               <Sparkles className="w-4 h-4" />
-              Our Research
+              {language === "hi" ? "हमारा अनुसंधान" : "Our Research"}
             </span>
             <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight">
-              Publications & <span className="text-gradient">Resources</span>
+              {language === "hi" ? "प्रकाशन और संसाधन" : "Publications & Resources"}
             </h2>
             <p className="text-gray-600 text-lg">
-              Access our {allPublications.length}+ research papers, case reports, and clinical guidelines. 
-              We believe in open knowledge sharing to advance child development practices.
+              {language === "hi" ? "हमारे 50+ शोध पत्र, केस रिपोर्ट और नैदानिक दिशानिर्देश देखें। हम बाल विकास संबंधी व्यवहारों को आगे बढ़ाने के लिए खुले ज्ञान-साझाकरण में विश्वास करते हैं।" : "Access our 50+ research papers, case reports, and clinical guidelines. We believe in open knowledge sharing to advance child development practices."}
             </p>
           </div>
 
@@ -89,7 +115,7 @@ const PublicationsSection = () => {
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-1.5 md:gap-2 mb-1.5 md:mb-2">
                         <span className={`text-[10px] md:text-xs font-bold px-2 md:px-3 py-0.5 md:py-1 rounded-full border ${typeStyles.text}`}>
-                          {pub.type}
+                          {getTypeLabel(pub.type)}
                         </span>
                         <span className="text-[10px] md:text-xs text-gray-500 font-medium">
                           {pub.year}
@@ -127,7 +153,7 @@ const PublicationsSection = () => {
                         onClick={() => window.open(pub.link, '_blank')}
                       >
                         <ExternalLink className="w-4 h-4" />
-                        <span>View</span>
+                        <span>{language === "hi" ? "देखें" : "View"}</span>
                       </Button>
                     </div>
                     )}
@@ -146,7 +172,7 @@ const PublicationsSection = () => {
               onClick={() => setShowAllModal(true)}
             >
               <BookOpen className="w-5 h-5" />
-              View All {allPublications.length} Publications
+              {language === "hi" ? `सभी ${allPublications.length} प्रकाशन देखें` : `View All ${allPublications.length} Publications`}
             </Button>
           </div>
 
@@ -154,10 +180,9 @@ const PublicationsSection = () => {
         <div className={`mt-14 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 md:p-10 text-white shadow-2xl relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.25),transparent_60%)]" />
-            <h3 className="relative text-2xl md:text-3xl font-serif font-bold mb-3">Outcome-oriented partnerships</h3>
+            <h3 className="relative text-2xl md:text-3xl font-serif font-bold mb-3">{language === "hi" ? "परिणाम-उन्मुख साझेदारियाँ" : "Outcome-oriented partnerships"}</h3>
             <p className="relative text-white/70 max-w-2xl mb-6">
-              We collaborate with partners who value measurable outcomes for children and families.
-              If you want evidence-informed impact with clear metrics, let's build it together.
+              {language === "hi" ? "हम उन साझेदारों के साथ सहयोग करते हैं जो बच्चों और परिवारों के लिए मापनीय परिणामों को महत्व देते हैं। यदि आप स्पष्ट मानकों के साथ साक्ष्य-सूचित प्रभाव चाहते हैं, तो इसे साथ मिलकर बनाते हैं।" : "We collaborate with partners who value measurable outcomes for children and families. If you want evidence-informed impact with clear metrics, let's build it together."}
             </p>
             <Button
               variant="outline"
@@ -165,7 +190,7 @@ const PublicationsSection = () => {
               className="relative bg-white text-slate-900 border-white hover:bg-gray-100 font-semibold"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Partner for measurable outcomes
+              {language === "hi" ? "मापनीय परिणामों के लिए साझेदारी करें" : "Partner for measurable outcomes"}
             </Button>
           </div>
         </div>
@@ -173,18 +198,18 @@ const PublicationsSection = () => {
         <div className={`grid md:grid-cols-3 gap-6 mt-10 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {[
             {
-              title: "Get to know what we have done before",
-              description: "Explore previous programs, pilots, and evidence-backed initiatives.",
+              title: language === "hi" ? "जानिए हमने पहले क्या किया है" : "Get to know what we have done before",
+              description: language === "hi" ? "पिछले कार्यक्रमों, पायलटों और साक्ष्य-समर्थित पहलों को देखें।" : "Explore previous programs, pilots, and evidence-backed initiatives.",
               gradient: "from-blue-500 to-indigo-500",
             },
             {
-              title: "Free Medical Camps (equity focus)",
-              description: "Community-based camps designed to close access gaps for underserved children.",
+              title: language === "hi" ? "निःशुल्क चिकित्सा शिविर (समानता पर केंद्रित)" : "Free Medical Camps (equity focus)",
+              description: language === "hi" ? "वंचित बच्चों की पहुँच संबंधी खाइयों को कम करने के लिए बनाए गए सामुदायिक शिविर।" : "Community-based camps designed to close access gaps for underserved children.",
               gradient: "from-emerald-500 to-teal-500",
             },
             {
-              title: "Advocacy: Children’s Manifesto",
-              description: "Policy commitments that prioritize child development and inclusive systems.",
+              title: language === "hi" ? "वकालत: चिल्ड्रन्स मैनिफेस्टो" : "Advocacy: Children’s Manifesto",
+              description: language === "hi" ? "ऐसी नीतिगत प्रतिबद्धताएँ जो बाल विकास और समावेशी प्रणालियों को प्राथमिकता देती हैं।" : "Policy commitments that prioritize child development and inclusive systems.",
               gradient: "from-orange-500 to-pink-500",
             },
           ].map((item) => (
@@ -207,9 +232,9 @@ const PublicationsSection = () => {
             {/* Header */}
             <div className="flex items-center justify-between p-4 md:p-6 border-b border-gray-100 bg-white">
               <div>
-                <h2 className="text-lg md:text-2xl font-serif font-bold text-gray-800">All Publications</h2>
+                <h2 className="text-lg md:text-2xl font-serif font-bold text-gray-800">{language === "hi" ? "सभी प्रकाशन" : "All Publications"}</h2>
                 <p className="text-gray-500 text-xs md:text-sm mt-1">
-                  {allPublications.length} publications from 2010 to 2025
+                  {language === "hi" ? `2010 से 2025 तक के ${allPublications.length} प्रकाशन` : `${allPublications.length} publications from 2010 to 2025`}
                 </p>
               </div>
               <Button
@@ -229,11 +254,11 @@ const PublicationsSection = () => {
                 <table className="w-full table-fixed">
                   <thead>
                     <tr>
-                      <th className="w-[50px] md:w-[70px] text-left py-3 md:py-4 px-2 md:px-4 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">Year</th>
-                      <th className="text-left py-3 md:py-4 px-2 md:px-4 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">Title</th>
-                      <th className="w-[20%] text-left py-3 md:py-4 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider hidden lg:table-cell">Journal</th>
-                      <th className="w-[80px] md:w-[140px] text-left py-3 md:py-4 px-2 md:px-4 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider hidden sm:table-cell">Type</th>
-                      <th className="w-[50px] md:w-[70px] text-center py-3 md:py-4 px-2 md:px-4 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">Link</th>
+                      <th className="w-[50px] md:w-[70px] text-left py-3 md:py-4 px-2 md:px-4 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">{language === "hi" ? "वर्ष" : "Year"}</th>
+                      <th className="text-left py-3 md:py-4 px-2 md:px-4 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">{language === "hi" ? "शीर्षक" : "Title"}</th>
+                      <th className="w-[20%] text-left py-3 md:py-4 px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider hidden lg:table-cell">{language === "hi" ? "जर्नल" : "Journal"}</th>
+                      <th className="w-[80px] md:w-[140px] text-left py-3 md:py-4 px-2 md:px-4 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider hidden sm:table-cell">{language === "hi" ? "प्रकार" : "Type"}</th>
+                      <th className="w-[50px] md:w-[70px] text-center py-3 md:py-4 px-2 md:px-4 text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-wider">{language === "hi" ? "लिंक" : "Link"}</th>
                     </tr>
                   </thead>
                 </table>
@@ -254,13 +279,13 @@ const PublicationsSection = () => {
                             <p className="text-[10px] md:text-xs text-gray-500 mt-1 line-clamp-1">{pub.authors}</p>
                             {/* Show type badge on mobile inline */}
                             <span className={`sm:hidden inline-block mt-1 text-[10px] font-bold px-2 py-0.5 rounded-full border ${typeStyles.text}`}>
-                              {pub.type}
+                              {getTypeLabel(pub.type)}
                             </span>
                           </td>
                           <td className="w-[20%] py-3 md:py-4 px-4 text-xs text-gray-600 hidden lg:table-cell align-top line-clamp-2">{pub.journal}</td>
                           <td className="w-[80px] md:w-[140px] py-3 md:py-4 px-2 md:px-4 align-top hidden sm:table-cell">
                             <span className={`inline-block text-[10px] md:text-xs font-bold px-2 md:px-3 py-1 md:py-1.5 rounded-full border whitespace-nowrap ${typeStyles.text}`}>
-                              {pub.type}
+                              {getTypeLabel(pub.type)}
                             </span>
                           </td>
                           <td className="w-[50px] md:w-[70px] py-3 md:py-4 px-2 md:px-4 text-center align-top">
@@ -288,7 +313,7 @@ const PublicationsSection = () => {
             {/* Pagination */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3 md:p-4 border-t border-gray-100 bg-gray-50">
               <p className="text-xs md:text-sm text-gray-500 order-2 sm:order-1">
-                Showing {(currentPage - 1) * itemsPerPage + 1} - {Math.min(currentPage * itemsPerPage, allPublications.length)} of {allPublications.length}
+                {language === "hi" ? `दिखाया जा रहा है ${(currentPage - 1) * itemsPerPage + 1} - ${Math.min(currentPage * itemsPerPage, allPublications.length)} / ${allPublications.length}` : `Showing ${(currentPage - 1) * itemsPerPage + 1} - ${Math.min(currentPage * itemsPerPage, allPublications.length)} of ${allPublications.length}`}
               </p>
               <div className="flex items-center gap-1.5 md:gap-2 order-1 sm:order-2">
                 <Button
@@ -299,7 +324,7 @@ const PublicationsSection = () => {
                   className="text-xs md:text-sm px-2 md:px-3"
                 >
                   <ChevronLeft className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                  <span className="hidden sm:inline">Previous</span>
+                  <span className="hidden sm:inline">{language === "hi" ? "पिछला" : "Previous"}</span>
                 </Button>
                 <span className="text-xs md:text-sm text-gray-600 px-1 md:px-2">
                   {currentPage}/{totalPages}
@@ -311,7 +336,7 @@ const PublicationsSection = () => {
                   onClick={() => setCurrentPage(p => p + 1)}
                   className="text-xs md:text-sm px-2 md:px-3"
                 >
-                  <span className="hidden sm:inline">Next</span>
+                  <span className="hidden sm:inline">{language === "hi" ? "अगला" : "Next"}</span>
                   <ChevronRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
                 </Button>
               </div>

@@ -1,26 +1,28 @@
 import { Heart, Eye, Users, TrendingUp, Sparkles } from "lucide-react";
 import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
+import { useLanguage } from "@/lib/language";
 
 const EvidenceHopeSection = () => {
+  const { language } = useLanguage();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
   
   const benefits = [
     {
       icon: Users,
-      title: "Parents & Caregivers",
-      description: "Clarity and reassurance through documented developmental progress",
+      title: language === "hi" ? "माता-पिता और देखभालकर्ता" : "Parents & Caregivers",
+      description: language === "hi" ? "दर्ज विकासात्मक प्रगति के माध्यम से स्पष्टता और भरोसा" : "Clarity and reassurance through documented developmental progress",
       gradient: "from-violet-500 to-purple-600"
     },
     {
       icon: Heart,
-      title: "Clinicians",
-      description: "Direction and professional confidence in intervention approaches",
+      title: language === "hi" ? "क्लिनिशियन" : "Clinicians",
+      description: language === "hi" ? "हस्तक्षेप दृष्टिकोणों में दिशा और पेशेवर आत्मविश्वास" : "Direction and professional confidence in intervention approaches",
       gradient: "from-rose-500 to-pink-600"
     },
     {
       icon: TrendingUp,
-      title: "Systems",
-      description: "Evidence for informed decision-making and resource allocation",
+      title: language === "hi" ? "प्रणालियाँ" : "Systems",
+      description: language === "hi" ? "सूचित निर्णय-निर्माण और संसाधन आवंटन के लिए साक्ष्य" : "Evidence for informed decision-making and resource allocation",
       gradient: "from-emerald-500 to-teal-600"
     }
   ];
@@ -36,16 +38,15 @@ const EvidenceHopeSection = () => {
           <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <span className="inline-flex items-center gap-2 text-teal-600 font-semibold text-sm uppercase tracking-wider">
               <Sparkles className="w-4 h-4" />
-              Impact on Families & Caregivers
+              {language === "hi" ? "परिवारों और देखभालकर्ताओं पर प्रभाव" : "Impact on Families & Caregivers"}
             </span>
             <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight text-gray-800">
-              Evidence That Builds{" "}
-              <span className="text-gradient">Hope</span>
+              {language === "hi" ? "ऐसा साक्ष्य जो आशा बनाता है" : "Evidence That Builds Hope"}
             </h2>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-              An outcome-oriented approach does more than inform systems—it restores confidence. 
-              By documenting meaningful developmental progress, even when standardized tools are 
-              unavailable, NHF provides something deeply valuable.
+              {language === "hi"
+                ? "परिणाम-उन्मुख दृष्टिकोण केवल प्रणालियों को जानकारी नहीं देता, वह विश्वास भी लौटाता है। मानकीकृत उपकरण उपलब्ध न होने पर भी सार्थक विकासात्मक प्रगति का दस्तावेजीकरण करके, एनएचएफ कुछ अत्यंत मूल्यवान प्रदान करता है।"
+                : "An outcome-oriented approach does more than inform systems—it restores confidence. By documenting meaningful developmental progress, even when standardized tools are unavailable, NHF provides something deeply valuable."}
             </p>
           </div>
 
@@ -81,16 +82,18 @@ const EvidenceHopeSection = () => {
               </div>
             </div>
             <h3 className="relative text-2xl lg:text-3xl font-serif font-bold mb-4 text-white">
-              Credible Hope Rooted in Observable Change
+              {language === "hi" ? "दृश्यमान परिवर्तन में निहित विश्वसनीय आशा" : "Credible Hope Rooted in Observable Change"}
             </h3>
             <p className="relative text-white/70 text-lg max-w-2xl mx-auto mb-6 leading-relaxed">
-              This evidence-driven yet human-centred approach offers families something deeply 
-              valuable: <span className="text-teal-400 font-semibold">credible hope</span> rooted 
-              in observable change.
+              {language === "hi"
+                ? "यह साक्ष्य-प्रेरित, फिर भी मानवीय दृष्टिकोण परिवारों को एक अत्यंत मूल्यवान चीज देता है: "
+                : "This evidence-driven yet human-centred approach offers families something deeply valuable: "}
+              <span className="text-teal-400 font-semibold">{language === "hi" ? "विश्वसनीय आशा" : "credible hope"}</span>
+              {language === "hi" ? " जो दृश्यमान परिवर्तन पर आधारित है।" : " rooted in observable change."}
             </p>
             <div className="relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-teal-500/20 to-emerald-500/20 border border-teal-400/30 text-teal-300">
               <Heart className="w-5 h-5 fill-current animate-pulse" />
-              <span className="font-semibold">Hope Through Evidence</span>
+              <span className="font-semibold">{language === "hi" ? "साक्ष्य के माध्यम से आशा" : "Hope Through Evidence"}</span>
             </div>
           </div>
         </div>

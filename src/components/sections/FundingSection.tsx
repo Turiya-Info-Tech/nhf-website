@@ -8,33 +8,35 @@ import {
   Sparkles
 } from "lucide-react";
 import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
+import { useLanguage } from "@/lib/language";
 
 const FundingSection = () => {
+  const { language } = useLanguage();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
 
   const partnershipTypes = [
     {
       icon: Building2,
-      title: "CSR Partnerships",
-      description: "Long-term partnerships with corporations aligned with child development and healthcare priorities.",
+      title: language === "hi" ? "CSR साझेदारियाँ" : "CSR Partnerships",
+      description: language === "hi" ? "बाल विकास और स्वास्थ्य प्राथमिकताओं के अनुरूप कॉर्पोरेट संस्थाओं के साथ दीर्घकालिक साझेदारियाँ।" : "Long-term partnerships with corporations aligned with child development and healthcare priorities.",
       gradient: "from-blue-500 to-indigo-600"
     },
     {
       icon: Handshake,
-      title: "Institutional Grants",
-      description: "Collaborative funding from government bodies, foundations, and international organizations.",
+      title: language === "hi" ? "संस्थागत अनुदान" : "Institutional Grants",
+      description: language === "hi" ? "सरकारी निकायों, फाउंडेशनों और अंतरराष्ट्रीय संगठनों से सहयोगी वित्तपोषण।" : "Collaborative funding from government bodies, foundations, and international organizations.",
       gradient: "from-emerald-500 to-teal-600"
     },
     {
       icon: Users,
-      title: "Donor Support",
-      description: "Individual and family philanthropy supporting specific programs or general operations.",
+      title: language === "hi" ? "दाता सहयोग" : "Donor Support",
+      description: language === "hi" ? "विशिष्ट कार्यक्रमों या सामान्य संचालन के लिए व्यक्तिगत और पारिवारिक परोपकार।" : "Individual and family philanthropy supporting specific programs or general operations.",
       gradient: "from-rose-500 to-pink-600"
     },
     {
       icon: FileText,
-      title: "Project-Based Funding",
-      description: "Targeted support for specific research studies, training initiatives, or community programs.",
+      title: language === "hi" ? "परियोजना-आधारित वित्तपोषण" : "Project-Based Funding",
+      description: language === "hi" ? "विशिष्ट शोध अध्ययनों, प्रशिक्षण पहलों या सामुदायिक कार्यक्रमों के लिए लक्षित सहयोग।" : "Targeted support for specific research studies, training initiatives, or community programs.",
       gradient: "from-amber-500 to-orange-600"
     },
   ];
@@ -49,24 +51,23 @@ const FundingSection = () => {
         <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider">
             <Sparkles className="w-4 h-4" />
-            Funding & Partnerships
+            {language === "hi" ? "वित्तपोषण और साझेदारियाँ" : "Funding & Partnerships"}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight">
-            Support Our <span className="text-gradient">Mission</span>
+            {language === "hi" ? "हमारे मिशन का समर्थन करें" : "Support Our Mission"}
           </h2>
           <p className="text-gray-600 text-lg">
-            NHF is seeking long-term partnerships and funding support to sustain and scale 
-            our impact on children's lives across India.
+            {language === "hi" ? "एनएचएफ भारत भर में बच्चों के जीवन पर अपने प्रभाव को बनाए रखने और विस्तृत करने के लिए दीर्घकालिक साझेदारियाँ और वित्तीय सहयोग चाहता है।" : "NHF is seeking long-term partnerships and funding support to sustain and scale our impact on children's lives across India."}
           </p>
         </div>
 
         {/* Partnership Types - Combined Section */}
         <div className="mb-16">
           <h3 className={`text-2xl font-serif font-bold text-center mb-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            Looking for Long-term Partnerships
+            {language === "hi" ? "दीर्घकालिक साझेदारियों की तलाश" : "Looking for Long-term Partnerships"}
           </h3>
           <p className={`text-gray-600 text-center max-w-2xl mx-auto mb-10 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            We partner with organisations and individuals committed to measurable, evidence-based outcomes for children and families.
+            {language === "hi" ? "हम उन संगठनों और व्यक्तियों के साथ साझेदारी करते हैं जो बच्चों और परिवारों के लिए मापनीय, साक्ष्य-आधारित परिणामों के प्रति प्रतिबद्ध हैं।" : "We partner with organisations and individuals committed to measurable, evidence-based outcomes for children and families."}
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {partnershipTypes.map((type, index) => (
@@ -96,12 +97,10 @@ const FundingSection = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-2xl font-serif font-bold mb-4 text-gray-800">
-                  CSR-Aligned Initiatives
+                  {language === "hi" ? "CSR-संगत पहलें" : "CSR-Aligned Initiatives"}
                 </h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  NHF's work aligns with Schedule VII of the Companies Act, 2013, particularly 
-                  in areas of healthcare, education, and child welfare. Our programs offer 
-                  measurable outcomes and transparent reporting for CSR partners.
+                  {language === "hi" ? "एनएचएफ का कार्य कंपनी अधिनियम 2013 की अनुसूची VII, विशेषकर स्वास्थ्य, शिक्षा और बाल कल्याण के क्षेत्रों के अनुरूप है। हमारे कार्यक्रम CSR साझेदारों के लिए मापनीय परिणाम और पारदर्शी रिपोर्टिंग प्रदान करते हैं।" : "NHF's work aligns with Schedule VII of the Companies Act, 2013, particularly in areas of healthcare, education, and child welfare. Our programs offer measurable outcomes and transparent reporting for CSR partners."}
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3 group">
@@ -109,7 +108,7 @@ const FundingSection = () => {
                       <div className="w-2 h-2 rounded-full bg-white" />
                     </div>
                     <span className="text-sm text-gray-600">
-                      Promoting healthcare including preventive healthcare
+                      {language === "hi" ? "निवारक स्वास्थ्य सहित स्वास्थ्य सेवाओं को बढ़ावा देना" : "Promoting healthcare including preventive healthcare"}
                     </span>
                   </li>
                   <li className="flex items-start gap-3 group">
@@ -117,7 +116,7 @@ const FundingSection = () => {
                       <div className="w-2 h-2 rounded-full bg-white" />
                     </div>
                     <span className="text-sm text-gray-600">
-                      Promoting education and livelihood enhancement for differently-abled children
+                      {language === "hi" ? "दिव्यांग बच्चों के लिए शिक्षा और आजीविका संवर्धन को बढ़ावा देना" : "Promoting education and livelihood enhancement for differently-abled children"}
                     </span>
                   </li>
                   <li className="flex items-start gap-3 group">
@@ -125,7 +124,7 @@ const FundingSection = () => {
                       <div className="w-2 h-2 rounded-full bg-white" />
                     </div>
                     <span className="text-sm text-gray-600">
-                      Measures for reducing inequalities faced by socially disadvantaged groups
+                      {language === "hi" ? "सामाजिक रूप से वंचित समूहों द्वारा झेली जाने वाली असमानताओं को कम करने के उपाय" : "Measures for reducing inequalities faced by socially disadvantaged groups"}
                     </span>
                   </li>
                 </ul>
@@ -136,22 +135,22 @@ const FundingSection = () => {
                   }}
                   className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  Discuss Partnership
+                  {language === "hi" ? "साझेदारी पर चर्चा करें" : "Discuss Partnership"}
                 </Button>
               </div>
               <div className="text-center">
                 <div className="inline-grid grid-cols-2 gap-4">
                   <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
                     <span className="text-3xl font-bold text-gradient">80G</span>
-                    <p className="text-xs text-gray-500 mt-1 font-medium">Tax Exemption</p>
+                    <p className="text-xs text-gray-500 mt-1 font-medium">{language === "hi" ? "कर छूट" : "Tax Exemption"}</p>
                   </div>
                   <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group">
                     <span className="text-3xl font-bold text-gradient">12A</span>
-                    <p className="text-xs text-gray-500 mt-1 font-medium">Registered</p>
+                    <p className="text-xs text-gray-500 mt-1 font-medium">{language === "hi" ? "पंजीकृत" : "Registered"}</p>
                   </div>
                   <div className="col-span-2 p-6 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <span className="text-2xl font-bold text-white">Transparent</span>
-                    <p className="text-xs text-white/60 mt-1">Audited Financials & Impact Reports</p>
+                    <span className="text-2xl font-bold text-white">{language === "hi" ? "पारदर्शी" : "Transparent"}</span>
+                    <p className="text-xs text-white/60 mt-1">{language === "hi" ? "ऑडिटेड वित्तीय और प्रभाव रिपोर्ट" : "Audited Financials & Impact Reports"}</p>
                   </div>
                 </div>
               </div>

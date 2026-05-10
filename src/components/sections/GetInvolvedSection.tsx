@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Briefcase, Building, GraduationCap, Quote, Sparkles } from "lucide-react";
+import { ArrowRight, Briefcase, Building, GraduationCap, Quote, Sparkles, Heart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/lib/language";
 import anushkaSamantImg from "@/assets/Ms Anushka Samant.jpeg";
 import manshiThakkarImg from "@/assets/Ms Manshi Thakkar.jpeg";
 import zobiaAlamImg from "@/assets/Ms Zobia Alam.jpeg";
@@ -9,6 +10,7 @@ import devikaMohananImg from "@/assets/Ms Devika Mohanan.jpeg";
 import hrishitaKambliImg from "@/assets/Ms Hrishita Kambli.jpeg";
 
 const GetInvolvedSection = () => {
+  const { t, language } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -32,22 +34,25 @@ const GetInvolvedSection = () => {
   const partnerOptions = [
     {
       icon: Building,
-      title: "Partner With Us",
-      description: "Section header confirmed. Detailed partnership pathways coming soon.",
+      title: t('getinvolved.partner'),
       gradient: "from-orange-500 to-pink-500",
     },
     {
       icon: Briefcase,
-      title: "Work With Us",
-      description: "Section header confirmed. Opportunities and roles will be shared shortly.",
+      title: t('getinvolved.work'),
       gradient: "from-teal-500 to-emerald-500",
+    },
+    {
+      icon: Heart,
+      title: t('getinvolved.donate'),
+      gradient: "from-rose-500 to-red-500",
     },
   ];
 
   const researchInternTestimonials = [
     {
       name: "Ms Zobia Alam",
-      role: "Research Intern",
+      role: language === "hi" ? "अनुसंधान इंटर्न" : "Research Intern",
       institution: "University of British Columbia",
       degree: "Bachelor of Arts in Psychology",
       image: zobiaAlamImg,
@@ -56,7 +61,7 @@ const GetInvolvedSection = () => {
     },
     {
       name: "Ms Manshi Thakkar",
-      role: "Research Intern",
+      role: language === "hi" ? "अनुसंधान इंटर्न" : "Research Intern",
       institution: "Mithibai College of Arts, Chauhan Institute of Science & Amrutben Jivanlal College of Commerce and Economics, Mumbai",
       degree: "Third Year B. Sc. (Psychology)",
       image: manshiThakkarImg,
@@ -65,7 +70,7 @@ const GetInvolvedSection = () => {
     },
     {
       name: "Ms Anushka Samant",
-      role: "Research Intern",
+      role: language === "hi" ? "अनुसंधान इंटर्न" : "Research Intern",
       institution: "KC College, HSNC University",
       degree: "MA Psychology (Clinical)",
       image: anushkaSamantImg,
@@ -74,7 +79,7 @@ const GetInvolvedSection = () => {
     },
     {
       name: "Ms Devika Mohanan",
-      role: "Research Intern",
+      role: language === "hi" ? "अनुसंधान इंटर्न" : "Research Intern",
       institution: "KC College",
       degree: "MA Psychology (Clinical) / Master of Arts (Clinical Psychology)",
       image: devikaMohananImg,
@@ -83,7 +88,7 @@ const GetInvolvedSection = () => {
     },
     {
       name: "Ms Hrishita Kambli",
-      role: "Research Intern",
+      role: language === "hi" ? "अनुसंधान इंटर्न" : "Research Intern",
       institution: "K.C. College",
       degree: "BA Psychology",
       image: hrishitaKambliImg,
@@ -95,89 +100,87 @@ const GetInvolvedSection = () => {
   return (
     <section id="get-involved" ref={sectionRef} className="py-20 lg:py-28 bg-gradient-to-b from-white via-orange-50/30 to-white relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-orange-200/30 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-gradient-to-br from-pink-200/30 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-b from-orange-50/60 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-teal-50/40 to-transparent rounded-full blur-3xl" />
       
       <div className="container relative">
-        <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider">
-            <Sparkles className="w-4 h-4" />
-            Get Involved
-          </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight">
-            Join Us in Creating{" "}
-            <span className="text-gradient">Change</span>
+        <div className={`text-center max-w-3xl mx-auto mb-20 lg:mb-24 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider mb-4">
+              <Sparkles className="w-4 h-4" />
+              {t('getinvolved.badge')}
+            </span>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight text-slate-900">
+            {t('getinvolved.title')}
           </h2>
-          <p className="text-gray-600 text-lg">
-            Partner with NHF to build equitable, measurable outcomes for children and families.
+          <p className="text-lg text-gray-600 leading-relaxed">
+            {t('getinvolved.subtitle')}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
+        <div className="grid md:grid-cols-3 gap-6 mb-20">
           {partnerOptions.map((option, index) => (
             <Card 
               key={option.title}
-              className={`group cursor-pointer bg-white border-0 shadow-lg shadow-gray-100/50 hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-500 overflow-hidden ${
+              className={`group cursor-pointer bg-white border border-gray-100 shadow-md hover:shadow-lg transition-all duration-500 overflow-hidden hover:-translate-y-2 rounded-xl ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <CardContent className="p-6 text-center relative">
+              <CardContent className="p-8 text-center relative">
                 <div className={`absolute inset-0 bg-gradient-to-br ${option.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                 
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${option.gradient} flex items-center justify-center mb-5 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
-                  <option.icon className="w-7 h-7 text-white" />
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${option.gradient} flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 transition-all duration-300`}>
+                  <option.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-lg font-bold mb-3 group-hover:text-orange-600 transition-colors">{option.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{option.description}</p>
+                <h3 className="text-xl font-serif font-bold text-slate-900 group-hover:text-orange-600 transition-colors">{option.title}</h3>
                 
-                <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${option.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
+                <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${option.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className={`mb-12 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="text-center mb-10">
-            <span className="inline-flex items-center gap-2 text-teal-700 font-semibold text-sm uppercase tracking-wider">
+        <div className={`mb-20 lg:mb-24 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="text-center mb-16">
+            <span className="inline-flex items-center gap-2 text-teal-700 font-semibold text-sm uppercase tracking-wider mb-4">
               <GraduationCap className="w-4 h-4" />
-              Research Interns
+              {t('getinvolved.internship')}
             </span>
-            <h3 className="text-2xl md:text-3xl font-serif font-bold mt-3">Research Intern Experience</h3>
-            <p className="text-gray-600 mt-2">
-              Hear from interns who have contributed to NHF's research and systems work.
+            <h3 className="text-3xl md:text-4xl font-serif font-bold mt-4 mb-6 text-slate-900">{t('getinvolved.experienceTitle')}</h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              {t('getinvolved.experienceDesc')}
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {researchInternTestimonials.map((testimonial, index) => (
               <Card
                 key={`${testimonial.name}-${index}`}
-                className={`bg-white border-0 shadow-lg shadow-gray-100/60 transition-all duration-500 hover:-translate-y-2 ${
+                className={`bg-white border border-gray-100 shadow-md hover:shadow-lg transition-all duration-500 hover:-translate-y-2 rounded-xl overflow-hidden ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
                 style={{ transitionDelay: `${200 + index * 90}ms` }}
               >
-                <CardContent className="p-5 flex flex-col h-full">
-                  <div className="flex flex-col items-center text-center mb-4">
+                <CardContent className="p-6 flex flex-col h-full">
+                  <div className="flex flex-col items-center text-center mb-5">
                     {testimonial.image ? (
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
-                        className="w-16 h-16 rounded-full object-cover shadow-lg border-2 border-orange-100 mb-3"
+                        className="w-24 h-24 rounded-full object-cover shadow-md border-4 border-orange-100 mb-3"
                       />
                     ) : (
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-teal-500 flex items-center justify-center shadow-lg mb-3">
-                        <Quote className="w-6 h-6 text-white" />
+                      <div className="w-24 h-24 rounded-full bg-gradient-to-br from-orange-500 to-teal-500 flex items-center justify-center shadow-md mb-3">
+                        <Quote className="w-8 h-8 text-white" />
                       </div>
                     )}
-                    <p className="text-sm font-semibold text-gray-800">{testimonial.name}</p>
-                    <p className="text-xs text-orange-600 font-medium">{testimonial.role}</p>
+                    <p className="text-base font-semibold text-slate-900">{testimonial.name}</p>
+                    <p className="text-sm text-orange-600 font-medium">{testimonial.role}</p>
                   </div>
-                  <p className="text-xs text-gray-600 italic mb-4 flex-1 line-clamp-6">"{testimonial.quote}"</p>
-                  <div className="text-xs text-gray-500 space-y-1 pt-3 border-t border-gray-100">
-                    <p className="line-clamp-2"><span className="font-medium text-gray-700">Institution:</span> {testimonial.institution}</p>
-                    <p><span className="font-medium text-gray-700">Degree:</span> {testimonial.degree}</p>
+                  <p className="text-sm text-gray-700 italic mb-5 flex-1 line-clamp-6 leading-relaxed">"{testimonial.quote}"</p>
+                  <div className="text-xs text-gray-600 space-y-2 pt-4 border-t border-gray-100">
+                    <p className="line-clamp-2"><span className="font-medium text-gray-800">{language === "hi" ? "संस्थान:" : "Institution:"}</span> {testimonial.institution}</p>
+                    <p><span className="font-medium text-gray-800">{language === "hi" ? "डिग्री:" : "Degree:"}</span> {testimonial.degree}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -188,10 +191,10 @@ const GetInvolvedSection = () => {
         <div className={`text-center transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <Button 
             size="lg" 
-            className="relative group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300 hover:scale-105"
+            className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300 hover:scale-105 text-base"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            Contact Us to Get Started
+            {t('getinvolved.cta')}
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>

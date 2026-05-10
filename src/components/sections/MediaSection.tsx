@@ -8,33 +8,35 @@ import {
   Sparkles
 } from "lucide-react";
 import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
+import { useLanguage } from "@/lib/language";
 
 const MediaSection = () => {
+  const { language } = useLanguage();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
   
   const mediaTypes = [
     {
       icon: Camera,
-      title: "Training & Workshop Documentation",
-      description: "Photographs from capacity building sessions, DEIC training programs, and collaborative workshops.",
+      title: language === "hi" ? "प्रशिक्षण और कार्यशाला दस्तावेज़ीकरण" : "Training & Workshop Documentation",
+      description: language === "hi" ? "क्षमता निर्माण सत्रों, DEIC प्रशिक्षण कार्यक्रमों और सहयोगी कार्यशालाओं की तस्वीरें।" : "Photographs from capacity building sessions, DEIC training programs, and collaborative workshops.",
       gradient: "from-purple-500 to-violet-600"
     },
     {
       icon: Video,
-      title: "Educational Content & Recordings",
-      description: "Recorded sessions, webinars, and educational videos on developmental pediatrics and ethical research.",
+      title: language === "hi" ? "शैक्षणिक सामग्री और रिकॉर्डिंग" : "Educational Content & Recordings",
+      description: language === "hi" ? "विकासात्मक बाल रोग और नैतिक अनुसंधान पर रिकॉर्डेड सत्र, वेबिनार और शैक्षणिक वीडियो।" : "Recorded sessions, webinars, and educational videos on developmental pediatrics and ethical research.",
       gradient: "from-rose-500 to-pink-600"
     },
     {
       icon: Megaphone,
-      title: "Public Awareness & Advocacy",
-      description: "Awareness campaigns, public talks, and advocacy initiatives for child neurodevelopment.",
+      title: language === "hi" ? "जन-जागरूकता और वकालत" : "Public Awareness & Advocacy",
+      description: language === "hi" ? "बाल न्यूरोविकास के लिए जागरूकता अभियान, सार्वजनिक वार्ताएँ और वकालत पहलें।" : "Awareness campaigns, public talks, and advocacy initiatives for child neurodevelopment.",
       gradient: "from-amber-500 to-orange-600"
     },
     {
       icon: FileImage,
-      title: "Research Dissemination",
-      description: "Infographics, presentations, and visual summaries of research findings and program outcomes.",
+      title: language === "hi" ? "अनुसंधान प्रसार" : "Research Dissemination",
+      description: language === "hi" ? "अनुसंधान निष्कर्षों और कार्यक्रम परिणामों के इन्फोग्राफिक्स, प्रस्तुतीकरण और दृश्य सार।" : "Infographics, presentations, and visual summaries of research findings and program outcomes.",
       gradient: "from-teal-500 to-cyan-600"
     }
   ];
@@ -49,15 +51,13 @@ const MediaSection = () => {
         <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <span className="inline-flex items-center gap-2 text-purple-600 font-semibold text-sm uppercase tracking-wider">
             <Sparkles className="w-4 h-4" />
-            Media & Outreach
+            {language === "hi" ? "मीडिया और आउटरीच" : "Media & Outreach"}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight">
-            Sharing Knowledge,{" "}
-            <span className="text-gradient">Building Awareness</span>
+            {language === "hi" ? "ज्ञान साझा करना, जागरूकता बनाना" : "Sharing Knowledge, Building Awareness"}
           </h2>
           <p className="text-gray-600 text-lg">
-            NHF engages with professionals, communities, and institutions through 
-            outreach activities and knowledge-sharing platforms.
+            {language === "hi" ? "एनएचएफ आउटरीच गतिविधियों और ज्ञान-साझाकरण मंचों के माध्यम से पेशेवरों, समुदायों और संस्थानों के साथ जुड़ता है।" : "NHF engages with professionals, communities, and institutions through outreach activities and knowledge-sharing platforms."}
           </p>
         </div>
 
@@ -91,12 +91,9 @@ const MediaSection = () => {
               <Shield className="w-7 h-7 text-white" />
             </div>
             <div>
-              <h3 className="font-bold text-lg text-white mb-2">Ethical Media Practices</h3>
+              <h3 className="font-bold text-lg text-white mb-2">{language === "hi" ? "नैतिक मीडिया अभ्यास" : "Ethical Media Practices"}</h3>
               <p className="text-white/70 leading-relaxed">
-                All media is shared in accordance with ethical guidelines and appropriate permissions. 
-                We actively engage with the research and practitioner community through outreach and 
-                awareness initiatives, ensuring that content involving children maintains dignity, 
-                privacy, and proper consent protocols.
+                {language === "hi" ? "सभी मीडिया सामग्री नैतिक दिशानिर्देशों और उचित अनुमतियों के अनुसार साझा की जाती है। हम आउटरीच और जागरूकता पहलों के माध्यम से शोध और प्रैक्टिशनर समुदाय के साथ सक्रिय रूप से जुड़ते हैं, यह सुनिश्चित करते हुए कि बच्चों से जुड़ी सामग्री में गरिमा, गोपनीयता और उचित सहमति प्रोटोकॉल बनाए रखें।" : "All media is shared in accordance with ethical guidelines and appropriate permissions. We actively engage with the research and practitioner community through outreach and awareness initiatives, ensuring that content involving children maintains dignity, privacy, and proper consent protocols."}
               </p>
             </div>
           </div>

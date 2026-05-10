@@ -11,47 +11,45 @@ import {
   Sparkles
 } from "lucide-react";
 import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
+import { useLanguage } from "@/lib/language";
 
 const ResearchPhilosophySection = () => {
+  const { language } = useLanguage();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
 
   const researchDomains = [
-    "Behaviour",
-    "Communication", 
-    "Social",
-    "Participation",
-    "Functionality"
+    ...(language === "hi" ? ["व्यवहार", "संचार", "सामाजिक", "सहभागिता", "कार्यात्मकता"] : ["Behaviour", "Communication", "Social", "Participation", "Functionality"])
   ];
 
   const outcomes = [
-    { icon: Target, label: "Observable change" },
-    { icon: TrendingUp, label: "Measurable progress" },
-    { icon: Lightbulb, label: "Meaningful outcomes" }
+    { icon: Target, label: language === "hi" ? "दृश्यमान परिवर्तन" : "Observable change" },
+    { icon: TrendingUp, label: language === "hi" ? "मापनीय प्रगति" : "Measurable progress" },
+    { icon: Lightbulb, label: language === "hi" ? "सार्थक परिणाम" : "Meaningful outcomes" }
   ];
 
   const currentResearch = [
     {
-      title: "Randomized Controlled Trials",
-      description: "Designing and Feasibility Scoping, along with Ethical Considerations"
+      title: language === "hi" ? "रैंडमाइज़्ड कंट्रोल्ड ट्रायल्स" : "Randomized Controlled Trials",
+      description: language === "hi" ? "डिज़ाइनिंग, व्यवहार्यता स्कोपिंग और नैतिक विचार" : "Designing and Feasibility Scoping, along with Ethical Considerations"
     },
     {
-      title: "Clinical Profiling & Outcome Tracking",
-      description: "Comprehensive developmental assessments"
+      title: language === "hi" ? "नैदानिक प्रोफाइलिंग और परिणाम ट्रैकिंग" : "Clinical Profiling & Outcome Tracking",
+      description: language === "hi" ? "समग्र विकासात्मक आकलन" : "Comprehensive developmental assessments"
     },
     {
-      title: "Implementation Research",
-      description: "Within government systems and DEICs"
+      title: language === "hi" ? "कार्यान्वयन अनुसंधान" : "Implementation Research",
+      description: language === "hi" ? "सरकारी प्रणालियों और DEICs के भीतर" : "Within government systems and DEICs"
     },
     {
-      title: "Evidence Generation",
-      description: "To inform policy and program design"
+      title: language === "hi" ? "साक्ष्य निर्माण" : "Evidence Generation",
+      description: language === "hi" ? "नीति और कार्यक्रम डिज़ाइन को सूचित करने के लिए" : "To inform policy and program design"
     }
   ];
 
   const iterativeLearning = [
-    { icon: CheckCircle2, text: "Identify effective interventions", color: "from-green-400 to-emerald-500" },
-    { icon: TrendingUp, text: "Refine approaches that show partial impact", color: "from-amber-400 to-orange-500" },
-    { icon: XCircle, text: "Discontinue practices that do not meaningfully benefit children", color: "from-red-400 to-rose-500" }
+    { icon: CheckCircle2, text: language === "hi" ? "प्रभावी हस्तक्षेपों की पहचान" : "Identify effective interventions", color: "from-green-400 to-emerald-500" },
+    { icon: TrendingUp, text: language === "hi" ? "आंशिक प्रभाव दिखाने वाले दृष्टिकोणों को परिष्कृत करना" : "Refine approaches that show partial impact", color: "from-amber-400 to-orange-500" },
+    { icon: XCircle, text: language === "hi" ? "ऐसी प्रथाएँ बंद करना जो बच्चों को सार्थक लाभ नहीं देतीं" : "Discontinue practices that do not meaningfully benefit children", color: "from-red-400 to-rose-500" }
   ];
 
   return (
@@ -65,17 +63,14 @@ const ResearchPhilosophySection = () => {
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-full px-4 py-2 mb-6">
             <Sparkles className="w-4 h-4 text-purple-500 animate-pulse" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-semibold text-sm uppercase tracking-wider">
-              Research & Publications
+              {language === "hi" ? "अनुसंधान और प्रकाशन" : "Research & Publications"}
             </span>
           </div>
           <h2 className="text-3xl md:text-4xl font-serif font-bold mt-3 mb-6">
-            Asking the Right Question:{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">"What Works?"</span>
+            {language === "hi" ? "सही प्रश्न पूछना: \"क्या काम करता है?\"" : "Asking the Right Question: \"What Works?\""}
           </h2>
           <p className="text-muted-foreground text-lg">
-            At NHF, research begins with curiosity grounded in care. The central question 
-            we ask across all initiatives is simple but powerful: What works for children, 
-            in real settings, with real families?
+            {language === "hi" ? "एनएचएफ में अनुसंधान देखभाल-आधारित जिज्ञासा से शुरू होता है। सभी पहलों में हमारा केंद्रीय प्रश्न सरल लेकिन शक्तिशाली है: वास्तविक परिस्थितियों और वास्तविक परिवारों के साथ बच्चों के लिए क्या काम करता है?" : "At NHF, research begins with curiosity grounded in care. The central question we ask across all initiatives is simple but powerful: What works for children, in real settings, with real families?"}
           </p>
         </div>
 
@@ -86,7 +81,7 @@ const ResearchPhilosophySection = () => {
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg">
                 <Microscope className="w-5 h-5 text-white" />
               </div>
-              Research Domains
+              {language === "hi" ? "अनुसंधान क्षेत्र" : "Research Domains"}
             </h3>
             <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-2xl p-8 relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(168,85,247,0.15),transparent_50%)]" />
@@ -106,7 +101,7 @@ const ResearchPhilosophySection = () => {
               
               <div className="relative flex items-center justify-center gap-2 mb-4">
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                <span className="text-sm text-white/60">This leads to</span>
+                <span className="text-sm text-white/60">{language === "hi" ? "इससे आगे बढ़ता है" : "This leads to"}</span>
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
               </div>
 
@@ -131,7 +126,7 @@ const ResearchPhilosophySection = () => {
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center shadow-lg">
                 <BookOpen className="w-5 h-5 text-white" />
               </div>
-              Current & Ongoing Work
+              {language === "hi" ? "वर्तमान और जारी कार्य" : "Current & Ongoing Work"}
             </h3>
             <div className="space-y-4">
               {currentResearch.map((research, index) => (
@@ -149,8 +144,7 @@ const ResearchPhilosophySection = () => {
               ))}
             </div>
             <p className={`text-sm text-muted-foreground mt-4 italic transition-all duration-700 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-              Research outputs include reports, toolkits, and publications that translate 
-              data into actionable insights.
+              {language === "hi" ? "अनुसंधान परिणामों में रिपोर्ट, टूलकिट और प्रकाशन शामिल हैं जो डेटा को क्रियाशील अंतर्दृष्टि में बदलते हैं।" : "Research outputs include reports, toolkits, and publications that translate data into actionable insights."}
             </p>
           </div>
         </div>
@@ -163,11 +157,10 @@ const ResearchPhilosophySection = () => {
           <div className="relative max-w-4xl mx-auto">
             <div className="text-center mb-10">
               <h3 className="text-2xl font-serif font-bold mb-4 text-white">
-                A Culture of <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300">Inquiry & Accountability</span>
+                {language === "hi" ? "जिज्ञासा और जवाबदेही की संस्कृति" : "A Culture of Inquiry & Accountability"}
               </h3>
               <p className="text-white/70">
-                By encouraging iterative learning and reflective practice, NHF enables 
-                clinicians, researchers, and systems to examine outcomes honestly.
+                {language === "hi" ? "आवृत्त सीख और चिंतनशील अभ्यास को बढ़ावा देकर, एनएचएफ क्लिनिशियनों, शोधकर्ताओं और प्रणालियों को परिणामों का ईमानदारी से आकलन करने में सक्षम बनाता है।" : "By encouraging iterative learning and reflective practice, NHF enables clinicians, researchers, and systems to examine outcomes honestly."}
               </p>
             </div>
 
@@ -187,7 +180,7 @@ const ResearchPhilosophySection = () => {
             </div>
 
             <p className={`text-center text-white/60 mt-8 text-sm transition-all duration-700 delay-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-              This culture of inquiry supports accountability, learning, and continuous improvement.
+              {language === "hi" ? "यह जिज्ञासु संस्कृति जवाबदेही, सीख और सतत सुधार का समर्थन करती है।" : "This culture of inquiry supports accountability, learning, and continuous improvement."}
             </p>
           </div>
         </div>
