@@ -299,7 +299,7 @@ const PublicationsSection = () => {
                                 <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4" />
                               </Button>
                             ) : (
-                              <span className="text-[10px] md:text-xs text-gray-400">—</span>
+                              <span className="text-[10px] md:text-xs text-gray-400">-</span>
                             )}
                           </td>
                         </tr>

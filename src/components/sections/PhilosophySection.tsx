@@ -136,7 +136,7 @@ const PhilosophySection = () => {
             <p className="text-gray-600 text-lg mb-6 leading-relaxed">
               {language === "hi"
                 ? "जब बच्चों को अपनी क्षमताओं, चुनौतियों और भावनाओं को समझने में सहायता मिलती है और उन्हें निरंतर मानवीय जुड़ाव मिलता है, तो उनका विकास अधिक स्वाभाविक रूप से सभी क्षेत्रों में आगे बढ़ता है।"
-                : "When children understand their abilities, challenges, and emotions — and receive consistent human connection — they develop across all areas more naturally."}
+                : "When children understand their abilities, challenges, and emotions - and receive consistent human connection - they develop across all areas more naturally."}
             </p>
             <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-2xl p-6 overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(251,146,60,0.1),transparent_50%)]" />

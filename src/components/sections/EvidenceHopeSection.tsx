@@ -46,7 +46,7 @@ const EvidenceHopeSection = () => {
             <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
               {language === "hi"
                 ? "परिणाम-उन्मुख दृष्टिकोण केवल प्रणालियों को जानकारी नहीं देता, वह विश्वास भी लौटाता है। मानकीकृत उपकरण उपलब्ध न होने पर भी सार्थक विकासात्मक प्रगति का दस्तावेजीकरण करके, एनएचएफ कुछ अत्यंत मूल्यवान प्रदान करता है।"
-                : "An outcome-oriented approach does more than inform systems—it restores confidence. By documenting meaningful developmental progress, even when standardized tools are unavailable, NHF provides something deeply valuable."}
+                : "An outcome-oriented approach does more than inform systems-it restores confidence. By documenting meaningful developmental progress, even when standardized tools are unavailable, NHF provides something deeply valuable."}
             </p>
           </div>
 

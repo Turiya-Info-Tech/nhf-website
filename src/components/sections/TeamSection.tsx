@@ -7,6 +7,7 @@ import sandhyaKulkarniImg from "@/assets/Mrs. Sandhya Kulkarni.jpeg";
 import sandeepBavdekarImg from "@/assets/Dr Sandeep Bavdekar.jpeg";
 import anushkaSamantImg from "@/assets/Ms Anushka Samant.jpeg";
 import hillaSookhadwalaImg from "@/assets/Dr Hilla S.JPG";
+import anantTalaulicarImg from "@/assets/Mr. Anant J. Talaulicar​.png";
 
 const TeamSection = () => {
   const { language } = useLanguage();
@@ -14,6 +15,12 @@ const TeamSection = () => {
 
   // Static team members in the specified order
   const teamMembers = [
+    {
+      name: "Mr. Anant J. Talaulicar",
+      role: language === "hi" ? "मेंटर और रणनीतिक सलाहकार" : "Mentor and Strategic Advisor",
+      bio: language === "hi" ? "बी.ई. मैकेनिकल इंजीनियरिंग, एमबीए - ट्यूलन यूनिवर्सिटी" : "B.E. Mechanical Engineering, MBA - Tulane University",
+      image_url: anantTalaulicarImg
+    },
     {
       name: "Mrs. Sandhya Kulkarni",
       role: language === "hi" ? "निदेशक एवं एनएचएफ प्रभारी" : "Director and NHF In-charge",
@@ -66,7 +73,7 @@ const TeamSection = () => {
             {language === "hi" ? "हमारी टीम" : "Our Team"}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-bold mt-4 mb-6 leading-tight">
-            {language === "hi" ? "एनएचएफ के पीछे की टीम" : "The People Behind NHF"}
+            {language === "hi" ? "हमारी टीम" : "Our Team"}
           </h2>
           <p className="text-gray-600 text-lg">
             {language === "hi" ? "ऐसे पेशेवरों की समर्पित टीम जो बच्चों के बेहतर परिणामों के साझा संकल्प से जुड़ी है।" : "A dedicated team of professionals united by a shared commitment to improving outcomes for children."}

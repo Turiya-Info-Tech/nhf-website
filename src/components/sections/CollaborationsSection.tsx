@@ -64,7 +64,7 @@ const CollaborationsSection = () => {
             <p className="text-white/90 text-lg leading-relaxed mb-8 max-w-4xl">
               {language === "hi"
                 ? "एनएचएफ जिला प्रारंभिक हस्तक्षेप केंद्रों (DEICs) में पैरामेडिकल स्टाफ के प्रशिक्षण का एक प्रमुख कार्यान्वयन साझेदार है, जो न्यूरोविकासीय जरूरतों वाले बच्चों के लिए भारत की सार्वजनिक स्वास्थ्य संरचना को मजबूत कर रहा है। पुणे के जिला अस्पताल औंध स्थित DEIC में हमारा संयुक्त कार्यक्रम देशभर में दोहराए जाने के लिए तैयार एक मॉडल है।"
-                : "NHF is a key implementing partner in the training of paramedical staff at District Early Intervention Centres (DEICs) — strengthening India's public health infrastructure for children with neurodevelopmental needs. Our joint programme at DEIC, District Hospital Aundh, Pune is a model designed to be replicated across the country."}
+                : "NHF is a key implementing partner in the training of paramedical staff at District Early Intervention Centres (DEICs) - strengthening India's public health infrastructure for children with neurodevelopmental needs. Our joint programme at DEIC, District Hospital Aundh, Pune is a model designed to be replicated across the country."}
             </p>
 
             {/* 3 Columns for Strengthening DEICs */}

@@ -7,7 +7,7 @@ const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      quote: "NHF's Parent Engagement Program transformed our understanding of our child's needs. The team didn't just give us a diagnosis—they gave us hope and practical strategies that work.",
+      quote: "NHF's Parent Engagement Program transformed our understanding of our child's needs. The team didn't just give us a diagnosis-they gave us hope and practical strategies that work.",
       author: "Parent of a 5-year-old with ASD",
       type: "Parent",
       location: "Mumbai",
@@ -100,7 +100,7 @@ const TestimonialsSection = () => {
                 </blockquote>
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-semibold text-gray-800">
-                    — {testimonial.author}
+                    - {testimonial.author}
                   </p>
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (

@@ -6,6 +6,7 @@ import { useLanguage } from "@/lib/language";
 import anushkaSamantImg from "@/assets/Ms Anushka Samant.jpeg";
 import manshiThakkarImg from "@/assets/Ms Manshi Thakkar.jpeg";
 import zobiaAlamImg from "@/assets/Ms Zobia Alam.jpeg";
+import zobiaAlamVideo from "@/assets/Ms. Zobia Alam.mp4";
 import devikaMohananImg from "@/assets/Ms Devika Mohanan.jpeg";
 import hrishitaKambliImg from "@/assets/Ms Hrishita Kambli.jpeg";
 
@@ -56,6 +57,7 @@ const GetInvolvedSection = () => {
       institution: "University of British Columbia",
       degree: "Bachelor of Arts in Psychology",
       image: zobiaAlamImg,
+      video: zobiaAlamVideo,
       quote:
         "As a research intern at the New Horizons Child Development Centre, I contributed to various tasks such as analysing case reports, conducting literature reviews, and designing studies to evaluate the program's effectiveness. Working across these projects gave me an integrated understanding of how culture, family structures, and community environments shape developmental outcomes in the Indian context, while also allowing me to contribute meaningfully to the community I ultimately hope to serve. What particularly made this experience meaningful was the mentorship I received throughout the internship! The team fostered a space for constant learning, critical thinking and collaboration which has significantly shaped my understanding of research and clinical rigour in the field.",
     },
@@ -93,7 +95,7 @@ const GetInvolvedSection = () => {
       degree: "BA Psychology",
       image: hrishitaKambliImg,
       quote:
-        "During my time with the organization, I developed a strong foundation in the research process—from understanding the steps involved in conducting studies to writing comprehensive literature reviews and learned how to optimize academic search strategies to locate relevant papers efficiently. The internship fostered a collaborative environment that strengthened my teamwork skills, and I truly appreciated the emphasis placed on learning. My mentor was exceptional, providing consistent guidance throughout the internship. Overall, this experience significantly enhanced my research capabilities, and I would highly recommend this internship to anyone looking to build practical skills in research within a supportive and well-structured learning environment.",
+        "During my time with the organization, I developed a strong foundation in the research process-from understanding the steps involved in conducting studies to writing comprehensive literature reviews and learned how to optimize academic search strategies to locate relevant papers efficiently. The internship fostered a collaborative environment that strengthened my teamwork skills, and I truly appreciated the emphasis placed on learning. My mentor was exceptional, providing consistent guidance throughout the internship. Overall, this experience significantly enhanced my research capabilities, and I would highly recommend this internship to anyone looking to build practical skills in research within a supportive and well-structured learning environment.",
     },
   ];
 
@@ -177,6 +179,18 @@ const GetInvolvedSection = () => {
                     <p className="text-base font-semibold text-slate-900">{testimonial.name}</p>
                     <p className="text-sm text-orange-600 font-medium">{testimonial.role}</p>
                   </div>
+                  {testimonial.video ? (
+                    <div className="mb-5 overflow-hidden rounded-2xl border border-orange-100 bg-slate-950 shadow-sm">
+                      <video
+                        src={testimonial.video}
+                        controls
+                        preload="metadata"
+                        className="aspect-video w-full"
+                      >
+                        {language === "hi" ? "आपका ब्राउज़र वीडियो टैग को सपोर्ट नहीं करता।" : "Your browser does not support the video tag."}
+                      </video>
+                    </div>
+                  ) : null}
                   <p className="text-sm text-gray-700 italic mb-5 flex-1 line-clamp-6 leading-relaxed">"{testimonial.quote}"</p>
                   <div className="text-xs text-gray-600 space-y-2 pt-4 border-t border-gray-100">
                     <p className="line-clamp-2"><span className="font-medium text-gray-800">{language === "hi" ? "संस्थान:" : "Institution:"}</span> {testimonial.institution}</p>

@@ -79,7 +79,7 @@ const DirectorMessageSection = () => {
                   <p className="text-lg font-serif italic text-white/90 relative z-10">
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor."
                   </p>
-                  <p className="text-sm text-teal-300 font-medium mt-3 relative z-10">— Director</p>
+                  <p className="text-sm text-teal-300 font-medium mt-3 relative z-10">- Director</p>
                 </div>
               </div>
             </div>
