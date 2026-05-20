@@ -36,18 +36,18 @@ const GetInvolvedSection = () => {
     {
       icon: Building,
       title: t('getinvolved.partner'),
-      gradient: "from-orange-500 to-pink-500",
+      gradient: "from-[#4BC0DB] to-[#EC6F7B]",
     },
     {
       icon: Briefcase,
       title: t('getinvolved.work'),
-      gradient: "from-teal-500 to-emerald-500",
+      gradient: "from-[#A9C63B] to-[#4BC0DB]",
     },
     {
       icon: Heart,
       title: t('getinvolved.donate'),
-      gradient: "from-rose-500 to-red-500",
-    },
+      gradient: "from-[#EC6F7B] to-[#E88967]",
+    }
   ];
 
   const researchInternTestimonials = [
@@ -100,14 +100,14 @@ const GetInvolvedSection = () => {
   ];
 
   return (
-    <section id="get-involved" ref={sectionRef} className="py-20 lg:py-28 bg-gradient-to-b from-white via-orange-50/30 to-white relative overflow-hidden">
+    <section id="get-involved" ref={sectionRef} className="py-20 lg:py-28 bg-gradient-to-b from-white via-[#4BC0DB]/10 to-white relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-b from-orange-50/60 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-teal-50/40 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-b from-[#F4C94A]/20 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-br from-[#A9C63B]/20 to-transparent rounded-full blur-3xl" />
       
       <div className="container relative">
         <div className={`text-center max-w-3xl mx-auto mb-20 lg:mb-24 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider mb-4">
+            <span className="inline-flex items-center gap-2 text-[#4BC0DB] font-semibold text-sm uppercase tracking-wider mb-4">
               <Sparkles className="w-4 h-4" />
               {t('getinvolved.badge')}
             </span>
@@ -134,7 +134,7 @@ const GetInvolvedSection = () => {
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${option.gradient} flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 transition-all duration-300`}>
                   <option.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-serif font-bold text-slate-900 group-hover:text-orange-600 transition-colors">{option.title}</h3>
+                <h3 className="text-xl font-serif font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{option.title}</h3>
                 
                 <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${option.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
               </CardContent>
@@ -144,7 +144,7 @@ const GetInvolvedSection = () => {
 
         <div className={`mb-20 lg:mb-24 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 text-teal-700 font-semibold text-sm uppercase tracking-wider mb-4">
+            <span className="inline-flex items-center gap-2 text-[#A9C63B] font-semibold text-sm uppercase tracking-wider mb-4">
               <GraduationCap className="w-4 h-4" />
               {t('getinvolved.internship')}
             </span>
@@ -169,18 +169,18 @@ const GetInvolvedSection = () => {
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
-                        className="w-24 h-24 rounded-full object-cover shadow-md border-4 border-orange-100 mb-3"
+                        className="w-24 h-24 rounded-full object-cover shadow-md border-4 border-[#4BC0DB]/20 mb-3"
                       />
                     ) : (
-                      <div className="w-24 h-24 rounded-full bg-gradient-to-br from-orange-500 to-teal-500 flex items-center justify-center shadow-md mb-3">
+                      <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#4BC0DB] to-[#A9C63B] flex items-center justify-center shadow-md mb-3">
                         <Quote className="w-8 h-8 text-white" />
                       </div>
                     )}
                     <p className="text-base font-semibold text-slate-900">{testimonial.name}</p>
-                    <p className="text-sm text-orange-600 font-medium">{testimonial.role}</p>
+                    <p className="text-sm text-[#EC6F7B] font-medium">{testimonial.role}</p>
                   </div>
                   {testimonial.video ? (
-                    <div className="mb-5 overflow-hidden rounded-2xl border border-orange-100 bg-slate-950 shadow-sm">
+                    <div className="mb-5 overflow-hidden rounded-2xl border border-[#4BC0DB]/20 bg-slate-950 shadow-sm">
                       <video
                         src={testimonial.video}
                         controls
@@ -205,7 +205,7 @@ const GetInvolvedSection = () => {
         <div className={`text-center transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <Button 
             size="lg" 
-            className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300 hover:scale-105 text-base"
+            className="group bg-gradient-to-r from-[#4BC0DB] via-[#EC6F7B] to-[#F4C94A] hover:from-[#4BC0DB] hover:via-[#EC6F7B] hover:to-[#A9C63B] text-white shadow-lg shadow-[#4BC0DB]/25 hover:shadow-[#4BC0DB]/40 transition-all duration-300 hover:scale-105 text-base"
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             {t('getinvolved.cta')}

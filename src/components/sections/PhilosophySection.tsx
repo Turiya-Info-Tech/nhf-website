@@ -38,12 +38,12 @@ const PhilosophySection = () => {
 
   return (
     <section id="philosophy" ref={ref} className="py-20 lg:py-28 bg-gray-50 relative overflow-hidden">
-      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-violet-100/40 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-80 h-80 bg-gradient-to-br from-orange-100/30 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-[#EC6F7B]/20 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-0 w-80 h-80 bg-gradient-to-br from-[#4BC0DB]/20 to-transparent rounded-full blur-3xl" />
 
       <div className="container relative">
         <div className={`text-center max-w-4xl mx-auto mb-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="inline-flex items-center gap-2 text-violet-600 font-semibold text-sm uppercase tracking-wider">
+          <span className="inline-flex items-center gap-2 text-[#EC6F7B] font-semibold text-sm uppercase tracking-wider">
             <Sparkles className="w-4 h-4" />
             {language === "hi" ? "हमारा उद्देश्य और प्रयोजन" : "Our Aim & Purpose"}
           </span>
@@ -54,8 +54,8 @@ const PhilosophySection = () => {
 
         <div className={`grid lg:grid-cols-2 gap-8 lg:gap-12 mb-12 items-center transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
           <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl hover:-translate-y-1 transition-transform duration-300">
-            <h3 className="text-xl font-bold mb-4 text-violet-600 flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+            <h3 className="text-xl font-bold mb-4 text-[#EC6F7B] flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#EC6F7B] to-[#E88967] flex items-center justify-center">
                 <Target className="w-4 h-4 text-white" />
               </div>
               {language === "hi" ? "हमारा उद्देश्य" : "Our Aim"}
@@ -63,7 +63,7 @@ const PhilosophySection = () => {
             <ul className="space-y-3 text-gray-600">
               {aimItems.map((item) => (
                 <li key={item} className="flex items-start gap-3 group">
-                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 mt-2 shrink-0 group-hover:scale-125 transition-transform" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-[#EC6F7B] to-[#E88967] mt-2 shrink-0 group-hover:scale-125 transition-transform" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -71,44 +71,44 @@ const PhilosophySection = () => {
           </div>
 
           <div className="relative group">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-violet-500/20">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#EC6F7B]/20">
               <img
                 src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop"
                 alt="Medical research and clinical systems"
                 className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-violet-900/60 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg cursor-pointer hover:bg-orange-50 transition-colors" onClick={() => document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth' })}>
-                <Microscope className="w-5 h-5 text-violet-600" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#EC6F7B]/70 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg cursor-pointer hover:bg-blue-50 transition-colors" onClick={() => document.getElementById('publications')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Microscope className="w-5 h-5 text-[#EC6F7B]" />
                 <span className="text-sm font-semibold text-slate-700">{language === "hi" ? "साक्ष्य-आधारित अनुसंधान" : "Evidence-Based Research"}</span>
               </div>
             </div>
-            <div className="absolute -bottom-3 -right-3 w-24 h-24 bg-gradient-to-br from-violet-400 to-purple-600 rounded-2xl -z-10 opacity-60" />
-            <div className="absolute -top-3 -left-3 w-16 h-16 bg-gradient-to-br from-purple-400 to-violet-600 rounded-xl -z-10 opacity-60" />
+            <div className="absolute -bottom-3 -right-3 w-24 h-24 bg-gradient-to-br from-[#4BC0DB] to-[#EC6F7B] rounded-2xl -z-10 opacity-60" />
+            <div className="absolute -top-3 -left-3 w-16 h-16 bg-gradient-to-br from-[#F4C94A] to-[#4BC0DB] rounded-xl -z-10 opacity-60" />
           </div>
         </div>
 
         <div className={`grid lg:grid-cols-2 gap-8 lg:gap-12 mb-20 items-center transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
           <div className="relative group order-2 lg:order-1">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-orange-500/20">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/20">
               <img
                 src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=450&fit=crop"
                 alt="Community collaboration and family empowerment"
                 className="w-full h-80 object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-orange-900/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-lg">
-                <HandHeart className="w-5 h-5 text-orange-600" />
+                <HandHeart className="w-5 h-5 text-blue-600" />
                 <span className="text-sm font-semibold text-slate-700">{language === "hi" ? "समुदाय सशक्तिकरण" : "Community Empowerment"}</span>
               </div>
             </div>
-            <div className="absolute -bottom-3 -left-3 w-24 h-24 bg-gradient-to-br from-orange-400 to-pink-600 rounded-2xl -z-10 opacity-60" />
-            <div className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-pink-400 to-orange-600 rounded-xl -z-10 opacity-60" />
+            <div className="absolute -bottom-3 -left-3 w-24 h-24 bg-gradient-to-br from-blue-400 to-pink-600 rounded-2xl -z-10 opacity-60" />
+            <div className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-pink-400 to-blue-600 rounded-xl -z-10 opacity-60" />
           </div>
 
           <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-xl hover:-translate-y-1 transition-transform duration-300 order-1 lg:order-2">
-            <h3 className="text-xl font-bold mb-4 text-orange-600 flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-500 to-pink-600 flex items-center justify-center">
+            <h3 className="text-xl font-bold mb-4 text-blue-600 flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-pink-600 flex items-center justify-center">
                 <Heart className="w-4 h-4 text-white" />
               </div>
               {language === "hi" ? "हमारा प्रयोजन" : "Our Purpose"}
@@ -116,7 +116,7 @@ const PhilosophySection = () => {
             <ul className="space-y-3 text-gray-600 text-sm">
               {purposeItems.map((item) => (
                 <li key={item} className="flex items-start gap-3 group">
-                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-orange-500 to-pink-600 mt-1.5 shrink-0 group-hover:scale-125 transition-transform" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-blue-500 to-pink-600 mt-1.5 shrink-0 group-hover:scale-125 transition-transform" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -126,7 +126,7 @@ const PhilosophySection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-            <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider">
+            <span className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm uppercase tracking-wider">
               <Sparkles className="w-4 h-4" />
               {language === "hi" ? "मुख्य सिद्धांत" : "Core Principle"}
             </span>
@@ -140,9 +140,9 @@ const PhilosophySection = () => {
             </p>
             <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-2xl p-6 overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(251,146,60,0.1),transparent_50%)]" />
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 to-pink-500" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-pink-500" />
               <div className="relative flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center shadow-lg">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-pink-500 flex items-center justify-center shadow-lg">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="font-bold text-lg text-white">{language === "hi" ? "विश्वास और स्वायत्तता" : "Trust & Autonomy"}</h3>
@@ -156,7 +156,7 @@ const PhilosophySection = () => {
           </div>
 
           <div className={`relative transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <div className="relative bg-gradient-to-br from-orange-500 via-pink-500 to-rose-500 rounded-3xl p-8 lg:p-10 text-white overflow-hidden shadow-2xl group hover:-translate-y-2 transition-transform duration-300">
+            <div className="relative bg-gradient-to-br from-[#4BC0DB] via-[#EC6F7B] to-[#F4C94A] rounded-3xl p-8 lg:p-10 text-white overflow-hidden shadow-2xl group hover:-translate-y-2 transition-transform duration-300">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,255,255,0.15),transparent_50%)]" />
               <h3 className="relative text-2xl font-serif font-bold mb-4">{language === "hi" ? "बच्चा-प्रथम दृष्टिकोण" : "Child-First Approach"}</h3>
               <p className="relative text-lg opacity-90 mb-6 leading-relaxed">
@@ -169,7 +169,7 @@ const PhilosophySection = () => {
                 <span>{language === "hi" ? "हर बच्चा समझे जाने का हकदार है" : "Every child deserves to be understood"}</span>
               </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-teal-400/30 to-cyan-400/30 rounded-full blur-2xl" />
+            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-[#A9C63B]/30 to-[#4BC0DB]/30 rounded-full blur-2xl" />
           </div>
         </div>
       </div>

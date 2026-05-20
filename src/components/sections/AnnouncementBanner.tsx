@@ -27,7 +27,7 @@ const AnnouncementBanner = () => {
   const announcement = activeAnnouncements[0];
 
   return (
-    <div className={`relative bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-white py-3 px-4 overflow-hidden transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'}`}>
+    <div className={`relative bg-gradient-to-r from-[#4BC0DB] via-[#EC6F7B] to-[#F4C94A] text-white py-3 px-4 overflow-hidden transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'}`}>
       {/* Animated shimmer effect */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shimmer" />

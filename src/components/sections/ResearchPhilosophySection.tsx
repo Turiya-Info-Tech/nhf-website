@@ -47,22 +47,22 @@ const ResearchPhilosophySection = () => {
   ];
 
   const iterativeLearning = [
-    { icon: CheckCircle2, text: language === "hi" ? "प्रभावी हस्तक्षेपों की पहचान" : "Identify effective interventions", color: "from-green-400 to-emerald-500" },
-    { icon: TrendingUp, text: language === "hi" ? "आंशिक प्रभाव दिखाने वाले दृष्टिकोणों को परिष्कृत करना" : "Refine approaches that show partial impact", color: "from-amber-400 to-orange-500" },
-    { icon: XCircle, text: language === "hi" ? "ऐसी प्रथाएँ बंद करना जो बच्चों को सार्थक लाभ नहीं देतीं" : "Discontinue practices that do not meaningfully benefit children", color: "from-red-400 to-rose-500" }
+    { icon: CheckCircle2, text: language === "hi" ? "प्रभावी हस्तक्षेपों की पहचान" : "Identify effective interventions", color: "from-[#A9C63B] to-[#4BC0DB]" },
+    { icon: TrendingUp, text: language === "hi" ? "आंशिक प्रभाव दिखाने वाले दृष्टिकोणों को परिष्कृत करना" : "Refine approaches that show partial impact", color: "from-[#F4C94A] to-[#4BC0DB]" },
+    { icon: XCircle, text: language === "hi" ? "ऐसी प्रथाएँ बंद करना जो बच्चों को सार्थक लाभ नहीं देतीं" : "Discontinue practices that do not meaningfully benefit children", color: "from-[#EC6F7B] to-[#E88967]" }
   ];
 
   return (
     <section ref={ref} id="research-philosophy" className="py-20 lg:py-28 bg-card relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-purple-500/5 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-[#EC6F7B]/10 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-pink-500/5 to-transparent rounded-full blur-3xl" />
       
       <div className="container relative">
         <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-full px-4 py-2 mb-6">
-            <Sparkles className="w-4 h-4 text-purple-500 animate-pulse" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 font-semibold text-sm uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#EC6F7B]/10 to-[#4BC0DB]/10 border border-[#EC6F7B]/20 rounded-full px-4 py-2 mb-6">
+            <Sparkles className="w-4 h-4 text-[#EC6F7B] animate-pulse" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#EC6F7B] to-[#4BC0DB] font-semibold text-sm uppercase tracking-wider">
               {language === "hi" ? "अनुसंधान और प्रकाशन" : "Research & Publications"}
             </span>
           </div>
@@ -78,21 +78,21 @@ const ResearchPhilosophySection = () => {
           {/* Research Domains */}
           <div className={`transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#EC6F7B] to-[#4BC0DB] flex items-center justify-center shadow-lg">
                 <Microscope className="w-5 h-5 text-white" />
               </div>
               {language === "hi" ? "अनुसंधान क्षेत्र" : "Research Domains"}
             </h3>
             <div className="bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-2xl p-8 relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(168,85,247,0.15),transparent_50%)]" />
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#EC6F7B] via-[#4BC0DB] to-[#F4C94A]" />
               
               <div className="relative grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
                 {researchDomains.map((domain, index) => (
                   <div 
                     key={index}
                     style={getStaggerDelay(index, 80)}
-                    className={`bg-white/5 backdrop-blur-sm rounded-lg p-4 text-center border border-white/10 shadow-lg hover:border-purple-400/50 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                    className={`bg-white/5 backdrop-blur-sm rounded-lg p-4 text-center border border-white/10 shadow-lg hover:border-[#EC6F7B]/50 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
                   >
                     <span className="font-medium text-white">{domain}</span>
                   </div>

@@ -18,7 +18,7 @@ const CollaborationsSection = () => {
 
   const deicColumns = language === "hi"
     ? ["पैरामेडिकल स्टाफ का प्रशिक्षण", "DEIC अवसंरचना को मजबूत करना", "राष्ट्रीय स्तर पर दोहराने योग्य मॉडल"]
-    : ["Training paramedical staff", "Strengthening DEIC infrastructure", "Model for national replication"];
+    : ["Clinical psychologists, special educators, allied, and healthcare professionals.", "Strengthening DEIC infrastructure", "Model for national replication"];
 
   const partnershipValues = language === "hi"
     ? ["साक्ष्य-आधारित दृष्टिकोण", "नैतिक मानक", "दीर्घकालिक प्रणालीगत प्रभाव", "पारदर्शिता और जवाबदेही"]
@@ -82,9 +82,9 @@ const CollaborationsSection = () => {
         </div>
 
         {/* Coming Soon Note */}
-        <div className={`bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 mb-16 border border-amber-200 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`bg-gradient-to-br from-amber-50 to-blue-50 rounded-2xl p-6 mb-16 border border-amber-200 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-blue-500 flex items-center justify-center">
               <Clock className="w-5 h-5 text-white" />
             </div>
             <div>

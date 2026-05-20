@@ -30,30 +30,30 @@ const WorkshopsSection = () => {
       title: language === "hi" ? "DEIC क्षमता निर्माण कार्यशालाएँ" : "DEIC Capacity Building Workshops",
       partner: language === "hi" ? "यूनिसेफ के सहयोग से" : "In collaboration with UNICEF",
       description: language === "hi" ? "जिला प्रारंभिक हस्तक्षेप केंद्रों के लिए प्रशिक्षण और निगरानी प्रणालियाँ" : "Training and monitoring systems for District Early Intervention Centres",
-      gradient: "from-blue-500 to-indigo-600"
+      gradient: "from-[#4BC0DB] to-[#F4C94A]"
     },
     {
       title: language === "hi" ? "नैदानिक और अनुसंधान प्रशिक्षण सत्र" : "Clinical and Research Training Sessions",
       partner: language === "hi" ? "बहु-विषयी टीमें" : "Multidisciplinary Teams",
       description: language === "hi" ? "स्वास्थ्य पेशेवरों और शोधकर्ताओं के लिए साक्ष्य-आधारित प्रशिक्षण" : "Evidence-based training for healthcare professionals and researchers",
-      gradient: "from-emerald-500 to-teal-600"
+      gradient: "from-[#A9C63B] to-[#4BC0DB]"
     },
     {
       title: language === "hi" ? "शिक्षक क्षमता निर्माण कार्यक्रम" : "Teacher Capacity Building Program",
       partner: language === "hi" ? "शैक्षणिक संस्थान" : "Educational Institutions",
       description: language === "hi" ? "शिक्षकों को सीखने में कठिनाई वाले बच्चों की पहचान करने और आगे के आकलन तथा स्कूल रियायतों हेतु आवश्यक प्रमाणन के लिए उन्हें बाल विकास केंद्रों तक संदर्भित करने का प्रशिक्षण" : "Training teachers to identify and refer children with learning difficulties to child development centres for further assessment and certification required for school concessions",
-      gradient: "from-amber-500 to-orange-600"
+      gradient: "from-[#F4C94A] to-[#4BC0DB]"
     }
   ];
 
   return (
     <section id="workshops" ref={ref} className="py-20 lg:py-28 bg-gray-50 relative overflow-hidden">
-      <div className="absolute top-20 left-0 w-96 h-96 bg-gradient-to-br from-indigo-100/40 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-0 w-80 h-80 bg-gradient-to-br from-emerald-100/30 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-20 left-0 w-96 h-96 bg-gradient-to-br from-[#4BC0DB]/20 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-0 w-80 h-80 bg-gradient-to-br from-[#A9C63B]/20 to-transparent rounded-full blur-3xl" />
 
       <div className="container relative">
         <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="inline-flex items-center gap-2 text-indigo-600 font-semibold text-sm uppercase tracking-wider">
+          <span className="inline-flex items-center gap-2 text-[#4BC0DB] font-semibold text-sm uppercase tracking-wider">
             <Sparkles className="w-4 h-4" />
             {language === "hi" ? "कार्यशालाएँ और सेमिनार" : "Workshops & Seminars"}
           </span>
@@ -68,7 +68,7 @@ const WorkshopsSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
           <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#4BC0DB] to-[#EC6F7B] flex items-center justify-center shadow-lg">
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800">{language === "hi" ? "मुख्य प्रशिक्षण विषय" : "Key Training Themes"}</h3>
@@ -82,7 +82,7 @@ const WorkshopsSection = () => {
                   }`}
                   style={getStaggerDelay(index + 2, 80)}
                 >
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#4BC0DB] to-[#EC6F7B] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     <CheckCircle2 className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-gray-700">{topic}</span>
@@ -93,7 +93,7 @@ const WorkshopsSection = () => {
 
           <div className={`transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#A9C63B] to-[#4BC0DB] flex items-center justify-center shadow-lg">
                 <Building2 className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800">{language === "hi" ? "उल्लेखनीय सहभागिताएँ" : "Notable Engagements"}</h3>
@@ -109,8 +109,8 @@ const WorkshopsSection = () => {
                 >
                   <CardContent className="p-5 relative">
                     <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${engagement.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`} />
-                    <h4 className="font-bold text-gray-800 mb-1 group-hover:text-indigo-600 transition-colors">{engagement.title}</h4>
-                    <p className="text-sm text-indigo-500 font-semibold mb-2">{engagement.partner}</p>
+                    <h4 className="font-bold text-gray-800 mb-1 group-hover:text-[#4BC0DB] transition-colors">{engagement.title}</h4>
+                    <p className="text-sm text-[#EC6F7B] font-semibold mb-2">{engagement.partner}</p>
                     <p className="text-sm text-gray-600 leading-relaxed">{engagement.description}</p>
                   </CardContent>
                 </Card>
@@ -121,12 +121,12 @@ const WorkshopsSection = () => {
 
         <div className={`relative bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-3xl p-8 text-center overflow-hidden transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(99,102,241,0.15),transparent_50%)]" />
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4BC0DB] via-[#EC6F7B] to-[#F4C94A]" />
           <div className="relative flex items-center justify-center gap-2 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center shadow-lg">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#4BC0DB] to-[#EC6F7B] flex items-center justify-center shadow-lg">
               <Calendar className="w-5 h-5 text-white" />
             </div>
-            <span className="text-sm font-bold text-indigo-300 uppercase tracking-wider">
+            <span className="text-sm font-bold text-[#4BC0DB] uppercase tracking-wider">
               {language === "hi" ? "आगामी आयोजन" : "Upcoming Events"}
             </span>
           </div>
@@ -135,7 +135,7 @@ const WorkshopsSection = () => {
           </p>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="relative inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-xl hover:from-indigo-600 hover:to-purple-700 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 font-semibold"
+            className="relative inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-[#4BC0DB] to-[#EC6F7B] text-white rounded-xl hover:from-[#4BC0DB] hover:to-[#EC6F7B] shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 font-semibold"
           >
             <Users className="w-4 h-4" />
             {language === "hi" ? "प्रशिक्षण के लिए संपर्क करें" : "Contact for Training"}

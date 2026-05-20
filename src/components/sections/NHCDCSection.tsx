@@ -21,22 +21,22 @@ const NHCDCSection = () => {
     : "text-3xl md:text-5xl font-serif font-bold mt-4 mb-4 leading-[1.12] tracking-[-0.02em] text-slate-900";
 
   const teamSpecialties = [
-    { icon: Stethoscope, title: language === "hi" ? "विकासात्मक बाल रोग विशेषज्ञ" : "Developmental Pediatricians", gradient: "from-blue-500 to-indigo-500" },
-    { icon: Users, title: language === "hi" ? "फिजियोथेरेपिस्ट" : "Physiotherapists", gradient: "from-teal-500 to-emerald-500" },
-    { icon: Brain, title: language === "hi" ? "ऑक्यूपेशनल थेरेपिस्ट" : "Occupational Therapists", gradient: "from-purple-500 to-violet-500" },
-    { icon: Heart, title: language === "hi" ? "मनोवैज्ञानिक" : "Psychologists", gradient: "from-rose-500 to-pink-500" },
-    { icon: GraduationCap, title: language === "hi" ? "विशेष शिक्षाविद" : "Remedial Educators", gradient: "from-orange-500 to-amber-500" },
+    { icon: Stethoscope, title: language === "hi" ? "विकासात्मक बाल रोग विशेषज्ञ" : "Developmental Pediatricians", gradient: "from-[#4BC0DB] to-[#F4C94A]" },
+    { icon: Users, title: language === "hi" ? "फिजियोथेरेपिस्ट" : "Physiotherapists", gradient: "from-[#A9C63B] to-[#4BC0DB]" },
+    { icon: Brain, title: language === "hi" ? "ऑक्यूपेशनल थेरेपिस्ट" : "Occupational Therapists", gradient: "from-[#EC6F7B] to-[#E88967]" },
+    { icon: Heart, title: language === "hi" ? "मनोवैज्ञानिक" : "Psychologists", gradient: "from-[#EC6F7B] to-[#4BC0DB]" },
+    { icon: GraduationCap, title: language === "hi" ? "विशेष शिक्षाविद" : "Remedial Educators", gradient: "from-[#4BC0DB] to-[#A9C63B]" },
   ];
 
   return (
-    <section id="nhcdc" ref={ref} className="py-20 lg:py-28 bg-gradient-to-b from-white to-orange-50/30 relative overflow-hidden">
+    <section id="nhcdc" ref={ref} className="py-20 lg:py-28 bg-gradient-to-b from-white to-[#4BC0DB]/10 relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-orange-100/40 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-80 h-80 bg-gradient-to-br from-teal-100/30 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-[#F4C94A]/20 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-0 w-80 h-80 bg-gradient-to-br from-[#A9C63B]/20 to-transparent rounded-full blur-3xl" />
       
       <div className="container relative">
         <div className={`text-center max-w-3xl mx-auto mb-12 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider">
+          <span className="inline-flex items-center gap-2 text-[#4BC0DB] font-semibold text-sm uppercase tracking-wider">
             <Sparkles className="w-4 h-4" />
             {language === "hi" ? "नैदानिक साझेदार" : "Clinical Partner"}
           </span>
@@ -54,14 +54,14 @@ const NHCDCSection = () => {
         {/* Main Stats Card */}
         <div className={`bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-3xl p-8 lg:p-12 mb-12 text-center relative overflow-hidden transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(251,146,60,0.15),transparent_50%)]" />
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-pink-500 to-teal-500" />
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4BC0DB] via-[#EC6F7B] to-[#A9C63B]" />
           
           <div className="relative">
-            <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center shadow-2xl">
+            <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#4BC0DB] to-[#EC6F7B] flex items-center justify-center shadow-2xl">
               <Building2 className="w-10 h-10 text-white" />
             </div>
             
-            <div className="text-6xl md:text-7xl font-bold mb-2 bg-gradient-to-r from-orange-400 via-pink-400 to-teal-400 bg-clip-text text-transparent">
+            <div className="text-6xl md:text-7xl font-bold mb-2 bg-gradient-to-r from-[#4BC0DB] via-[#EC6F7B] to-[#F4C94A] bg-clip-text text-transparent">
               120+
             </div>
             <p className="text-xl text-white/80 mb-8">{language === "hi" ? "बहु-विषयी टीम सदस्य" : "Interdisciplinary Team Members"}</p>
@@ -87,7 +87,7 @@ const NHCDCSection = () => {
                 <div className={`w-12 h-12 mx-auto mb-3 rounded-xl bg-gradient-to-br ${specialty.gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                   <specialty.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-sm font-semibold text-gray-800 group-hover:text-orange-600 transition-colors leading-tight">
+                <h3 className="text-sm font-semibold text-gray-800 group-hover:text-[#4BC0DB] transition-colors leading-tight">
                   {specialty.title}
                 </h3>
               </CardContent>
@@ -99,7 +99,7 @@ const NHCDCSection = () => {
         <div className={`text-center mt-10 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <Button 
             size="lg"
-            className="group bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300"
+            className="group bg-gradient-to-r from-[#4BC0DB] via-[#EC6F7B] to-[#F4C94A] hover:from-[#4BC0DB] hover:via-[#EC6F7B] hover:to-[#A9C63B] text-white shadow-lg shadow-[#4BC0DB]/25 hover:shadow-[#4BC0DB]/40 transition-all duration-300"
             onClick={() => window.open('https://www.newhorizonscdc.in/', '_blank')}
           >
             {language === "hi" ? "NHCDC वेबसाइट देखें" : "Visit NHCDC Website"}

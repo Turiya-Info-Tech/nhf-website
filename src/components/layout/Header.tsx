@@ -131,7 +131,7 @@ const Header = () => {
                       onClick={() => handleNavClick(item)}
                       className={`px-4 py-3 text-left font-medium rounded-lg transition-all duration-200 ${
                         isActive 
-                          ? 'bg-orange-50 text-orange-600' 
+                          ? 'bg-[#4BC0DB]/10 text-[#4BC0DB]' 
                           : 'text-gray-700 hover:bg-gray-50'
                       }`}
                     >
@@ -146,7 +146,7 @@ const Header = () => {
                   </div>
                   <Button 
                     onClick={() => handleNavClick({ href: "#get-involved" })}
-                    className="w-full bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white"
+                    className="w-full bg-gradient-to-r from-[#4BC0DB] via-[#EC6F7B] to-[#F4C94A] hover:from-[#4BC0DB] hover:via-[#EC6F7B] hover:to-[#A9C63B] text-white"
                   >
                     <Sparkles className="w-4 h-4 mr-2" />
                     {t('header.getInvolved')}
@@ -178,11 +178,11 @@ const Header = () => {
                     key={item.href}
                     onClick={() => handleNavClick(item)}
                     className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
-                      isActive ? 'text-orange-600' : 'text-slate-700'
-                    } hover:text-orange-600 hover:bg-orange-50`}
+                      isActive ? 'text-[#4BC0DB]' : 'text-slate-700'
+                    } hover:text-[#4BC0DB] hover:bg-[#4BC0DB]/10`}
                   >
                     {item.label}
-                    <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full transition-all duration-300 ${
+                    <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-[#4BC0DB] via-[#EC6F7B] to-[#F4C94A] rounded-full transition-all duration-300 ${
                       isActive ? 'w-6' : 'w-0'
                     }`} />
                   </button>
@@ -194,7 +194,7 @@ const Header = () => {
               <LanguageToggle />
               <Button 
                 onClick={() => handleNavClick({ href: "#get-involved" })}
-                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25"
+                className="bg-gradient-to-r from-[#4BC0DB] to-[#A9C63B] hover:from-[#4BC0DB] hover:to-[#A9C63B] text-white shadow-lg shadow-[#4BC0DB]/25"
               >
                 <Sparkles className="w-4 h-4 mr-2" />
                 {t('header.getInvolved')}

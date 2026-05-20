@@ -11,32 +11,32 @@ const EvidenceHopeSection = () => {
       icon: Users,
       title: language === "hi" ? "माता-पिता और देखभालकर्ता" : "Parents & Caregivers",
       description: language === "hi" ? "दर्ज विकासात्मक प्रगति के माध्यम से स्पष्टता और भरोसा" : "Clarity and reassurance through documented developmental progress",
-      gradient: "from-violet-500 to-purple-600"
+      gradient: "from-[#4BC0DB] to-[#EC6F7B]"
     },
     {
       icon: Heart,
       title: language === "hi" ? "क्लिनिशियन" : "Clinicians",
       description: language === "hi" ? "हस्तक्षेप दृष्टिकोणों में दिशा और पेशेवर आत्मविश्वास" : "Direction and professional confidence in intervention approaches",
-      gradient: "from-rose-500 to-pink-600"
+      gradient: "from-[#EC6F7B] to-[#E88967]"
     },
     {
       icon: TrendingUp,
       title: language === "hi" ? "प्रणालियाँ" : "Systems",
       description: language === "hi" ? "सूचित निर्णय-निर्माण और संसाधन आवंटन के लिए साक्ष्य" : "Evidence for informed decision-making and resource allocation",
-      gradient: "from-emerald-500 to-teal-600"
+      gradient: "from-[#A9C63B] to-[#4BC0DB]"
     }
   ];
 
   return (
-    <section id="evidence-hope" ref={ref} className="py-20 lg:py-28 bg-gradient-to-br from-teal-50 via-white to-violet-50 relative overflow-hidden">
+    <section id="evidence-hope" ref={ref} className="py-20 lg:py-28 bg-gradient-to-br from-[#4BC0DB]/10 via-white to-[#EC6F7B]/10 relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-violet-100/40 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-80 h-80 bg-gradient-to-br from-teal-100/30 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-[#F4C94A]/20 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-0 w-80 h-80 bg-gradient-to-br from-[#A9C63B]/20 to-transparent rounded-full blur-3xl" />
       
       <div className="container relative">
         <div className="max-w-5xl mx-auto">
           <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <span className="inline-flex items-center gap-2 text-teal-600 font-semibold text-sm uppercase tracking-wider">
+            <span className="inline-flex items-center gap-2 text-[#4BC0DB] font-semibold text-sm uppercase tracking-wider">
               <Sparkles className="w-4 h-4" />
               {language === "hi" ? "परिवारों और देखभालकर्ताओं पर प्रभाव" : "Impact on Families & Caregivers"}
             </span>
@@ -63,7 +63,7 @@ const EvidenceHopeSection = () => {
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${benefit.gradient} flex items-center justify-center mb-6 mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300`}>
                   <benefit.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-teal-600 transition-colors">{benefit.title}</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-3 group-hover:text-[#4BC0DB] transition-colors">{benefit.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
               </div>
             ))}
@@ -72,12 +72,12 @@ const EvidenceHopeSection = () => {
           {/* Main Message */}
           <div className={`relative bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-3xl p-8 lg:p-12 text-center overflow-hidden transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(20,184,166,0.15),transparent_50%)]" />
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4BC0DB] via-[#A9C63B] to-[#F4C94A]" />
             <div className="relative flex items-center justify-center gap-4 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#4BC0DB] to-[#A9C63B] flex items-center justify-center shadow-lg">
                 <Eye className="w-6 h-6 text-white" />
               </div>
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#EC6F7B] to-[#E88967] flex items-center justify-center shadow-lg">
                 <Heart className="w-6 h-6 text-white fill-white" />
               </div>
             </div>
@@ -88,10 +88,10 @@ const EvidenceHopeSection = () => {
               {language === "hi"
                 ? "यह साक्ष्य-प्रेरित, फिर भी मानवीय दृष्टिकोण परिवारों को एक अत्यंत मूल्यवान चीज देता है: "
                 : "This evidence-driven yet human-centred approach offers families something deeply valuable: "}
-              <span className="text-teal-400 font-semibold">{language === "hi" ? "विश्वसनीय आशा" : "credible hope"}</span>
+              <span className="text-[#4BC0DB] font-semibold">{language === "hi" ? "विश्वसनीय आशा" : "credible hope"}</span>
               {language === "hi" ? " जो दृश्यमान परिवर्तन पर आधारित है।" : " rooted in observable change."}
             </p>
-            <div className="relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-teal-500/20 to-emerald-500/20 border border-teal-400/30 text-teal-300">
+            <div className="relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#4BC0DB]/20 to-[#A9C63B]/20 border border-[#4BC0DB]/30 text-[#4BC0DB]">
               <Heart className="w-5 h-5 fill-current animate-pulse" />
               <span className="font-semibold">{language === "hi" ? "साक्ष्य के माध्यम से आशा" : "Hope Through Evidence"}</span>
             </div>

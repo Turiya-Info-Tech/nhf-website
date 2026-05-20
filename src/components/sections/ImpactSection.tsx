@@ -38,13 +38,13 @@ const ImpactSection = () => {
     >
       {/* Subtle background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-b from-orange-50/60 to-transparent rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-gradient-to-b from-blue-50/60 to-transparent rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-teal-50/40 to-transparent rounded-full blur-3xl" />
       </div>
 
       <div className="container relative">
         <div className={`text-center max-w-3xl mx-auto mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider mb-4">
+            <span className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4">
               <Sparkles className="w-4 h-4" />
               {t('impact.badge')}
             </span>
@@ -67,10 +67,10 @@ const ImpactSection = () => {
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="w-14 h-14 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-500 to-teal-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <div className="w-14 h-14 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-teal-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <Icon className="w-7 h-7 text-white" />
                 </div>
-                <div className="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-orange-600 to-teal-600 bg-clip-text text-transparent">
+                <div className="text-4xl sm:text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
                   {isVisible ? (
                     <CountUp end={stat.value} suffix={stat.suffix} />
                   ) : (
@@ -120,13 +120,13 @@ const ImpactSection = () => {
               }`}
               style={{ transitionDelay: `${600 + index * 150}ms` }}
             >
-              <h3 className="text-xl font-serif font-bold mb-4 text-slate-900 group-hover:text-orange-600 transition-colors">{card.title}</h3>
+              <h3 className="text-xl font-serif font-bold mb-4 text-slate-900 group-hover:text-blue-600 transition-colors">{card.title}</h3>
               {card.content && <p className="text-gray-700 mb-3 text-base leading-relaxed">{card.content}</p>}
               {card.list && (
                 <ul className="text-gray-700 text-sm space-y-3">
                   {card.list.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <span className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-teal-500 flex-shrink-0 mt-1.5" />
+                      <span className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-teal-500 flex-shrink-0 mt-1.5" />
                       <span>{item}</span>
                     </li>
                   ))}

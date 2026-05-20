@@ -39,7 +39,7 @@ const Footer = () => {
     <footer className="relative bg-slate-900 text-white overflow-hidden">
       {/* Background decorations - subtle */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-orange-500/8 to-transparent rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-[#4BC0DB]/10 to-transparent rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-teal-500/8 to-transparent rounded-full blur-3xl" />
       </div>
 
@@ -67,7 +67,7 @@ const Footer = () => {
                 href="https://www.newhorizonscdc.in/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-orange-400 hover:text-orange-300 transition-colors ml-1 font-medium"
+                className="text-[#4BC0DB] hover:text-[#EC6F7B] transition-colors ml-1 font-medium"
               >
                 NHCDC
               </a>
@@ -82,7 +82,7 @@ const Footer = () => {
                 <li key={link.href}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-white/70 hover:text-orange-400 transition-colors duration-300 text-base"
+                    className="text-white/70 hover:text-[#4BC0DB] transition-colors duration-300 text-base"
                   >
                     {link.label}
                   </button>
@@ -101,7 +101,7 @@ const Footer = () => {
               <li>
                 <a 
                   href="mailto:research@enablemychild.org" 
-                  className="hover:text-orange-400 transition-colors duration-300 break-all"
+                  className="hover:text-[#4BC0DB] transition-colors duration-300 break-all"
                 >
                   research@enablemychild.org
                 </a>
@@ -123,7 +123,7 @@ const Footer = () => {
       {/* Scroll to top button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-36 right-4 sm:bottom-24 sm:right-6 w-12 h-12 rounded-full bg-gradient-to-r from-orange-500 to-teal-500 text-white shadow-lg shadow-orange-500/30 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-orange-500/50 z-50 group ${
+        className={`fixed bottom-36 right-4 sm:bottom-24 sm:right-6 w-12 h-12 rounded-full bg-gradient-to-r from-[#4BC0DB] to-[#A9C63B] text-white shadow-lg shadow-[#4BC0DB]/30 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-[#4BC0DB]/50 z-50 group ${
           showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
         }`}
         title={language === "hi" ? "ऊपर जाएँ" : "Back to top"}

@@ -8,10 +8,10 @@ const DirectorMessageSection = () => {
     <section
       id="director-message"
       ref={ref}
-      className="py-20 lg:py-28 bg-gradient-to-br from-teal-50 via-white to-orange-50 relative overflow-hidden"
+      className="py-20 lg:py-28 bg-gradient-to-br from-[#4BC0DB]/10 via-white to-[#EC6F7B]/10 relative overflow-hidden"
     >
-      <div className="absolute top-10 left-0 w-96 h-96 bg-gradient-to-br from-teal-100/40 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-10 right-0 w-80 h-80 bg-gradient-to-br from-orange-100/40 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-10 left-0 w-96 h-96 bg-gradient-to-br from-[#4BC0DB]/20 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-10 right-0 w-80 h-80 bg-gradient-to-br from-blue-100/40 to-transparent rounded-full blur-3xl" />
 
       <div className="container relative">
         <div
@@ -19,7 +19,7 @@ const DirectorMessageSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <span className="inline-flex items-center gap-2 text-teal-700 font-semibold text-sm uppercase tracking-wider">
+          <span className="inline-flex items-center gap-2 text-[#4BC0DB] font-semibold text-sm uppercase tracking-wider">
             <Sparkles className="w-4 h-4" />
             From the Director
           </span>
@@ -37,7 +37,7 @@ const DirectorMessageSection = () => {
             <div className="sticky top-28">
               <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-3xl p-6 text-center overflow-hidden shadow-2xl group">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(45,212,191,0.15),transparent_50%)]" />
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-500 via-emerald-500 to-orange-500" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4BC0DB] via-[#A9C63B] to-[#EC6F7B]" />
                 <div className="relative w-40 h-40 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center mx-auto mb-4">
                   <User className="w-16 h-16 text-white/70" />
                 </div>
@@ -54,7 +54,7 @@ const DirectorMessageSection = () => {
             }`}
           >
             <div className="bg-white rounded-3xl p-8 lg:p-10 border border-gray-100 shadow-xl relative overflow-hidden">
-              <Quote className="absolute top-6 left-6 w-12 h-12 text-teal-500/10" />
+              <Quote className="absolute top-6 left-6 w-12 h-12 text-[#4BC0DB]/10" />
 
               <div className="space-y-6 text-gray-600 relative z-10">
                 <p className="text-lg leading-relaxed">
@@ -75,11 +75,11 @@ const DirectorMessageSection = () => {
                 </p>
 
                 <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-2xl p-6 mt-8 overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
-                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-teal-500 via-emerald-500 to-orange-500" />
+                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#4BC0DB] via-[#A9C63B] to-[#EC6F7B]" />
                   <p className="text-lg font-serif italic text-white/90 relative z-10">
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor."
                   </p>
-                  <p className="text-sm text-teal-300 font-medium mt-3 relative z-10">- Director</p>
+                  <p className="text-sm text-[#4BC0DB] font-medium mt-3 relative z-10">- Director</p>
                 </div>
               </div>
             </div>

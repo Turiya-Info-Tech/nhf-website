@@ -11,54 +11,54 @@ const TestimonialsSection = () => {
       author: "Parent of a 5-year-old with ASD",
       type: "Parent",
       location: "Mumbai",
-      gradient: "from-pink-500 to-rose-500"
+      gradient: "from-[#EC6F7B] to-[#E88967]"
     },
     {
       quote: "Working with NHF on the DEIC capacity building project has been exceptional. Their evidence-based approach and deep understanding of ground realities make them an ideal implementation partner.",
       author: "UNICEF India Representative",
       type: "Partner",
       location: "Maharashtra",
-      gradient: "from-blue-500 to-cyan-500"
+      gradient: "from-[#4BC0DB] to-[#A9C63B]"
     },
     {
       quote: "Dr. Dalwai and his team bring a rare combination of clinical expertise and research rigor. Their commitment to ethical research with vulnerable children sets a benchmark for the field.",
       author: "Academic Collaborator",
       type: "Collaborator",
       location: "Delhi",
-      gradient: "from-purple-500 to-indigo-500"
+      gradient: "from-[#4BC0DB] to-[#F4C94A]"
     },
     {
       quote: "The training we received from NHF has fundamentally changed how we approach early intervention at our center. The focus on measurable outcomes is exactly what the field needs.",
       author: "DEIC Medical Officer",
       type: "Partner",
       location: "Pune",
-      gradient: "from-orange-500 to-amber-500"
+      gradient: "from-[#4BC0DB] to-[#F4C94A]"
     },
     {
       quote: "After years of uncertainty, NHF helped us see our daughter's strengths, not just her challenges. The whole-child approach made all the difference for our family.",
       author: "Parent of a 7-year-old with developmental delays",
       type: "Parent",
       location: "Thane",
-      gradient: "from-teal-500 to-green-500"
+      gradient: "from-[#A9C63B] to-[#4BC0DB]"
     },
     {
       quote: "NHF's research on nutritional interventions is groundbreaking. Their ethical frameworks ensure that children's welfare is always at the center of every study.",
       author: "Pediatric Neurologist",
       type: "Collaborator",
       location: "Mumbai",
-      gradient: "from-violet-500 to-purple-500"
+      gradient: "from-[#EC6F7B] to-[#4BC0DB]"
     }
   ];
 
   return (
-    <section id="testimonials" ref={ref} className="py-20 lg:py-28 bg-gradient-to-b from-white via-orange-50/30 to-white relative overflow-hidden">
+    <section id="testimonials" ref={ref} className="py-20 lg:py-28 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-orange-200/30 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-[#4BC0DB]/20 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-pink-200/30 to-transparent rounded-full blur-3xl" />
       
       <div className="container relative">
         <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider">
+          <span className="inline-flex items-center gap-2 text-[#4BC0DB] font-semibold text-sm uppercase tracking-wider">
             <Sparkles className="w-4 h-4" />
             Testimonials
           </span>
@@ -89,7 +89,7 @@ const TestimonialsSection = () => {
                     <Quote className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <span className="text-xs font-bold text-orange-600 uppercase tracking-wider">
+                    <span className="text-xs font-bold text-[#4BC0DB] uppercase tracking-wider">
                       {testimonial.type}
                     </span>
                     <p className="text-xs text-gray-400">{testimonial.location}</p>
@@ -104,7 +104,7 @@ const TestimonialsSection = () => {
                   </p>
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3 h-3 text-amber-400 fill-amber-400" />
+                      <Star key={i} className="w-3 h-3 text-[#F4C94A] fill-[#F4C94A]" />
                     ))}
                   </div>
                 </div>

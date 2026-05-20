@@ -67,10 +67,10 @@ const HeroSection = () => {
   const heroFade = Math.max(1 - scrollY / 900, 0.7);
 
   return (
-    <section id="home" className="relative overflow-hidden bg-gradient-to-b from-orange-100 via-orange-50 to-slate-50/30">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.12),transparent_45%)]" />
-      <div className="absolute -top-12 right-0 h-72 w-72 rounded-full bg-orange-100/40 blur-3xl" />
-      <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-teal-100/40 blur-3xl" />
+    <section id="home" className="relative overflow-hidden bg-gradient-to-b from-[#4BC0DB]/15 via-[#EC6F7B]/10 to-[#F4C94A]/20">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(75,192,219,0.12),transparent_45%)]" />
+      <div className="absolute -top-12 right-0 h-72 w-72 rounded-full bg-[#4BC0DB]/20 blur-3xl" />
+      <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-[#A9C63B]/20 blur-3xl" />
 
       <div className="container relative z-10 px-4 sm:px-6 pt-40 pb-20 lg:pt-56 lg:pb-28 min-h-[92vh]">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
@@ -78,14 +78,14 @@ const HeroSection = () => {
             className="max-w-3xl transition-transform duration-300"
             style={{ transform: `translateY(${contentParallax}px)`, opacity: heroFade }}
           >
-            <div className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/90 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
-              <Sparkles className="h-4 w-4 text-orange-500" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#4BC0DB] bg-white/90 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm">
+              <Sparkles className="h-4 w-4 text-[#4BC0DB]" />
               {t('hero.badge')}
             </div>
 
             <h1 className={`mt-6 text-4xl font-serif font-bold text-slate-900 sm:text-5xl lg:text-7xl ${language === "hi" ? "leading-[1.35] sm:leading-[1.34] lg:leading-[1.3]" : "leading-tight"}`}>
               <span className="block">{t('hero.title1')}</span>
-              <span className={`block bg-gradient-to-r from-orange-500 via-orange-600 to-teal-600 bg-clip-text text-transparent ${language === "hi" ? "mt-2 pb-3" : "pb-2"}`}>
+              <span className={`block bg-gradient-to-r from-[#EC6F7B] via-[#4BC0DB] to-[#F4C94A] bg-clip-text text-transparent ${language === "hi" ? "mt-2 pb-3" : "pb-2"}`}>
                 {t('hero.title2')}
               </span>
             </h1>
@@ -105,7 +105,7 @@ const HeroSection = () => {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button
                 size="lg"
-                className="group bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/25 transition-all duration-300 hover:from-orange-600 hover:to-orange-700"
+                className="group bg-gradient-to-r from-[#4BC0DB] via-[#EC6F7B] to-[#F4C94A] text-white shadow-lg shadow-[#4BC0DB]/25 transition-all duration-300 hover:from-[#4BC0DB] hover:via-[#EC6F7B] hover:to-[#A9C63B]"
                 onClick={() => document.getElementById('get-involved')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 {t('hero.partner')}
@@ -115,7 +115,7 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-teal-500 text-teal-700 transition-all duration-300 hover:bg-teal-500 hover:text-white"
+                className="border-[#F4C94A] text-[#A9C63B] transition-all duration-300 hover:bg-[#A9C63B] hover:text-white"
                 onClick={() => document.getElementById('focus-areas')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 {t('hero.explore')}
@@ -148,7 +148,7 @@ const HeroSection = () => {
                       >
                         <div className="space-y-3">
                           <span className="inline-flex items-center gap-2 rounded-full bg-white/85 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-700 backdrop-blur-sm">
-                            <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#EC6F7B]" />
                             {t('hero.badge')}
                           </span>
                           <h3 className="text-2xl font-serif font-bold leading-tight text-white sm:text-3xl">
@@ -172,7 +172,7 @@ const HeroSection = () => {
                   aria-label={`Go to slide ${index + 1}`}
                   onClick={() => carouselApi?.scrollTo(index)}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
-                    activeSlide === index ? "w-8 bg-gradient-to-r from-orange-500 to-teal-500" : "w-2.5 bg-orange-200 hover:bg-orange-300"
+                    activeSlide === index ? "w-8 bg-gradient-to-r from-[#4BC0DB] via-[#EC6F7B] to-[#F4C94A]" : "w-2.5 bg-[#4BC0DB]/25 hover:bg-[#4BC0DB]/40"
                   }`}
                 />
               ))}
@@ -186,7 +186,7 @@ const HeroSection = () => {
             type="button"
             aria-label="Scroll to About section"
             onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-            className="group inline-flex items-center gap-2 rounded-full border border-orange-200/80 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-orange-700 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-orange-300 hover:bg-white"
+            className="group inline-flex items-center gap-2 rounded-full border border-[#A9C63B]/60 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#A9C63B] shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-[#A9C63B] hover:bg-white"
           >
             <span>{language === "hi" ? "नीचे स्क्रॉल करें" : "Scroll Down"}</span>
             <ChevronDown className="h-4 w-4 animate-bounce" />

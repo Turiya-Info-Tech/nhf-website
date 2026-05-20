@@ -271,10 +271,10 @@ const FounderMessageSection = () => {
     <section
       id="founders-message"
       ref={ref}
-      className="py-20 lg:py-28 bg-gradient-to-br from-orange-50 via-white to-pink-50 relative overflow-hidden"
+      className="py-20 lg:py-28 bg-gradient-to-br from-blue-50 via-white to-pink-50 relative overflow-hidden"
     >
       {/* Background decorations */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-orange-100/40 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-blue-100/40 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-0 w-80 h-80 bg-gradient-to-br from-pink-100/30 to-transparent rounded-full blur-3xl" />
 
       <div className="container relative">
@@ -283,7 +283,7 @@ const FounderMessageSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider">
+          <span className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm uppercase tracking-wider">
             <Sparkles className="w-4 h-4" />
             {content.badge}
           </span>
@@ -306,7 +306,7 @@ const FounderMessageSection = () => {
             <div className="sticky top-28">
               <div className="relative bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 rounded-3xl p-6 sm:p-8 text-center overflow-hidden shadow-2xl group">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(251,146,60,0.15),transparent_50%)]" />
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-pink-500 to-rose-500" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-pink-500 to-rose-500" />
                 <div className="relative w-full max-w-[320px] mx-auto mb-5 aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
                   <img
                     src={founderImg}
@@ -317,7 +317,7 @@ const FounderMessageSection = () => {
                 <h3 className="text-xl sm:text-2xl font-serif font-bold mb-1 text-white">
                   {content.name}
                 </h3>
-                <p className="text-xs sm:text-sm text-orange-300/90 font-medium tracking-wider mb-4">
+                <p className="text-xs sm:text-sm text-blue-300/90 font-medium tracking-wider mb-4">
                   {content.credentials}
                 </p>
                 <div className="space-y-1.5">
@@ -338,11 +338,11 @@ const FounderMessageSection = () => {
             }`}
           >
             <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-gray-100 shadow-xl relative overflow-hidden">
-              <Quote className="absolute top-6 left-6 w-12 h-12 text-orange-500/10" />
+              <Quote className="absolute top-6 left-6 w-12 h-12 text-blue-500/10" />
 
               <div className="space-y-6 text-gray-600 relative z-10">
                 {/* Rotating pull quotes */}
-                <div className="relative bg-gradient-to-br from-orange-50 to-pink-50 border-l-4 border-orange-500 rounded-r-2xl p-5 sm:p-6 overflow-hidden">
+                <div className="relative bg-gradient-to-br from-blue-50 to-pink-50 border-l-4 border-blue-500 rounded-r-2xl p-5 sm:p-6 overflow-hidden">
                   <div
                     key={quoteIndex}
                     className="animate-in fade-in slide-in-from-bottom-2 duration-700"
@@ -363,8 +363,8 @@ const FounderMessageSection = () => {
                         aria-label={`Show quote ${i + 1}`}
                         className={`h-1.5 rounded-full transition-all duration-300 ${
                           i === quoteIndex
-                            ? "w-8 bg-orange-500"
-                            : "w-4 bg-orange-200 hover:bg-orange-300"
+                            ? "w-8 bg-blue-500"
+                            : "w-4 bg-blue-200 hover:bg-blue-300"
                         }`}
                       />
                     ))}
@@ -389,13 +389,13 @@ const FounderMessageSection = () => {
             {/* Recognition & Achievements - placed beside founder photo, under bio */}
             <div className="mt-6 bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-gray-100 shadow-xl">
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
-              <p className="text-xs font-semibold text-orange-600 uppercase tracking-wider">
+              <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider">
                 {content.tagsHeading}
               </p>
-              <div className="h-px flex-1 hidden sm:block bg-gradient-to-r from-orange-200 to-transparent ml-4" />
+              <div className="h-px flex-1 hidden sm:block bg-gradient-to-r from-blue-200 to-transparent ml-4" />
             </div>
 
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-wrap gap-2">
               {content.tags.map(({ id, label, icon: Icon }) => {
                 const isActive = activeTag === id;
                 return (
@@ -407,8 +407,8 @@ const FounderMessageSection = () => {
                     aria-controls={`founder-panel-${id}`}
                     className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 border ${
                       isActive
-                        ? "bg-gradient-to-r from-orange-500 to-pink-500 text-white border-transparent shadow-md"
-                        : "bg-slate-100 hover:bg-orange-100 text-slate-700 hover:text-orange-700 border-transparent"
+                        ? "bg-gradient-to-r from-blue-500 to-pink-500 text-white border-transparent shadow-md"
+                        : "bg-slate-100 hover:bg-blue-100 text-slate-700 hover:text-blue-700 border-transparent"
                     }`}
                   >
                     <Icon className="w-3.5 h-3.5" />
@@ -417,65 +417,63 @@ const FounderMessageSection = () => {
                 );
               })}
             </div>
+          </div>
+          </div>
 
-            {/* Expanding panel - full-width */}
+        {/* Expanding panel - positioned at grid level to span full width */}
+        {activeTagData && (
+          <div
+            className={`lg:col-span-5 transition-all duration-500 ease-in-out ${
+              activeTagData ? "opacity-100" : "opacity-0"
+            }`}
+          >
             <div
-              className={`grid transition-all duration-500 ease-in-out ${
-                activeTagData ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-              }`}
+              id={`founder-panel-${activeTagData.id}`}
+              className="w-full rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50/60 to-pink-50/40 overflow-hidden mt-6 grid grid-cols-1 lg:grid-cols-5 gap-0"
             >
-              <div className="overflow-hidden">
-                {activeTagData && (
-                  <div
-                    id={`founder-panel-${activeTagData.id}`}
-                    className="w-full rounded-2xl border border-orange-100 bg-gradient-to-br from-orange-50/60 to-pink-50/40 overflow-hidden grid md:grid-cols-2"
-                  >
-                    {/* Image placeholder */}
-                    <div className="relative w-full h-56 md:h-full min-h-[16rem] bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center border-b md:border-b-0 md:border-r border-orange-100">
-                      <div className="flex flex-col items-center gap-2 text-slate-400">
-                        <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center shadow-sm border border-orange-200">
-                          <activeTagData.icon className="w-7 h-7 text-orange-500" />
-                        </div>
-                        <p className="text-xs font-medium uppercase tracking-wider">
-                          Image placeholder
-                        </p>
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/40 to-transparent p-3">
-                        <p className="text-xs sm:text-sm text-white font-medium leading-snug">
-                          {activeTagData.details.sideLabel}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Text */}
-                    <div className="p-6 sm:p-8 relative">
-                      <button
-                        type="button"
-                        onClick={() => setActiveTag(null)}
-                        aria-label="Close"
-                        className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-white/70 transition-colors"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
-                      <span className="inline-block text-[11px] font-semibold uppercase tracking-wider text-teal-700 bg-teal-50 border border-teal-100 px-2.5 py-1 rounded-full mb-3">
-                        {activeTagData.details.tag}
-                      </span>
-                      <h4 className="text-lg sm:text-xl lg:text-2xl font-serif font-semibold text-slate-900 leading-snug mb-2 pr-8">
-                        {activeTagData.details.heading}
-                      </h4>
-                      <p className="text-xs sm:text-sm font-medium text-orange-600 mb-3">
-                        {activeTagData.details.year}
-                      </p>
-                      <p className="text-sm sm:text-base leading-relaxed text-slate-600">
-                        {activeTagData.details.body}
-                      </p>
-                    </div>
+              {/* Image placeholder - aligned with founder photo column */}
+              <div className="lg:col-span-2 relative w-full h-56 lg:h-80 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center border-b lg:border-b-0 lg:border-r border-blue-100">
+                <div className="flex flex-col items-center gap-2 text-slate-400">
+                  <div className="w-14 h-14 rounded-full bg-white/80 flex items-center justify-center shadow-sm border border-blue-200">
+                    <activeTagData.icon className="w-7 h-7 text-blue-500" />
                   </div>
-                )}
+                  <p className="text-xs font-medium uppercase tracking-wider">
+                    Image placeholder
+                  </p>
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/40 to-transparent p-3">
+                  <p className="text-xs sm:text-sm text-white font-medium leading-snug">
+                    {activeTagData.details.sideLabel}
+                  </p>
+                </div>
+              </div>
+
+              {/* Text - aligned with content column */}
+              <div className="lg:col-span-3 p-6 sm:p-8 relative">
+                <button
+                  type="button"
+                  onClick={() => setActiveTag(null)}
+                  aria-label="Close"
+                  className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-white/70 transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+                <span className="inline-block text-[11px] font-semibold uppercase tracking-wider text-[#A9C63B] bg-[#A9C63B]/10 border border-[#A9C63B]/20 px-2.5 py-1 rounded-full mb-3">
+                  {activeTagData.details.tag}
+                </span>
+                <h4 className="text-lg sm:text-xl lg:text-2xl font-serif font-semibold text-slate-900 leading-snug mb-2 pr-8">
+                  {activeTagData.details.heading}
+                </h4>
+                <p className="text-xs sm:text-sm font-medium text-blue-600 mb-3">
+                  {activeTagData.details.year}
+                </p>
+                <p className="text-sm sm:text-base leading-relaxed text-slate-600">
+                  {activeTagData.details.body}
+                </p>
               </div>
             </div>
           </div>
-        </div>
+        )}
         </div>
       </div>
     </section>

@@ -18,7 +18,7 @@ const WhatsAppButton = () => {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
+      className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 bg-[#A9C63B] hover:bg-[#95B232] text-white p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
       aria-label={language === "hi" ? "व्हाट्सऐप पर बात करें" : "Chat on WhatsApp"}
     >
       <MessageCircle className="w-7 h-7 fill-current" />
@@ -29,7 +29,7 @@ const WhatsAppButton = () => {
       </span>
       
       {/* Pulse animation */}
-      <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-25"></span>
+      <span className="absolute inset-0 rounded-full bg-[#A9C63B] animate-ping opacity-25"></span>
     </a>
   );
 };

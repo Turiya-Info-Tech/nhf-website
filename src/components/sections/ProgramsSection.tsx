@@ -36,7 +36,7 @@ const ProgramsSection = () => {
           ? "स्कूल-आधारित कार्य जो शिक्षकों और देखभालकर्ताओं को चिंताओं की जल्दी पहचान करने, दैनिक सहयोग रणनीतियों को मजबूत करने और बच्चों को समय पर विकासात्मक सहायता से जोड़ने में मदद करता है।"
           : "School-based work that helps educators and caregivers identify concerns early, strengthen daily support strategies, and connect children to timely developmental care.",
       image: classroomImage,
-      gradient: "from-amber-500 to-orange-500",
+      gradient: "from-[#F4C94A] to-[#4BC0DB]",
       highlights:
         language === "hi"
           ? ["शिक्षक क्षमता निर्माण", "प्रारंभिक पहचान", "दैनिक स्कूल परिवेश में सहयोग"]
@@ -52,7 +52,7 @@ const ProgramsSection = () => {
           ? "आंगनवाड़ियों, क्लीनिकों और समुदायों में किया गया कार्य, जो विकासात्मक निगरानी, देखभालकर्ता मार्गदर्शन और जीवन के सबसे प्रारंभिक और प्रभावशाली वर्षों में सहयोग पर केंद्रित है।"
           : "Work in anganwadis, clinics, and communities focused on developmental surveillance, caregiver guidance, and support during the earliest and most influential years of life.",
       image: communityImage,
-      gradient: "from-sky-500 to-cyan-500",
+      gradient: "from-[#4BC0DB] to-[#A9C63B]",
       highlights:
         language === "hi"
           ? ["आंगनवाड़ी सहभागिता", "देखभालकर्ता मार्गदर्शन", "प्रारंभिक विकासात्मक सहयोग"]
@@ -68,7 +68,7 @@ const ProgramsSection = () => {
           ? "विकासात्मक देरी, सीखने की कठिनाइयों और न्यूरोडेवलपमेंटल स्थितियों वाले बच्चों के लिए नैदानिक और क्षेत्र-आधारित कार्य, ताकि सहायता व्यावहारिक, समय पर और साक्ष्य-आधारित हो।"
           : "Clinical and field-informed work for children with developmental delays, learning difficulties, and neurodevelopmental conditions so support is practical, timely, and evidence-based.",
       image: clinicalImage,
-      gradient: "from-rose-500 to-pink-500",
+      gradient: "from-[#EC6F7B] to-[#E88967]",
       highlights:
         language === "hi"
           ? ["विकासात्मक आकलन", "देखभाल मार्ग", "बहु-विषयी हस्तक्षेप मॉडल"]
@@ -84,7 +84,7 @@ const ProgramsSection = () => {
           ? "ऐसे कार्यक्रम जो जागरूकता, रोकथाम और बेहतर दिनचर्या के माध्यम से तकनीक के उपयोग, डिजिटल बोझ और बच्चों व किशोरों के कल्याण पर काम करते हैं।"
           : "Programmes that address technology use, digital overload, and the wellbeing of children and adolescents through awareness, prevention, and healthier routines.",
       image: classroomImage,
-      gradient: "from-violet-500 to-fuchsia-500",
+      gradient: "from-[#EC6F7B] to-[#4BC0DB]",
       highlights:
         language === "hi"
           ? ["स्क्रीन उपयोग जागरूकता", "माता-पिता और स्कूल मार्गदर्शन", "व्यवहार-केंद्रित रोकथाम"]
@@ -100,7 +100,7 @@ const ProgramsSection = () => {
           ? "ऐसा कार्य जो किशोरों को स्वास्थ्य, पोषण और मनोसामाजिक हस्तक्षेपों के माध्यम से सहयोग देता है, जो जीवन के इस चरण और इसके आसपास की प्रणालियों की जटिलता को समझता है।"
           : "Work that supports adolescents through health, nutrition, and psychosocial interventions that recognise the complexity of this life stage and the systems around it.",
       image: communityImage,
-      gradient: "from-emerald-500 to-teal-500",
+      gradient: "from-[#A9C63B] to-[#4BC0DB]",
       highlights:
         language === "hi"
           ? ["पोषण-संबद्ध सहयोग", "मनोसामाजिक कल्याण", "आयु-उपयुक्त स्वास्थ्य शिक्षा"]
@@ -129,12 +129,12 @@ const ProgramsSection = () => {
   return (
     <section id="programs" ref={ref} className="py-20 lg:py-28 bg-white relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-0 right-1/2 translate-x-1/2 w-96 h-96 bg-gradient-to-b from-orange-50/50 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-teal-50/40 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-0 right-1/2 translate-x-1/2 w-96 h-96 bg-gradient-to-b from-[#4BC0DB]/10 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#A9C63B]/20 to-transparent rounded-full blur-3xl" />
       
       <div className="container relative">
         <div className={`max-w-3xl mb-16 lg:mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider mb-4">
+            <span className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4">
               <Sparkles className="w-4 h-4" />
               {t('programs.badge')}
             </span>
@@ -148,7 +148,7 @@ const ProgramsSection = () => {
               {t('programs.description')}
             </p>
             <Button 
-              className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300 text-base"
+              className="group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 text-base"
               onClick={() => document.getElementById('get-involved')?.scrollIntoView({ behavior: 'smooth' })}
             >
               {t('programs.partner')}
@@ -168,7 +168,7 @@ const ProgramsSection = () => {
                   className={`rounded-xl border px-4 py-4 text-left transition-all duration-300 group ${
                     isActive
                       ? 'border-transparent bg-slate-900 text-white shadow-lg hover:shadow-xl'
-                      : 'border-gray-200 bg-white text-gray-700 hover:border-orange-200 hover:-translate-y-0.5 hover:shadow-md'
+                      : 'border-gray-200 bg-white text-gray-700 hover:border-blue-200 hover:-translate-y-0.5 hover:shadow-md'
                   } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                   style={getStaggerDelay(index, 80)}
                 >
@@ -212,7 +212,7 @@ const ProgramsSection = () => {
               </div>
 
               <div className="flex items-start gap-3 text-sm text-white/75 bg-white/5 rounded-lg p-4">
-                <Users className="h-5 w-5 text-orange-400 flex-shrink-0 mt-0.5" />
+                <Users className="h-5 w-5 text-blue-400 flex-shrink-0 mt-0.5" />
                 <p className="leading-relaxed">
                   {language === "hi"
                     ? "बाल-केंद्रित प्रणालियों में साक्ष्य को दैनिक व्यवहार में लाने के लिए तैयार किया गया।"
@@ -229,7 +229,7 @@ const ProgramsSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6">
-                <p className="text-xs font-semibold uppercase tracking-wider text-orange-300 mb-2">
+                <p className="text-xs font-semibold uppercase tracking-wider text-blue-300 mb-2">
                   {language === "hi" ? "एनएचएफ कार्यक्रम" : "NHF Programme"}
                 </p>
                 <h4 className="text-2xl font-serif font-bold mb-3 text-white">{selectedProgram.tab}</h4>

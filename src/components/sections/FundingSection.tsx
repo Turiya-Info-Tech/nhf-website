@@ -19,37 +19,37 @@ const FundingSection = () => {
       icon: Building2,
       title: language === "hi" ? "CSR साझेदारियाँ" : "CSR Partnerships",
       description: language === "hi" ? "बाल विकास और स्वास्थ्य प्राथमिकताओं के अनुरूप कॉर्पोरेट संस्थाओं के साथ दीर्घकालिक साझेदारियाँ।" : "Long-term partnerships with corporations aligned with child development and healthcare priorities.",
-      gradient: "from-blue-500 to-indigo-600"
+      gradient: "from-[#4BC0DB] to-[#F4C94A]"
     },
     {
       icon: Handshake,
       title: language === "hi" ? "संस्थागत अनुदान" : "Institutional Grants",
       description: language === "hi" ? "सरकारी निकायों, फाउंडेशनों और अंतरराष्ट्रीय संगठनों से सहयोगी वित्तपोषण।" : "Collaborative funding from government bodies, foundations, and international organizations.",
-      gradient: "from-emerald-500 to-teal-600"
+      gradient: "from-[#A9C63B] to-[#4BC0DB]"
     },
     {
       icon: Users,
       title: language === "hi" ? "दाता सहयोग" : "Donor Support",
       description: language === "hi" ? "विशिष्ट कार्यक्रमों या सामान्य संचालन के लिए व्यक्तिगत और पारिवारिक परोपकार।" : "Individual and family philanthropy supporting specific programs or general operations.",
-      gradient: "from-rose-500 to-pink-600"
+      gradient: "from-[#EC6F7B] to-[#E88967]"
     },
     {
       icon: FileText,
       title: language === "hi" ? "परियोजना-आधारित वित्तपोषण" : "Project-Based Funding",
       description: language === "hi" ? "विशिष्ट शोध अध्ययनों, प्रशिक्षण पहलों या सामुदायिक कार्यक्रमों के लिए लक्षित सहयोग।" : "Targeted support for specific research studies, training initiatives, or community programs.",
-      gradient: "from-amber-500 to-orange-600"
+      gradient: "from-[#F4C94A] to-[#4BC0DB]"
     },
   ];
 
   return (
     <section id="funding" ref={ref} className="py-20 lg:py-28 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-orange-100/40 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-80 h-80 bg-gradient-to-br from-blue-100/30 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-br from-[#4BC0DB]/20 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-0 w-80 h-80 bg-gradient-to-br from-[#A9C63B]/20 to-transparent rounded-full blur-3xl" />
       
       <div className="container relative">
         <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider">
+          <span className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm uppercase tracking-wider">
             <Sparkles className="w-4 h-4" />
             {language === "hi" ? "वित्तपोषण और साझेदारियाँ" : "Funding & Partnerships"}
           </span>
@@ -83,7 +83,7 @@ const FundingSection = () => {
                   <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${type.gradient} flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300`}>
                     <type.icon className="w-7 h-7 text-white" />
                   </div>
-                  <h4 className="font-bold text-gray-800 mb-2 group-hover:text-orange-600 transition-colors">{type.title}</h4>
+                  <h4 className="font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">{type.title}</h4>
                   <p className="text-sm text-gray-600 leading-relaxed">{type.description}</p>
                 </CardContent>
               </Card>
@@ -92,7 +92,7 @@ const FundingSection = () => {
         </div>
 
         {/* CSR Alignment */}
-        <Card className={`border-0 shadow-xl bg-gradient-to-br from-orange-50 via-white to-pink-50 overflow-hidden transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <Card className={`border-0 shadow-xl bg-gradient-to-br from-blue-50 via-white to-pink-50 overflow-hidden transition-all duration-700 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <CardContent className="p-6 md:p-8 lg:p-12">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
@@ -104,7 +104,7 @@ const FundingSection = () => {
                 </p>
                 <ul className="space-y-3 mb-6">
                   <li className="flex items-start gap-3 group">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-400 to-pink-500 flex items-center justify-center mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform">
                       <div className="w-2 h-2 rounded-full bg-white" />
                     </div>
                     <span className="text-sm text-gray-600">
@@ -112,7 +112,7 @@ const FundingSection = () => {
                     </span>
                   </li>
                   <li className="flex items-start gap-3 group">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-400 to-pink-500 flex items-center justify-center mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform">
                       <div className="w-2 h-2 rounded-full bg-white" />
                     </div>
                     <span className="text-sm text-gray-600">
@@ -120,7 +120,7 @@ const FundingSection = () => {
                     </span>
                   </li>
                   <li className="flex items-start gap-3 group">
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-400 to-pink-500 flex items-center justify-center mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform">
                       <div className="w-2 h-2 rounded-full bg-white" />
                     </div>
                     <span className="text-sm text-gray-600">
@@ -133,7 +133,7 @@ const FundingSection = () => {
                     const element = document.querySelector("#contact");
                     if (element) element.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
+                  className="bg-gradient-to-r from-[#4BC0DB] via-[#EC6F7B] to-[#F4C94A] hover:from-[#4BC0DB] hover:via-[#EC6F7B] hover:to-[#A9C63B] text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300"
                 >
                   {language === "hi" ? "साझेदारी पर चर्चा करें" : "Discuss Partnership"}
                 </Button>

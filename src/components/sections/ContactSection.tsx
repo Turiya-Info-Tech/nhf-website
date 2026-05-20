@@ -47,7 +47,7 @@ const ContactSection = () => {
       icon: MapPin,
       title: language === "hi" ? "पंजीकृत कार्यालय का पता" : "Registered Office Address",
       content: "New Horizons Health and Research Foundation\nSaira Mansion, Near Pahadi Road No. 2,\nPeru Baug, Jay Prakash Nagar, Goregaon East,\nMumbai, Maharashtra 400063",
-      gradient: "from-orange-500 to-pink-500"
+      gradient: "from-blue-500 to-pink-500"
     },
     {
       icon: Mail,
@@ -60,14 +60,14 @@ const ContactSection = () => {
   return (
     <section id="contact" ref={ref} className="py-20 lg:py-28 bg-white relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-0 right-1/2 translate-x-1/2 w-96 h-96 bg-gradient-to-b from-orange-50/50 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-0 right-1/2 translate-x-1/2 w-96 h-96 bg-gradient-to-b from-blue-50/50 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-teal-50/40 to-transparent rounded-full blur-3xl" />
       
       <div className="container relative">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Contact Info */}
           <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-              <span className="inline-flex items-center gap-2 text-orange-600 font-semibold text-sm uppercase tracking-wider mb-4">
+              <span className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4">
                 <Sparkles className="w-4 h-4" />
                 {t('contact.badge')}
               </span>
@@ -115,7 +115,7 @@ const ContactSection = () => {
                     required 
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="border-gray-200 focus:border-orange-500 focus:ring-orange-500/20 transition-all duration-300"
+                    className="border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300"
                   />
                 </div>
                 <div>
@@ -126,7 +126,7 @@ const ContactSection = () => {
                     required 
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="border-gray-200 focus:border-orange-500 focus:ring-orange-500/20 transition-all duration-300"
+                    className="border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -134,7 +134,7 @@ const ContactSection = () => {
               <div>
                 <label className="block text-sm font-semibold mb-2 text-gray-700">{language === "hi" ? "पूछताछ का प्रकार" : "Enquiry Type"}</label>
                 <Select value={formData.enquiryType} onValueChange={(value) => setFormData({ ...formData, enquiryType: value })}>
-                  <SelectTrigger className="border-gray-200 focus:border-orange-500 focus:ring-orange-500/20">
+                  <SelectTrigger className="border-gray-200 focus:border-blue-500 focus:ring-blue-500/20">
                     <SelectValue placeholder={language === "hi" ? "एक विकल्प चुनें" : "Select an option"} />
                   </SelectTrigger>
                   <SelectContent>
@@ -155,14 +155,14 @@ const ContactSection = () => {
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="border-gray-200 focus:border-orange-500 focus:ring-orange-500/20 transition-all duration-300 resize-none"
+                  className="border-gray-200 focus:border-blue-500 focus:ring-blue-500/20 transition-all duration-300 resize-none"
                 />
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button 
                   type="submit" 
-                  className="flex-1 bg-gradient-to-r from-orange-500 to-pink-500 hover:from-orange-600 hover:to-pink-600 text-white shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300 group"
+                  className="flex-1 bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 group"
                 >
                   <>
                     {language === "hi" ? "ईमेल ड्राफ्ट खोलें" : "Open Email Draft"}

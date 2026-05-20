@@ -33,7 +33,7 @@ const PublicationsSection = () => {
       case "Guidelines":
         return { bg: "from-teal-500 to-cyan-600", text: "text-teal-600 bg-teal-50 border-teal-200" };
       case "Review Article":
-        return { bg: "from-amber-500 to-orange-600", text: "text-amber-600 bg-amber-50 border-amber-200" };
+        return { bg: "from-amber-500 to-blue-600", text: "text-amber-600 bg-amber-50 border-amber-200" };
       case "Book Chapter":
         return { bg: "from-rose-500 to-pink-600", text: "text-rose-600 bg-rose-50 border-rose-200" };
       case "Position Paper":
@@ -210,7 +210,7 @@ const PublicationsSection = () => {
             {
               title: language === "hi" ? "वकालत: चिल्ड्रन्स मैनिफेस्टो" : "Advocacy: Children’s Manifesto",
               description: language === "hi" ? "ऐसी नीतिगत प्रतिबद्धताएँ जो बाल विकास और समावेशी प्रणालियों को प्राथमिकता देती हैं।" : "Policy commitments that prioritize child development and inclusive systems.",
-              gradient: "from-orange-500 to-pink-500",
+              gradient: "from-blue-500 to-pink-500",
             },
           ].map((item) => (
             <Card key={item.title} className="border-0 shadow-lg shadow-gray-100/60">
