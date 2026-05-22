@@ -45,8 +45,8 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: language === "hi" ? "पंजीकृत कार्यालय का पता" : "Registered Office Address",
-      content: "New Horizons Health and Research Foundation\nSaira Mansion, Near Pahadi Road No. 2,\nPeru Baug, Jay Prakash Nagar, Goregaon East,\nMumbai, Maharashtra 400063",
+      title: language === "hi" ? "जीजीएनई पता" : "GGNE Address",
+      content: language === "hi" ? "जीजीएनई पता" : "GGNE Address",
       gradient: "from-blue-500 to-pink-500"
     },
     {

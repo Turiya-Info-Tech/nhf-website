@@ -18,7 +18,7 @@ const CollaborationsSection = () => {
 
   const deicColumns = language === "hi"
     ? ["पैरामेडिकल स्टाफ का प्रशिक्षण", "DEIC अवसंरचना को मजबूत करना", "राष्ट्रीय स्तर पर दोहराने योग्य मॉडल"]
-    : ["Clinical psychologists, special educators, allied, and healthcare professionals.", "Strengthening DEIC infrastructure", "Model for national replication"];
+    : ["Training of paramedical staff at DEICs", "Strengthening DEIC infrastructure", "Model for national replication"];
 
   const partnershipValues = language === "hi"
     ? ["साक्ष्य-आधारित दृष्टिकोण", "नैतिक मानक", "दीर्घकालिक प्रणालीगत प्रभाव", "पारदर्शिता और जवाबदेही"]

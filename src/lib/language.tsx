@@ -24,13 +24,13 @@ const translations: Record<Language, Record<string, string>> = {
     // Hero Section
     'hero.title1': 'Evidence',
     'hero.title2': 'to Real Impact',
-    'hero.subtitle': 'NHF works across health, child development, mental health, school health, nutrition, and public health systems.',
-    'hero.description': 'We work in schools, anganwadis, government hospitals, and communities to improve how support is identified, delivered, and sustained for children and families.',
+    'hero.subtitle': 'NHF works across health, child development, mental health, school health, nutrition, and public systems. Our work includes research, implementation, and partnerships with government institutions, as well as with organisations across sectors.',
+    'hero.description': 'We focus on both systems and ground realities-working in schools, anganwadis, government hospitals, and communities to improve how care is delivered and accessed.',
     'hero.bullet1': 'Be aware of and responsive to their environment',
     'hero.bullet2': 'Regulate themselves with increasing independence',
     'hero.bullet3': 'Communicate their needs effectively',
     'hero.bullet4': 'Make informed decisions that support their physical, emotional, and social well-being',
-    'hero.tagline': 'Research, implementation, and partnerships with government institutions and organisations across sectors, including UNICEF and DEIC collaborations, help us move evidence into everyday systems.',
+    'hero.tagline': 'Research. Train. Reach.',
     'hero.partner': 'Partner With Us',
     'hero.explore': 'Explore Our Work',
     'hero.badge': 'Research & Advocacy for Child Development',
@@ -38,24 +38,24 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.slide1Desc': 'NHF works across health, child development, mental health, school health, nutrition, and public health systems.',
     'hero.slide2': 'Systems and Ground Realities',
     'hero.slide2Desc': 'Working in schools, anganwadis, government hospitals, and communities to improve how care is delivered and accessed.',
-    'hero.slide3': 'Every Child Deserves Support',
-    'hero.slide3Desc': 'Research, implementation, and partnerships with government institutions and organisations across sectors.',
+    'hero.slide3': 'Research. Train. Reach.',
+    'hero.slide3Desc': 'From evidence generation to implementation and policy integration, NHF works across systems to create measurable and lasting change.',
     'hero.carouselHint': 'Auto-slides every 6 seconds. Hover to pause.',
     
     // About Section
-    'about.badge': 'Who We Are',
+    'about.badge': 'Our Team',
     'about.title': 'Bridging Science, Service & Policy for Child Development',
     'about.intro': 'We improve outcomes for children with neurodevelopmental concerns through research, implementation, and systemic change.',
     'about.card1Title': 'About Us',
     'about.card1Desc': 'We are a not-for-profit organization committed to improving outcomes for children with neurodevelopmental concerns across India. Our work is grounded in the belief that every child deserves timely, evidence-based support.',
     'about.card2Title': 'Our Role',
-    'about.card2Desc': 'We serve as the research and advocacy arm of NHCDC, translating clinical experience and field insights into scalable knowledge and actionable policy frameworks.',
+    'about.card2Desc': 'We serve as the research and advocacy arm of the New Horizons Child Development Centre (NHCDC), translating clinical experience and field insights into scalable knowledge and action.',
     'about.card3Title': 'Our Approach',
-    'about.card3Desc': 'We work across health, child development, mental health, school health, nutrition, and public systems through research, implementation, and partnerships that create sustainable change.',
+    'about.card3Desc': 'NHF works at the intersection of health, child development, mental health, school health, nutrition, and public systems. Our work spans research, on-ground implementation, and partnerships with government institutions, as well as with organisations and collaborators across sectors-because meaningful change in health does not happen in isolation.',
     'about.gapTitle': 'The Gap We Address',
-    'about.gapP1': 'In India, millions of children with developmental delays, learning disabilities, and neurodevelopmental conditions go unidentified-not because solutions don\'t exist, but because no one trained to recognise them ever does.',
-    'about.gapP2': 'We address this gap directly, working inside schools, anganwadis, government hospitals, and underserved communities to ensure early identification and timely support.',
-    'about.gapP3': 'Our approach connects evidence with systems-strengthening frontline capacity, integrating health and development into everyday settings, and working alongside public programs to improve how care is delivered, accessed, and sustained.',
+    'about.gapP1': 'One part of this work begins early.',
+    'about.gapP2': 'In India, millions of children with developmental delays, learning disabilities, and neurodevelopmental conditions go unidentified -not because solutions do not exist, but because no one trained to recognise them ever does. NHF addresses this gap directly, working inside schools, anganwadis, government hospitals, and underserved communities to ensure early identification and timely support.',
+    'about.gapP3': 'But this is only one dimension of what we do. Our approach connects evidence with systems-strengthening frontline capacity, integrating health and development into everyday settings, and working alongside public programs and partner organisations to improve how care is delivered, accessed, and sustained.',
     'about.researchTrainReach': 'Research. Train. Reach.',
     'about.researchTrainReachDesc': 'We operate across the entire system - generating evidence, training frontline workers, delivering direct programmes, and advancing policy that embeds this knowledge into government infrastructure permanently.',
     'about.research': 'We Research',
@@ -82,7 +82,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Programs Section
     'programs.badge': 'Our Work',
-    'programs.title': 'Comprehensive Work. Measurable Outcomes',
+    'programs.title': 'Comprehensive Work. Measurable Impact.',
     'programs.subtitle': 'From classroom to clinic, our programmes address the full spectrum of child health and development.',
     'programs.description': 'We work across health, child development, mental health, school health, nutrition, and public systems through research, implementation, and system partnerships.',
     'programs.partner': 'Partner With Us',
@@ -95,8 +95,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Contact Section
     'contact.badge': 'Contact Us',
-    'contact.title': 'Let\'s Start a Conversation',
-    'contact.description': 'Whether you\'re interested in partnership, collaboration, or learning more about our work, we\'d love to hear from you.',
+    'contact.title': 'New Horizons Health and Research Foundation',
+    'contact.description': 'Contact us for partnerships, collaborations, and programme enquiries.',
     'contact.name': 'Name',
     'contact.email': 'Email',
     'contact.message': 'Message',
@@ -104,7 +104,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Get Involved Section
     'getinvolved.badge': 'Get Involved',
-    'getinvolved.title': 'Join Us in Creating Change',
+    'getinvolved.title': 'Be part of..',
     'getinvolved.subtitle': 'Partner with NHF to build equitable, measurable outcomes for children and families.',
     'getinvolved.partner': 'Partner With Us',
     'getinvolved.work': 'Work With Us',
@@ -145,7 +145,7 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.carouselHint': 'स्लाइड हर 6 सेकंड में बदलती है। रोकने के लिए होवर करें।',
     
     // About Section
-    'about.badge': 'हम कौन हैं',
+    'about.badge': 'हमारी टीम',
     'about.title': 'बाल विकास के लिए विज्ञान, सेवा और नीति को जोड़ना',
     'about.intro': 'हम अनुसंधान, कार्यान्वयन और प्रणालीगत परिवर्तन के माध्यम से न्यूरोडेवलपमेंटल चिंताओं वाले बच्चों के परिणामों में सुधार करते हैं।',
     'about.card1Title': 'हमारे बारे में',
@@ -184,7 +184,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Programs Section
     'programs.badge': 'हमारा काम',
-    'programs.title': 'व्यापक काम। मापनीय परिणाम',
+    'programs.title': 'व्यापक काम। मापनीय प्रभाव।',
     'programs.subtitle': 'कक्षा से क्लिनिक तक, हमारे कार्यक्रम बाल स्वास्थ्य और विकास के पूर्ण स्पेक्ट्रम को संबोधित करते हैं।',
     'programs.description': 'हम स्वास्थ्य, बाल विकास, मानसिक स्वास्थ्य, स्कूल स्वास्थ्य, पोषण और सार्वजनिक प्रणालियों में अनुसंधान, कार्यान्वयन और प्रणाली भागीदारी के माध्यम से काम करते हैं।',
     'programs.partner': 'हमारे साथ भागीदार बनें',
@@ -197,8 +197,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Contact Section
     'contact.badge': 'हमसे संपर्क करें',
-    'contact.title': 'आइए एक बातचीत शुरू करें',
-    'contact.description': 'चाहे आप भागीदारी, सहयोग में रुचि रखते हों या हमारे काम के बारे में और जानना चाहते हों, हम आपसे सुनना पसंद करेंगे।',
+    'contact.title': 'न्यू होराइजन्स हेल्थ एंड रिसर्च फाउंडेशन',
+    'contact.description': 'साझेदारी, सहयोग और कार्यक्रम संबंधी पूछताछ के लिए हमसे संपर्क करें।',
     'contact.name': 'नाम',
     'contact.email': 'ईमेल',
     'contact.message': 'संदेश',
@@ -206,7 +206,7 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Get Involved Section
     'getinvolved.badge': 'शामिल हों',
-    'getinvolved.title': 'परिवर्तन लाने में हमारे साथ शामिल हों',
+    'getinvolved.title': 'इस बदलाव का हिस्सा बनें..',
     'getinvolved.subtitle': 'बच्चों और परिवारों के लिए न्यायसंगत, मापनीय परिणाम बनाने के लिए NHF के साथ भागीदार।',
     'getinvolved.partner': 'हमारे साथ भागीदार बनें',
     'getinvolved.work': 'हमारे साथ काम करें',

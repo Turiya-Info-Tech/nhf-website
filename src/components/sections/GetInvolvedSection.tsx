@@ -169,28 +169,16 @@ const GetInvolvedSection = () => {
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
-                        className="w-24 h-24 rounded-full object-cover shadow-md border-4 border-[#4BC0DB]/20 mb-3"
+                        className="w-32 h-32 rounded-full object-cover shadow-md border-4 border-[#4BC0DB]/20 mb-3"
                       />
                     ) : (
-                      <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#4BC0DB] to-[#A9C63B] flex items-center justify-center shadow-md mb-3">
+                      <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#4BC0DB] to-[#A9C63B] flex items-center justify-center shadow-md mb-3">
                         <Quote className="w-8 h-8 text-white" />
                       </div>
                     )}
                     <p className="text-base font-semibold text-slate-900">{testimonial.name}</p>
                     <p className="text-sm text-[#EC6F7B] font-medium">{testimonial.role}</p>
                   </div>
-                  {testimonial.video ? (
-                    <div className="mb-5 overflow-hidden rounded-2xl border border-[#4BC0DB]/20 bg-slate-950 shadow-sm">
-                      <video
-                        src={testimonial.video}
-                        controls
-                        preload="metadata"
-                        className="aspect-video w-full"
-                      >
-                        {language === "hi" ? "आपका ब्राउज़र वीडियो टैग को सपोर्ट नहीं करता।" : "Your browser does not support the video tag."}
-                      </video>
-                    </div>
-                  ) : null}
                   <p className="text-sm text-gray-700 italic mb-5 flex-1 line-clamp-6 leading-relaxed">"{testimonial.quote}"</p>
                   <div className="text-xs text-gray-600 space-y-2 pt-4 border-t border-gray-100">
                     <p className="line-clamp-2"><span className="font-medium text-gray-800">{language === "hi" ? "संस्थान:" : "Institution:"}</span> {testimonial.institution}</p>

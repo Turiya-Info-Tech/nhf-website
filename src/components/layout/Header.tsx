@@ -86,7 +86,7 @@ const Header = () => {
             <img
               src="/NHF-LOGO.png"
               alt="NHF Logo"
-              style={{ height: '36px', width: 'auto', objectFit: 'contain' }}
+              style={{ height: '46px', width: 'auto', objectFit: 'contain' }}
             />
           </Link>
 
@@ -166,7 +166,7 @@ const Header = () => {
               <img
                 src="/NHF-LOGO.png"
                 alt="NHF Logo"
-                className="h-14 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                className="h-20 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
               />
             </Link>
 

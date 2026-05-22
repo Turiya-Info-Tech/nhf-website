@@ -67,8 +67,8 @@ const HeroSection = () => {
   const heroFade = Math.max(1 - scrollY / 900, 0.7);
 
   return (
-    <section id="home" className="relative overflow-hidden bg-gradient-to-b from-[#4BC0DB]/15 via-[#EC6F7B]/10 to-[#F4C94A]/20">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(75,192,219,0.12),transparent_45%)]" />
+    <section id="home" className="relative overflow-hidden bg-gradient-to-b from-[#FFF9EF] via-white to-[#FFF6E8]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(75,192,219,0.1),transparent_45%)]" />
       <div className="absolute -top-12 right-0 h-72 w-72 rounded-full bg-[#4BC0DB]/20 blur-3xl" />
       <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-[#A9C63B]/20 blur-3xl" />
 

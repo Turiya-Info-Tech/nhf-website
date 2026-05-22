@@ -16,40 +16,40 @@ const TeamSection = () => {
   // Static team members in the specified order
   const teamMembers = [
     {
-      name: "Mr. Anant J. Talaulicar",
-      role: language === "hi" ? "मेंटर और रणनीतिक सलाहकार" : "Mentor and Strategic Advisor",
-      bio: language === "hi" ? "बी.ई. मैकेनिकल इंजीनियरिंग, एमबीए - ट्यूलन यूनिवर्सिटी" : "B.E. Mechanical Engineering, MBA - Tulane University",
-      image_url: anantTalaulicarImg
-    },
-    {
       name: "Mrs. Sandhya Kulkarni",
-      role: language === "hi" ? "निदेशक एवं एनएचएफ प्रभारी" : "Director and NHF In-charge",
-      bio: language === "hi" ? "एनएचएफ की रणनीतिक दिशा और संचालन प्रबंधन का नेतृत्व।" : "Leading NHF's strategic direction and operational management.",
+      role: language === "hi" ? "निदेशक और एनएचएफ प्रभारी" : "Director and NHF-In charge",
+      bio: language === "hi" ? "नायर अस्पताल में चिकित्सा स्नातक के लिए फिजियोलॉजी की पूर्व प्रोफेसर।" : "Former Professor of Physiology for Medical Undergraduate at Nair Hospital",
       image_url: sandhyaKulkarniImg
     },
     {
+      name: "Mr. Anant J. Talaulicar",
+      role: language === "hi" ? "मेंटर और रणनीतिक सलाहकार" : "Mentor and Strategic Advisor",
+      bio: language === "hi" ? "" : "",
+      image_url: anantTalaulicarImg
+    },
+    {
       name: "Dr Sandeep Bavdekar",
-      role: language === "hi" ? "पूर्व प्रोफेसर एवं प्रमुख, बाल रोग विभाग, टोपीवाला नेशनल मेडिकल कॉलेज और बीवाईएल नायर चैरिटेबल हॉस्पिटल, मुंबई" : "Former Professor and Head, Department of Pediatrics at Topiwala National Medical College and BYL Nair Charitable Hospital, Mumbai",
-      bio: language === "hi" ? "बाल रोग में व्यापक शैक्षणिक और नैदानिक विशेषज्ञता।" : "Bringing extensive academic and clinical expertise in pediatrics.",
+      role: language === "hi" ? "अनुसंधान सलाहकार - एनएचएफ" : "Research Consultant-NHF",
+      bio: language === "hi" ? "पूर्व प्रोफेसर और प्रमुख, बाल रोग विभाग, टोपीवाला नेशनल मेडिकल कॉलेज और बीवाईएल नायर चैरिटेबल हॉस्पिटल, मुंबई।" : "Former Professor and Head, Department of Pediatrics at Topiwala National Medical College and BYL Nair Charitable Hospital, Mumbai",
       image_url: sandeepBavdekarImg
     },
     {
       name: "Dr Hilla Sookhadwala",
-      role: language === "hi" ? "परामर्शदाता विकासात्मक बाल रोग विशेषज्ञ और एनएचएफ कार्यक्रम प्रमुख" : "Consultant Developmental Pediatrician and NHF Program Lead",
+      role: language === "hi" ? "परामर्शदाता विकासात्मक बाल रोग विशेषज्ञ, एनएचएफ कार्यक्रम प्रमुख" : "Consultant Developmental Pediatrician, NHF-Program Lead",
       bio: language === "hi" ? "एनएचएफ कार्यक्रमों और नैदानिक विकासात्मक बाल रोग पहलों का नेतृत्व।" : "Leading NHF programs and clinical developmental pediatrics initiatives.",
       image_url: hillaSookhadwalaImg,
       imagePosition: "center 8%"
     },
     {
       name: "Ms. Rucha Panchal",
-      role: language === "hi" ? "अनुसंधान सहयोगी" : "Research Associate",
-      bio: language === "hi" ? "अनुसंधान डिज़ाइन, डेटा विश्लेषण और साक्ष्य निर्माण में योगदान।" : "Contributing to research design, data analysis, and evidence generation.",
+      role: language === "hi" ? "अनुसंधान सहयोगी - एनएचएफ" : "Research Associate - NHF",
+      bio: language === "hi" ? "" : "",
       image_url: ruchaPanchalImg
     },
     {
       name: "Ms. Anushka Samant",
-      role: language === "hi" ? "अनुसंधान सहयोगी" : "Research Associate",
-      bio: language === "hi" ? "अनुसंधान गतिविधियों और कार्यक्रम प्रलेखन में सहयोग।" : "Supporting research activities and program documentation.",
+      role: language === "hi" ? "अनुसंधान सहयोगी - एनएचएफ" : "Research Associate-NHF",
+      bio: language === "hi" ? "" : "",
       image_url: anushkaSamantImg
     }
   ];
@@ -114,9 +114,11 @@ const TeamSection = () => {
                     <p className="text-sm font-semibold text-blue-500 mb-2 leading-relaxed">
                       {member.role}
                     </p>
-                    <p className="text-sm text-gray-500 leading-relaxed">
-                      {member.bio}
-                    </p>
+                    {member.bio ? (
+                      <p className="text-sm text-gray-500 leading-relaxed">
+                        {member.bio}
+                      </p>
+                    ) : null}
                   </div>
                 </div>
               </CardContent>

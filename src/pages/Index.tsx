@@ -13,6 +13,7 @@ import GetInvolvedSection from "@/components/sections/GetInvolvedSection";
 import ContactSection from "@/components/sections/ContactSection";
 import PublicationsSection from "@/components/sections/PublicationsSection";
 import AnnouncementBanner from "@/components/sections/AnnouncementBanner";
+import ExpertRecommendationsSection from "@/components/sections/ExpertRecommendationsSection";
 
 const Index = () => {
   return (
@@ -31,6 +32,7 @@ const Index = () => {
         <TeamSection />
         <NHCDCSection />
         <GetInvolvedSection />
+        <ExpertRecommendationsSection />
         <ContactSection />
       </main>
       <Footer />
