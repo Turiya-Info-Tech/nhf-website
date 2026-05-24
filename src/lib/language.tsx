@@ -77,7 +77,7 @@ const translations: Record<Language, Record<string, string>> = {
     'impact.familiesTitle': 'Impact on Families',
     'impact.familiesDesc': 'Our evidence-based approach builds hope through observable change. Families report significant improvements in their children\'s functional abilities and quality of life.',
     'impact.districtsTitle': 'Districts & Institutions',
-    'impact.districtsDesc': 'Active partnerships with government and institutional stakeholders:',
+    'impact.districtsDesc': 'Active partnership with the govt.',
     'impact.systemsTitle': 'Systems Implemented',
     
     // Programs Section
@@ -95,8 +95,8 @@ const translations: Record<Language, Record<string, string>> = {
     
     // Contact Section
     'contact.badge': 'Contact Us',
-    'contact.title': 'New Horizons Health and Research Foundation',
-    'contact.description': 'Contact us for partnerships, collaborations, and programme enquiries.',
+    'contact.title': 'Get in touch with NHF',
+    'contact.description': 'For partnerships, collaborations, research, and programme enquiries.',
     'contact.name': 'Name',
     'contact.email': 'Email',
     'contact.message': 'Message',
@@ -105,7 +105,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Get Involved Section
     'getinvolved.badge': 'Get Involved',
     'getinvolved.title': 'Be part of..',
-    'getinvolved.subtitle': 'Partner with NHF to build equitable, measurable outcomes for children and families.',
+    'getinvolved.subtitle': 'NHF to build equitable, measurable outcomes for children and families.',
     'getinvolved.partner': 'Partner With Us',
     'getinvolved.work': 'Work With Us',
     'getinvolved.donate': 'Donate',

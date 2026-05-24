@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Handshake, CheckCircle2, Sparkles, Building2, Clock } from "lucide-react";
-import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
+import { Handshake, CheckCircle2, Sparkles, Building2 } from "lucide-react";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLanguage } from "@/lib/language";
 
 const CollaborationsSection = () => {
@@ -15,6 +15,7 @@ const CollaborationsSection = () => {
     { name: language === "hi" ? "नैदानिक और प्रशिक्षण नेटवर्क" : "Clinical & Training Networks", type: language === "hi" ? "स्वास्थ्य साझेदार" : "Healthcare Partners" },
     { name: language === "hi" ? "नागरिक समाज संगठन" : "Civil Society Organizations", type: language === "hi" ? "NGO साझेदार" : "NGO Partners" }
   ];
+  const scrollingCollaborations = [...collaborations, ...collaborations];
 
   const deicColumns = language === "hi"
     ? ["पैरामेडिकल स्टाफ का प्रशिक्षण", "DEIC अवसंरचना को मजबूत करना", "राष्ट्रीय स्तर पर दोहराने योग्य मॉडल"]
@@ -64,7 +65,7 @@ const CollaborationsSection = () => {
             <p className="text-white/90 text-lg leading-relaxed mb-8 max-w-4xl">
               {language === "hi"
                 ? "एनएचएफ जिला प्रारंभिक हस्तक्षेप केंद्रों (DEICs) में पैरामेडिकल स्टाफ के प्रशिक्षण का एक प्रमुख कार्यान्वयन साझेदार है, जो न्यूरोविकासीय जरूरतों वाले बच्चों के लिए भारत की सार्वजनिक स्वास्थ्य संरचना को मजबूत कर रहा है। पुणे के जिला अस्पताल औंध स्थित DEIC में हमारा संयुक्त कार्यक्रम देशभर में दोहराए जाने के लिए तैयार एक मॉडल है।"
-                : "NHF is a key implementing partner in the training of paramedical staff at District Early Intervention Centres (DEICs) - strengthening India's public health infrastructure for children with neurodevelopmental needs. Our joint programme at DEIC, District Hospital Aundh, Pune is a model designed to be replicated across the country."}
+                : "NHF is a key implementing partner in training multidisciplinary developmental care professionals at District Early Intervention Centres (DEICs), strengthening India's public health infrastructure for children with neurodevelopmental needs."}
             </p>
 
             {/* 3 Columns for Strengthening DEICs */}
@@ -81,19 +82,6 @@ const CollaborationsSection = () => {
           </div>
         </div>
 
-        {/* Coming Soon Note */}
-        <div className={`bg-gradient-to-br from-amber-50 to-blue-50 rounded-2xl p-6 mb-16 border border-amber-200 transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-blue-500 flex items-center justify-center">
-              <Clock className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <p className="font-semibold text-gray-800">{language === "hi" ? "जल्द आ रहा है" : "Coming Soon"}</p>
-              <p className="text-sm text-gray-600">{language === "hi" ? "यूनिसेफ परियोजना अपडेट और तस्वीरें - अगस्त '26" : "UNICEF project updates and pictures - August '26"}</p>
-            </div>
-          </div>
-        </div>
-
         {/* Partnerships Header */}
         <div className={`text-center max-w-3xl mx-auto mb-12 transition-all duration-700 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4">
@@ -102,18 +90,18 @@ const CollaborationsSection = () => {
           <p className="text-gray-600">
             {language === "hi"
               ? "हम प्रणालीगत परिवर्तन लाने के लिए सरकारी निकायों, अंतरराष्ट्रीय संगठनों और नागरिक समाज के साथ मिलकर काम करते हैं।"
-              : "We work alongside government bodies, international organizations, and civil society to create systemic change."}
+              : "We work alongside government bodies, international organizations, and civil society organizations to strengthen systems and drive sustainable change."}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-12">
-          {collaborations.map((collab, index) => (
+        <div className="mb-12 overflow-hidden">
+          <div className="flex gap-6 min-w-max partnership-marquee-track">
+          {scrollingCollaborations.map((collab, index) => (
             <Card 
-              key={index}
-              className={`bg-white border-0 shadow-lg shadow-gray-100/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 text-center group overflow-hidden ${
-                collab.highlight ? 'ring-2 ring-teal-400/50 bg-gradient-to-br from-teal-50 to-cyan-50' : ''
+              key={`${collab.name}-${index}`}
+              className={`w-[260px] sm:w-[280px] flex-shrink-0 bg-white border-0 shadow-lg shadow-gray-100/50 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 text-center group overflow-hidden ${
+                collab.highlight ? 'bg-gradient-to-br from-teal-50 to-cyan-50' : ''
               } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={getStaggerDelay(index + 5, 80)}
             >
               <CardContent className="p-6 relative">
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-400 to-cyan-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
@@ -124,6 +112,7 @@ const CollaborationsSection = () => {
               </CardContent>
             </Card>
           ))}
+          </div>
         </div>
 
         {/* Partnership Values */}
@@ -144,6 +133,21 @@ const CollaborationsSection = () => {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .partnership-marquee-track {
+          animation: partnershipMarquee 32s linear infinite;
+        }
+
+        .partnership-marquee-track:hover {
+          animation-play-state: paused;
+        }
+
+        @keyframes partnershipMarquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+      `}</style>
     </section>
   );
 };

@@ -9,7 +9,7 @@ const ImpactSection = () => {
 
   const stats = [
     { value: 50, suffix: "+", label: t('impact.stat1'), icon: BookOpen },
-    { value: 23, suffix: "+", label: t('impact.stat2'), icon: Calendar },
+    { value: 13, suffix: "+", label: t('impact.stat2'), icon: Calendar },
     { value: 4, suffix: "", label: t('impact.stat3'), icon: Layers }
   ];
 
@@ -94,7 +94,7 @@ const ImpactSection = () => {
               content: t('impact.districtsDesc'),
                 list: language === "hi"
                   ? ["पुणे (यूनिसेफ DEIC सहयोग)", "औंध जनरल हॉस्पिटल"]
-                  : ["Pune (UNICEF DEIC Collaboration)", "Aundh General Hospital"]
+                  : ["DEIC Pune", "Aundh District Hospital"]
             },
             {
               title: t('impact.systemsTitle'),

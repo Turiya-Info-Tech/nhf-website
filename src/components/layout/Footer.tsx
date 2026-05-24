@@ -50,7 +50,7 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-6 group">
               <div className="relative h-14 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                 <img
-                  src="/NHF-LOGO.png"
+                  src="/footer-logo-cropped.png"
                   alt="NHF Logo"
                   className="h-full w-auto object-contain"
                   loading="lazy"

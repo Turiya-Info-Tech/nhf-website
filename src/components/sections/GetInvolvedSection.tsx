@@ -99,6 +99,9 @@ const GetInvolvedSection = () => {
     },
   ];
 
+  const featuredTestimonial = researchInternTestimonials[0];
+  const remainingTestimonials = researchInternTestimonials.slice(1);
+
   return (
     <section id="get-involved" ref={sectionRef} className="py-20 lg:py-28 bg-gradient-to-b from-white via-[#4BC0DB]/10 to-white relative overflow-hidden">
       {/* Background decorations */}
@@ -148,20 +151,85 @@ const GetInvolvedSection = () => {
               <GraduationCap className="w-4 h-4" />
               {t('getinvolved.internship')}
             </span>
-            <h3 className="text-3xl md:text-4xl font-serif font-bold mt-4 mb-6 text-slate-900">{t('getinvolved.experienceTitle')}</h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              {t('getinvolved.experienceDesc')}
+            <h3 className="text-3xl md:text-4xl font-serif font-bold mt-4 mb-5 text-slate-900">
+              {language === "hi" ? t('getinvolved.experienceTitle') : "Building the next generation of child development researchers"}
+            </h3>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6">
+              {language === "hi"
+                ? t('getinvolved.experienceDesc')
+                : "Through structured mentorship and hands-on research experience, NHF supports emerging professionals working in the field of neurodevelopmental disorders."}
             </p>
+            {language === "hi" ? null : (
+              <div className="max-w-4xl mx-auto text-left bg-white/80 border border-gray-100 rounded-2xl p-6 md:p-7 shadow-sm">
+                <p className="text-base font-semibold text-slate-900 mb-4">Areas of engagement/ 6 months - 1 year internships</p>
+                <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-gray-700 text-sm mb-5">
+                  <li>Literature reviews</li>
+                  <li>Critical review of developmental assessments</li>
+                  <li>Programme evaluation</li>
+                  <li>Data analysis</li>
+                  <li>Systems research</li>
+                </ul>
+                <p className="text-gray-700 text-sm leading-relaxed mb-5">
+                  NHF builds research capacity and strengthens the future workforce in developmental psychology and child development.
+                </p>
+                <h4 className="text-lg font-semibold text-slate-900 mb-2">Hear from our interns</h4>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  Learn how interns at NHF have engaged with research, developed practical skills, and gained experience working at the intersection of child development, clinical practice, and systems work.
+                </p>
+              </div>
+            )}
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {researchInternTestimonials.map((testimonial, index) => (
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 items-start">
+            <Card
+              className={`bg-white border border-gray-100 shadow-md hover:shadow-lg transition-all duration-500 hover:-translate-y-1 rounded-xl overflow-hidden lg:row-span-2 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{ transitionDelay: '220ms' }}
+            >
+              <CardContent className="p-6 md:p-7 flex flex-col h-full">
+                <div className="flex flex-col items-center text-center mb-5">
+                  {featuredTestimonial.image ? (
+                    <img
+                      src={featuredTestimonial.image}
+                      alt={featuredTestimonial.name}
+                      className="w-36 h-36 rounded-full object-cover shadow-md border-4 border-[#4BC0DB]/20 mb-3"
+                    />
+                  ) : (
+                    <div className="w-36 h-36 rounded-full bg-gradient-to-br from-[#4BC0DB] to-[#A9C63B] flex items-center justify-center shadow-md mb-3">
+                      <Quote className="w-9 h-9 text-white" />
+                    </div>
+                  )}
+                  <p className="text-lg font-semibold text-slate-900">{featuredTestimonial.name}</p>
+                  <p className="text-sm text-[#EC6F7B] font-medium">{featuredTestimonial.role}</p>
+                </div>
+                {featuredTestimonial.video ? (
+                  <div className="mb-5 overflow-hidden rounded-xl border border-gray-200 bg-slate-950">
+                    <video
+                      src={featuredTestimonial.video}
+                      controls
+                      preload="metadata"
+                      className="aspect-video w-full"
+                    >
+                      {language === "hi" ? "आपका ब्राउज़र वीडियो टैग को सपोर्ट नहीं करता।" : "Your browser does not support the video tag."}
+                    </video>
+                  </div>
+                ) : null}
+                <p className="text-sm text-gray-700 italic mb-5 leading-relaxed">"{featuredTestimonial.quote}"</p>
+                <div className="text-xs text-gray-600 space-y-2 pt-4 border-t border-gray-100">
+                  <p><span className="font-medium text-gray-800">{language === "hi" ? "संस्थान:" : "Institution:"}</span> {featuredTestimonial.institution}</p>
+                  <p><span className="font-medium text-gray-800">{language === "hi" ? "डिग्री:" : "Degree:"}</span> {featuredTestimonial.degree}</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {remainingTestimonials.map((testimonial, index) => (
               <Card
                 key={`${testimonial.name}-${index}`}
-                className={`bg-white border border-gray-100 shadow-md hover:shadow-lg transition-all duration-500 hover:-translate-y-2 rounded-xl overflow-hidden ${
+                className={`bg-white border border-gray-100 shadow-md hover:shadow-lg transition-all duration-500 hover:-translate-y-1 rounded-xl overflow-hidden ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
-                style={{ transitionDelay: `${200 + index * 90}ms` }}
+                style={{ transitionDelay: `${300 + index * 90}ms` }}
               >
                 <CardContent className="p-6 flex flex-col h-full">
                   <div className="flex flex-col items-center text-center mb-5">
@@ -169,10 +237,10 @@ const GetInvolvedSection = () => {
                       <img
                         src={testimonial.image}
                         alt={testimonial.name}
-                        className="w-32 h-32 rounded-full object-cover shadow-md border-4 border-[#4BC0DB]/20 mb-3"
+                        className="w-28 h-28 rounded-full object-cover shadow-md border-4 border-[#4BC0DB]/20 mb-3"
                       />
                     ) : (
-                      <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#4BC0DB] to-[#A9C63B] flex items-center justify-center shadow-md mb-3">
+                      <div className="w-28 h-28 rounded-full bg-gradient-to-br from-[#4BC0DB] to-[#A9C63B] flex items-center justify-center shadow-md mb-3">
                         <Quote className="w-8 h-8 text-white" />
                       </div>
                     )}

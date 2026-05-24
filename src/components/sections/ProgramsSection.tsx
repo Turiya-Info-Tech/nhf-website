@@ -133,7 +133,7 @@ const ProgramsSection = () => {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#A9C63B]/20 to-transparent rounded-full blur-3xl" />
       
       <div className="container relative">
-        <div className={`max-w-3xl mb-16 lg:mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`max-w-3xl mx-auto text-center mb-16 lg:mb-20 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <span className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm uppercase tracking-wider mb-4">
               <Sparkles className="w-4 h-4" />
               {t('programs.badge')}
@@ -141,11 +141,8 @@ const ProgramsSection = () => {
             <h2 className={`${sectionHeadingClass} max-w-4xl`}>
               {t('programs.title')}
             </h2>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              {t('programs.subtitle')}
-            </p>
-            <p className="text-base text-gray-600 mb-8 leading-relaxed">
-              {t('programs.description')}
+            <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
+              {t('programs.subtitle')} {t('programs.description')}
             </p>
             <Button 
               className="group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 text-base"

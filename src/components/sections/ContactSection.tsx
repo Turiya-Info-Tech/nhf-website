@@ -45,8 +45,8 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: language === "hi" ? "जीजीएनई पता" : "GGNE Address",
-      content: language === "hi" ? "जीजीएनई पता" : "GGNE Address",
+      title: language === "hi" ? "पता" : "Address",
+      content: language === "hi" ? "गोरेगांव पूर्व, मुंबई" : "Goregaon East, Mumbai",
       gradient: "from-blue-500 to-pink-500"
     },
     {
@@ -139,10 +139,10 @@ const ContactSection = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="partnership">{language === "hi" ? "साझेदारी" : "Partnership"}</SelectItem>
-                    <SelectItem value="donation">{language === "hi" ? "दान / CSR" : "Donation / CSR"}</SelectItem>
+                    <SelectItem value="donation">{language === "hi" ? "दान / CSR" : "Donation/CSR"}</SelectItem>
+                    <SelectItem value="general">{language === "hi" ? "सामान्य पूछताछ" : "General Inquiry"}</SelectItem>
                     <SelectItem value="research">{language === "hi" ? "अनुसंधान सहयोग" : "Research Collaboration"}</SelectItem>
                     <SelectItem value="media">{language === "hi" ? "मीडिया पूछताछ" : "Media Inquiry"}</SelectItem>
-                    <SelectItem value="general">{language === "hi" ? "सामान्य प्रश्न" : "General Question"}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -150,7 +150,7 @@ const ContactSection = () => {
               <div>
                 <label className="block text-sm font-semibold mb-2 text-gray-700">{t('contact.message')}</label>
                 <Textarea 
-                  placeholder={language === "hi" ? "अपनी रुचि या प्रश्न के बारे में बताइए..." : "Tell us about your interest or inquiry..."}
+                  placeholder={language === "hi" ? "NHF आपकी कैसे मदद कर सकता है?" : "How can NHF help you?"}
                   rows={5}
                   required
                   value={formData.message}
