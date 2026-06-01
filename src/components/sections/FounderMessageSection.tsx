@@ -42,7 +42,7 @@ const FounderMessageSection = () => {
         pullQuoteAttribution: "- डॉ. समीर दलवाई, फ्री प्रेस जर्नल, जून 2025",
         bio:
           "दो दशकों से अधिक समय से, डॉ. समीर दलवाई चिकित्सा, कानून और सार्वजनिक नीति के संगम पर खड़े हैं - यह बदलते हुए कि भारत अपने सबसे संवेदनशील बच्चों को कैसे समझता, उपचारित करता और शामिल करता है। 2003 में मुंबई में एक छोटे क्लिनिक से शुरुआत करते हुए, उन्होंने न्यू होराइजन्स ग्रुप को 110 सदस्यीय अंतर-विषयक संस्थान में विकसित किया, साथ ही राष्ट्रीय नैदानिक दिशानिर्देशों, ऐतिहासिक कानूनी मिसालों और संसदीय सुधारों को आगे बढ़ाया।",
-        bioBeliefLabel: "उनका मार्गदर्शक विश्वास:",
+        bioBeliefLabel: "",
         bioBeliefHighlight: "हर बच्चा बेहतर कर सकता है।",
         bioQuote:
           "यह एक गलत धारणा है कि ऑटिज़्म वाला बच्चा बेहतर नहीं हो सकता। हमें एक अलग दृष्टिकोण की ज़रूरत है - जो माता-पिता और समाज को लक्ष्य बनाकर बदलाव लाए।",
@@ -142,20 +142,20 @@ const FounderMessageSection = () => {
     : {
         badge: "From the Founder's Desk",
         titlePrefix: "Meet",
-        name: "Dr. Samir Hasan Dalwai",
+        name: "Dr. Samir H. Dalwai",
         credentials: "MD · DNB · DCH · FCPS · FIAP · LLB",
         roles: [
+          "Founder-Director of New Horizons Health and Research Foundation",
           "Developmental & Behavioural Pediatrician",
-          "Founder, New Horizons Group",
           "National Policy Advocate",
         ],
         pullQuote:
           "The biggest threat to children's future isn't language - it's screen addiction, shrinking playtime, and pressure-cooker schooling. It's time we had a child-first lens, not a politics-first lens.",
         pullQuoteAttribution: "- Dr. Samir Dalwai, Free Press Journal, June 2025",
         bio:
-          "For over two decades, Dr. Samir Dalwai has stood at the intersection of medicine, law, and public policy - reshaping how India understands, treats, and includes its most vulnerable children. Starting with a single clinic in Mumbai in 2003, he built the New Horizons Group into a 110-member interdisciplinary powerhouse, while driving national clinical guidelines, landmark legal precedents, and parliamentary reform.",
-        bioBeliefLabel: "His guiding belief:",
-        bioBeliefHighlight: "Every child can do better.",
+          "For over two decades, Dr. Samir H. Dalwai has shaped how India understands, treats, and includes neurodiverse children — empowering them to be part of everyday society and navigate it, moving from 'LABEL' TO 'ENABLE'. Starting with a single clinic in Mumbai in 2003, he built the New Horizons Group into a 110-member interdisciplinary powerhouse, while driving national clinical guidelines, landmark legal precedents, and parliamentary reform. He has been awarded the Government of India's Rajiv Gandhi Manav Sewa Award for Services to Children in 2012.",
+        bioBeliefLabel: "",
+        bioBeliefHighlight: "Every Child Can Do Better.",
         bioQuote:
           "It's a misconception that a child with autism does not get better. We need a different perspective - one that targets parents and society to make a difference.",
         bioQuoteAttribution: "- Dr. Samir Dalwai, Free Press Journal",
@@ -376,13 +376,12 @@ const FounderMessageSection = () => {
                   {content.bio}
                 </p>
 
-                {/* Guiding belief */}
-                <p className="text-lg sm:text-xl lg:text-2xl font-serif leading-snug text-slate-800">
-                  {content.bioBeliefLabel}{" "}
-                  <span className="text-gradient font-bold">
+                {/* Every Child Can Do Better */}
+                {content.bioBeliefHighlight && (
+                  <p className="text-lg sm:text-xl lg:text-2xl font-serif font-bold leading-snug text-gradient">
                     {content.bioBeliefHighlight}
-                  </span>
-                </p>
+                  </p>
+                )}
               </div>
             </div>
 

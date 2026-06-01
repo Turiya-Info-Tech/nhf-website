@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Briefcase, Building, GraduationCap, Quote, Sparkles, Heart } from "lucide-react";
+import { ArrowRight, Briefcase, Building, Quote, Sparkles, Heart } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/lib/language";
 import anushkaSamantImg from "@/assets/Ms Anushka Samant.jpeg";
@@ -146,40 +146,6 @@ const GetInvolvedSection = () => {
         </div>
 
         <div className={`mb-20 lg:mb-24 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 text-[#A9C63B] font-semibold text-sm uppercase tracking-wider mb-4">
-              <GraduationCap className="w-4 h-4" />
-              {t('getinvolved.internship')}
-            </span>
-            <h3 className="text-3xl md:text-4xl font-serif font-bold mt-4 mb-5 text-slate-900">
-              {language === "hi" ? t('getinvolved.experienceTitle') : "Building the next generation of child development researchers"}
-            </h3>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed mb-6">
-              {language === "hi"
-                ? t('getinvolved.experienceDesc')
-                : "Through structured mentorship and hands-on research experience, NHF supports emerging professionals working in the field of neurodevelopmental disorders."}
-            </p>
-            {language === "hi" ? null : (
-              <div className="max-w-4xl mx-auto text-left bg-white/80 border border-gray-100 rounded-2xl p-6 md:p-7 shadow-sm">
-                <p className="text-base font-semibold text-slate-900 mb-4">Areas of engagement/ 6 months - 1 year internships</p>
-                <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-gray-700 text-sm mb-5">
-                  <li>Literature reviews</li>
-                  <li>Critical review of developmental assessments</li>
-                  <li>Programme evaluation</li>
-                  <li>Data analysis</li>
-                  <li>Systems research</li>
-                </ul>
-                <p className="text-gray-700 text-sm leading-relaxed mb-5">
-                  NHF builds research capacity and strengthens the future workforce in developmental psychology and child development.
-                </p>
-                <h4 className="text-lg font-semibold text-slate-900 mb-2">Hear from our interns</h4>
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  Learn how interns at NHF have engaged with research, developed practical skills, and gained experience working at the intersection of child development, clinical practice, and systems work.
-                </p>
-              </div>
-            )}
-          </div>
-
           <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 items-start">
             <Card
               className={`bg-white border border-gray-100 shadow-md hover:shadow-lg transition-all duration-500 hover:-translate-y-1 rounded-xl overflow-hidden lg:row-span-2 ${

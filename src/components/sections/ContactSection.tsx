@@ -12,34 +12,59 @@ const ContactSection = () => {
   const { t, language } = useLanguage();
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
   const { toast } = useToast();
+  const googleSheetsWebhookUrl = import.meta.env.VITE_GOOGLE_SHEETS_WEBHOOK_URL as string | undefined;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     enquiryType: "",
     message: ""
   });
-  const emailAddress = "research@enablemychild.org";
-
-  const buildMailtoLink = () => {
-    const subject = encodeURIComponent(`NHF Website Enquiry: ${formData.enquiryType || "General"}`);
-    const body = encodeURIComponent(
-      `${language === "hi" ? "नाम" : "Name"}: ${formData.name || "-"}\n` +
-      `${language === "hi" ? "ईमेल" : "Email"}: ${formData.email || "-"}\n` +
-      `${language === "hi" ? "पूछताछ" : "Enquiry"}: ${formData.enquiryType || "General"}\n\n` +
-      `${formData.message || ""}`
-    );
-
-    return `mailto:${emailAddress}?subject=${subject}&body=${body}`;
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    window.location.href = buildMailtoLink();
-    toast({
-      title: language === "hi" ? "ईमेल ड्राफ्ट खोला गया" : "Email Draft Opened",
-      description: language === "hi" ? "आपका ईमेल एप्लिकेशन खोल दिया गया है। कृपया संदेश की समीक्षा करके भेजें।" : "Your email app has been opened. Review the draft and send it from there.",
-    });
+    if (!googleSheetsWebhookUrl) {
+      toast({
+        title: language === "hi" ? "कन्फ़िगरेशन आवश्यक" : "Configuration Required",
+        description: language === "hi" ? "Google Sheets webhook URL सेट नहीं है।" : "Google Sheets webhook URL is not configured.",
+      });
+      return;
+    }
+
+    try {
+      const payload = {
+        timestamp: new Date().toISOString(),
+        name: formData.name,
+        email: formData.email,
+        enquiryType: formData.enquiryType || "General Inquiry",
+        message: formData.message,
+        source: "NHF Website Contact Form",
+      };
+
+      const response = await fetch(googleSheetsWebhookUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.type !== "opaque" && !response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      setFormData({ name: "", email: "", enquiryType: "", message: "" });
+      toast({
+        title: language === "hi" ? "संदेश भेजा गया" : "Enquiry Submitted",
+        description: language === "hi" ? "आपका संदेश सफलतापूर्वक दर्ज हो गया है।" : "Your details have been saved successfully.",
+      });
+    } catch {
+      toast({
+        title: language === "hi" ? "सबमिट नहीं हुआ" : "Submission Failed",
+        description: language === "hi" ? "अभी शीट में सेव नहीं हो सका।" : "Could not save to Google Sheets right now.",
+      });
+    }
   };
 
   const contactInfo = [
@@ -78,7 +103,7 @@ const ContactSection = () => {
               {t('contact.description')}
             </p>
               <p className="mb-8 text-sm font-medium text-slate-500">
-                {language === "hi" ? "अभी के लिए वेबसाइट संपर्क ईमेल ड्राफ्ट के माध्यम से खुलता है।" : "For now, website enquiries open as an email draft instead of using a placeholder third-party form."}
+                {language === "hi" ? "आपकी प्रविष्टि सीधे Google Sheet में सहेजी जाएगी।" : "Your enquiry will be saved directly to Google Sheets."}
               </p>
 
             <div className="space-y-6">
@@ -165,7 +190,7 @@ const ContactSection = () => {
                   className="flex-1 bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 group"
                 >
                   <>
-                    {language === "hi" ? "ईमेल ड्राफ्ट खोलें" : "Open Email Draft"}
+                    {language === "hi" ? "पूछताछ भेजें" : "Submit Enquiry"}
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </>
                 </Button>

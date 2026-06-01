@@ -115,23 +115,7 @@ const CollaborationsSection = () => {
           </div>
         </div>
 
-        {/* Partnership Values */}
-        <div className={`bg-white rounded-3xl p-8 border border-gray-100 shadow-xl shadow-gray-100/50 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h3 className="text-xl font-bold text-center mb-8 text-gray-800">{language === "hi" ? "हम ऐसी साझेदारियाँ चाहते हैं जो इन मूल्यों को महत्व दें" : "We Seek Partnerships That Value"}</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {partnershipValues.map((value, index) => (
-              <div 
-                key={index}
-                className="flex items-center gap-3 p-4 rounded-2xl bg-gradient-to-br from-teal-50 to-cyan-50 border border-teal-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
-              >
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-400 to-cyan-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <CheckCircle2 className="w-4 h-4 text-white" />
-                </div>
-                <span className="text-sm font-semibold text-gray-700">{value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
 
       <style>{`

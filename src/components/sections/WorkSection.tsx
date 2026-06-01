@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Brain, Heart, FileText, Apple, Users, Sparkles } from "lucide-react";
+import { Brain, Heart, FileText, Apple, Users } from "lucide-react";
 import { useScrollReveal, getStaggerDelay } from "@/hooks/useScrollReveal";
 import { useLanguage } from "@/lib/language";
 
@@ -49,18 +49,7 @@ const WorkSection = () => {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-[#A9C63B]/20 to-transparent rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
       <div className="container relative">
-        <div className={`text-center max-w-3xl mx-auto mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <span className="inline-flex items-center gap-2 text-blue-600 font-semibold text-sm uppercase tracking-wider">
-            <Sparkles className="w-4 h-4" />
-            {language === "hi" ? "मुख्य कार्यक्षेत्र" : "Focus Areas"}
-          </span>
-          <h2 className={`${headingClass} max-w-4xl mx-auto`}>
-            {language === "hi" ? "अनुसंधान और कार्रवाई के माध्यम से स्थायी प्रभाव" : "Creating Lasting Impact Through Research & Action"}
-          </h2>
-          <p className="text-gray-600 text-lg">
-            {language === "hi" ? "हम समग्र बाल विकास सुनिश्चित करने के लिए कई क्षेत्रों में काम करते हैं, नैतिक अनुसंधान से लेकर नीति कार्यान्वयन तक।" : "We work across multiple domains to ensure holistic child development, from ethical research to policy implementation."}
-          </p>
-        </div>
+
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {focusAreas.map((area, index) => (
