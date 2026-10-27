@@ -1,0 +1,27 @@
+# Standalone deploy: lives separately from the veena-group stack.
+# It only joins the existing Traefik's network to get routing + HTTPS.
+services:
+  site:
+    build:
+      context: .
+      args:
+        VITE_SUPABASE_URL: ${VITE_SUPABASE_URL}
+        VITE_SUPABASE_ANON_KEY: ${VITE_SUPABASE_ANON_KEY}
+        VITE_WEB3FORMS_KEY: ${VITE_WEB3FORMS_KEY}
+        VITE_GOOGLE_SHEETS_WEBHOOK_URL: ${VITE_GOOGLE_SHEETS_WEBHOOK_URL:-}
+        VITE_WHATSAPP_NUMBER: ${VITE_WHATSAPP_NUMBER}
+    container_name: nhf-site
+    restart: unless-stopped
+    networks: [traefik-web]
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=${TRAEFIK_NETWORK:-veena-group_web}
+      - traefik.http.routers.nhf.rule=Host(`${NHF_DOMAIN}`) || Host(`www.${NHF_DOMAIN}`)
+      - traefik.http.routers.nhf.entrypoints=websecure
+      - traefik.http.routers.nhf.tls.certresolver=le
+      - traefik.http.services.nhf.loadbalancer.server.port=80
+
+networks:
+  traefik-web:
+    external: true
+    name: ${TRAEFIK_NETWORK:-veena-group_web}
